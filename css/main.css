@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #01ffff;
+  background: #0a6c87;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2575,7 +2575,7 @@ ul.breadcrumb li + li:last-child {
   background-image: linear-gradient(90deg, #fb9296 0%, #baeffd 100%);
 }
 body {
-  background-image: linear-gradient(180deg, #003b60 0%, #fff 100%);
+  background-image: linear-gradient(180deg, #baeffd 0%, #fff 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: contain;
