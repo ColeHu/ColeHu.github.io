@@ -1175,7 +1175,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff1b66;
+  background: #4f83ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2573,10 +2573,10 @@ ul.breadcrumb li + li:last-child {
   background-image: linear-gradient(90deg, #fb9296 0%, #baeffd 100%);
 }
 .site-title {
-  color: #353535;
+  color: #555;
 }
 .site-subtitle {
-  color: #353535;
+  color: #555;
 }
 .headband {
   background-image: linear-gradient(90deg, #fb9296 0%, #baeffd 100%);
@@ -2586,7 +2586,4 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: contain;
-}
-.sidebar-inner.affux-top {
-  color: #fff;
 }
