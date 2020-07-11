@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff49eb;
+  background: #3eff05;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2571,4 +2571,7 @@ ul.breadcrumb li + li:last-child {
 }
 .site-subtitle {
   color: #353535;
+}
+.headband {
+  background-image: linear-gradient(90deg, #fb9296 0%, #baeffd 100%);
 }
