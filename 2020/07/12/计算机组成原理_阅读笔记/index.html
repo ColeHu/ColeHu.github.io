@@ -22,18 +22,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="存储器中既保存了组成程序的指令，也保存了程序所用的数据。P10    总线将计算机的多个功能单元连接在一起并允许他们相互交换数据。 P38    时钟：绝大多数数字电子电路都带有一个时钟，用以生成连续的间隔固定的电脉冲流，这些电脉冲流可以来计时或确定计算机内所有事件的顺序，所以被称作时钟。P15">
+  <meta name="description" content="存储器中既保存了组成程序的指令，也保存了程序所用的数据。P10    总线将计算机的多个功能单元连接在一起并允许他们相互交换数据。 P38    时钟：绝大多数数字电子电路都带有一个时钟，用以生成连续的间隔固定的电脉冲流，这些电脉冲流可以来计时或确定计算机内所有事件的顺序，所以被称作时钟，时钟可以用其重复速率或频率来定义。P15    存储层次示意图   Cache：cpu中的L1,L2,L3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机组成原理阅读笔记">
 <meta property="og:url" content="http://yoursite.com/2020/07/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86_%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Akazure的技术博客">
-<meta property="og:description" content="存储器中既保存了组成程序的指令，也保存了程序所用的数据。P10    总线将计算机的多个功能单元连接在一起并允许他们相互交换数据。 P38    时钟：绝大多数数字电子电路都带有一个时钟，用以生成连续的间隔固定的电脉冲流，这些电脉冲流可以来计时或确定计算机内所有事件的顺序，所以被称作时钟。P15">
+<meta property="og:description" content="存储器中既保存了组成程序的指令，也保存了程序所用的数据。P10    总线将计算机的多个功能单元连接在一起并允许他们相互交换数据。 P38    时钟：绝大多数数字电子电路都带有一个时钟，用以生成连续的间隔固定的电脉冲流，这些电脉冲流可以来计时或确定计算机内所有事件的顺序，所以被称作时钟，时钟可以用其重复速率或频率来定义。P15    存储层次示意图   Cache：cpu中的L1,L2,L3">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/07/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86_%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/1.png">
 <meta property="article:published_time" content="2020-07-12T03:59:25.000Z">
-<meta property="article:modified_time" content="2020-07-12T08:01:27.746Z">
+<meta property="article:modified_time" content="2020-07-12T08:32:33.166Z">
 <meta property="article:author" content="Akazure">
 <meta property="article:tag" content="计算机">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86_%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/1.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/07/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86_%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
 
@@ -188,7 +190,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-12 11:59:25 / 修改时间：16:01:27" itemprop="dateCreated datePublished" datetime="2020-07-12T11:59:25+08:00">2020-07-12</time>
+              <time title="创建时间：2020-07-12 11:59:25 / 修改时间：16:32:33" itemprop="dateCreated datePublished" datetime="2020-07-12T11:59:25+08:00">2020-07-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,9 +222,17 @@
 </ol>
 <hr>
 <ol start="3">
-<li><strong>时钟</strong>：绝大多数数字电子电路都带有一个时钟，用以生成连续的间隔固定的电脉冲流，这些电脉冲流可以来计时或确定计算机内所有事件的顺序，所以被称作时钟。<font color=lghblue><em>P15</em></font></li>
+<li><strong>时钟</strong>：绝大多数数字电子电路都带有一个时钟，用以生成连续的间隔固定的电脉冲流，这些电脉冲流可以来计时或确定计算机内所有事件的顺序，所以被称作时钟，时钟可以用其重复速率或频率来定义。<font color=lghblue><em>P15</em></font></li>
 </ol>
 <hr>
+<ol start="4">
+<li><p><strong>存储层次示意图</strong></p>
+<img src="1.png" alt="示意图" style="zoom:50%;" />
+
+<p><strong>Cache：cpu中的L1,L2,L3</strong></p>
+<p>*<font color=lghtblue>P36</font>*</p>
+</li>
+</ol>
 
     </div>
 
