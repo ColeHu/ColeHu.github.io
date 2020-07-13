@@ -80,7 +80,7 @@
       </tags>
   </entry>
   <entry>
-    <title>1</title>
+    <title>冒泡排序</title>
     <url>/2020/07/13/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p><strong>冒泡排序</strong></p>
 <p>对于一个大小为N的数组，可以分别将该数组中的每一个数与其他数比较，若找到比其大/小的数，交换其位置。</p>
