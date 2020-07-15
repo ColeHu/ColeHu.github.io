@@ -3,7 +3,7 @@
   <entry>
     <title>C++中char和int类型互化</title>
     <url>/2020/07/15/C++%E4%B8%ADchar%E5%92%8Cint%E7%B1%BB%E5%9E%8B%E4%BA%92%E5%8C%96/</url>
-    <content><![CDATA[<p>1.char转为int</p>
+    <content><![CDATA[<p>1.<strong>char转为int</strong></p>
 <p><strong>实现</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c = <span class="string">'6'</span>;</span><br><span class="line">    <span class="keyword">int</span> i = c - <span class="string">'0'</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; i;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
