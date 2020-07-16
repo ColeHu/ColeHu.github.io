@@ -31,6 +31,26 @@
       </tags>
   </entry>
   <entry>
+    <title>C++中取绝对值</title>
+    <url>/2020/07/16/C++%E4%B8%AD%E5%8F%96%E7%BB%9D%E5%AF%B9%E5%80%BC/</url>
+    <content><![CDATA[<p>如果要在C++中取绝对值，可以使用<font color=#ff9494>stdlib.h</font>库中的<font color=#fff942>abs</font>函数。</p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">-6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main()&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">abs</span>(i);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++中char类型数组和string的互化</title>
     <url>/2020/07/14/C++%E4%B8%AD%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E4%B8%BA%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<p>1.<strong>将string类型的字符串转为char类型数组</strong></p>
@@ -64,26 +84,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C++中取绝对值</title>
-    <url>/2020/07/16/C++%E4%B8%AD%E5%8F%96%E7%BB%9D%E5%AF%B9%E5%80%BC/</url>
-    <content><![CDATA[<p>如果要在C++中取绝对值，可以使用<font color=#ff9494>stdlib.h</font>库中的<font color=#fff942>abs</font>函数。</p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">-6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main()&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">abs</span>(i);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++中连续读取多行字符串</title>
     <url>/2020/07/14/C++%E4%B8%AD%E8%BF%9E%E7%BB%AD%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<p><strong>C++中连续读取多行字符串</strong></p>
@@ -103,6 +103,17 @@
     <url>/2020/07/11/Hello-World/</url>
     <content><![CDATA[<p><font color=lightblue size=10><strong>Hello,World!</strong></font></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>html的页面结构</title>
+    <url>/2020/07/12/html%E7%9A%84%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<figure class="highlight html"><figcaption><span>html网页的页面结构</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span> <span class="comment">&lt;!-- 声明为HTML 5文档 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>这里是标题（浏览器显示的标签）<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>页面显示的标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>另一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
   </entry>
   <entry>
     <title>冒泡排序</title>
@@ -130,17 +141,6 @@
       </tags>
   </entry>
   <entry>
-    <title>html的页面结构</title>
-    <url>/2020/07/12/html%E7%9A%84%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<figure class="highlight html"><figcaption><span>html网页的页面结构</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span> <span class="comment">&lt;!-- 声明为HTML 5文档 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>这里是标题（浏览器显示的标签）<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>页面显示的标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>另一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>简单的桶排序</title>
     <url>/2020/07/13/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A1%B6%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p>对于一个大小为N的数据，可以将一个大小为N的数组A作为储存数据的“桶”，若数据中存在数字M，则对A中的第M个桶进行标记。</p>
@@ -164,42 +164,6 @@
       <tags>
         <tag>C++</tag>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络_自顶向下方法阅读笔记</title>
-    <url>/2020/07/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C_%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>1.<strong>排队时延和分组丢失（丢包）</strong>    <font color=lghtblue><strong>P17</strong></font></p>
-<p>每台分组交换机有多条链路与之相连。对于每条相连的链路，该分组交换机具有一个输出缓存（输出队列），它用于存储路由器准备发往那条链路的分组。</p>
-<ul>
-<li><p>排队时延</p>
-<p>如果到达的分许要传输到某条链路，但发现该链路正忙于传输其他分组，该到达分组必须在输出缓存中等待。因此，分组需要承受输出缓存的排队时延。</p>
-</li>
-</ul>
-<ul>
-<li><p>分组丢失（丢包）</p>
-<p>因为缓存空间的大小是有限的，一个到达的分组可能发现该缓存已被其他等待传输的分组完全充满了。自此情况下，将出现分组丢失（丢包），到达的分组或已经排队的分组之一将被丢弃。</p>
-</li>
-</ul>
-<hr>
-<p>2.<strong>电路交换和分组交换的区别</strong>    <font color=lghtblue><strong>P15、P19</strong></font></p>
-<p>在各种网络应用中，端系统彼此交换报文（文件、信息、数据等）。</p>
-<ul>
-<li><p>分组交换</p>
-<p>为了从源端系统向目的系统发送一个报文，源将长报文划分为较小的数据块，每个分组通过信链路和分组交换机（路由器、链路层交换机）传送。分组以等于该链路最大传输速率的速度传输通过通信链路。</p>
-</li>
-<li><p>电路交换</p>
-<p>在电路交换中，在端系统通信会话期间，预留了端系统间沿路径通信所需的资源（缓存、链路传输速率），而在分组交换中这些都没有预留，会话报文按需使用这些资源。<em>换言之，电路交换在进行通信前需要先接入预留的通信线路，而预留通信线路会导致可用传输速率下降</em></p>
-</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机</tag>
-        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
@@ -236,6 +200,44 @@
       </categories>
       <tags>
         <tag>计算机</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络_自顶向下方法阅读笔记</title>
+    <url>/2020/07/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C_%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>1.<strong>排队时延和分组丢失（丢包）</strong>    <font color=lghtblue><strong>P17</strong></font></p>
+<p>每台分组交换机有多条链路与之相连。对于每条相连的链路，该分组交换机具有一个输出缓存（输出队列），它用于存储路由器准备发往那条链路的分组。</p>
+<ul>
+<li><p>排队时延</p>
+<p>如果到达的分许要传输到某条链路，但发现该链路正忙于传输其他分组，该到达分组必须在输出缓存中等待。因此，分组需要承受输出缓存的排队时延。</p>
+</li>
+</ul>
+<ul>
+<li><p>分组丢失（丢包）</p>
+<p>因为缓存空间的大小是有限的，一个到达的分组可能发现该缓存已被其他等待传输的分组完全充满了。自此情况下，将出现分组丢失（丢包），到达的分组或已经排队的分组之一将被丢弃。</p>
+</li>
+</ul>
+<hr>
+<a id="more"></a>
+
+<p>2.<strong>电路交换和分组交换的区别</strong>    <font color=lghtblue><strong>P15、P19</strong></font></p>
+<p>在各种网络应用中，端系统彼此交换报文（文件、信息、数据等）。</p>
+<ul>
+<li><p>分组交换</p>
+<p>为了从源端系统向目的系统发送一个报文，源将长报文划分为较小的数据块，每个分组通过信链路和分组交换机（路由器、链路层交换机）传送。分组以等于该链路最大传输速率的速度传输通过通信链路。</p>
+</li>
+<li><p>电路交换</p>
+<p>在电路交换中，在端系统通信会话期间，预留了端系统间沿路径通信所需的资源（缓存、链路传输速率），而在分组交换中这些都没有预留，会话报文按需使用这些资源。<em>换言之，电路交换在进行通信前需要先接入预留的通信线路，而预留通信线路会导致可用传输速率下降</em></p>
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机</tag>
+        <tag>网络</tag>
       </tags>
   </entry>
 </search>
