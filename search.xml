@@ -192,8 +192,8 @@
 </li>
 </ol>
 <hr>
-<p>5.<strong>补码</strong>：在二进制算术中，求一个数补数的方法是将其各位取反并加1。<em>如：01100101的补数为10011010 + 1 = 10011011</em></p>
-<p>一个n位二进制数<font color=lightgreen><em>N</em></font>的二进制补码定义为 <font color=lightgreen>2<sup>n</sup> - <em>N</em></font>。若<em>N</em> = 5 =00000101，则<em>N</em>的补码为 <font color=lightgreen>2<sup>8</sup> - 00000101 = 100000000 - 00000101 = 11111011</font>。 <em>注意：11111011也可以表示 -00000101（-5）或 +123，这取决于我们是将二进制数11111011看作补码还是非符号整数</em>  <font color=lghtblue><em>P53</em></font></p>
+<p>​    5.<strong>补码</strong>：在二进制算术中，求一个数补数的方法是将其各位取反并加               1。<em>如：01100101的补数为10011010 + 1 = 10011011</em></p>
+<p>​    一个n位二进制数<font color=lightgreen><em>N</em></font>的二进制补码定义为 <font color=lightgreen>2<sup>n</sup> - <em>N</em></font>。若<em>N</em> = 5 =00000101，       则<em>N</em>的补码为 <font color=lightgreen>2<sup>8</sup> - 00000101 = 100000000 - 00000101 = 11111011</font>。 *    注意：11111011也可以表示 -00000101（-5）或 +123，这取决于我们    是将二进制数11111011看作补码还是非符号整数*  <font color=lghtblue><em>P53</em></font></p>
 ]]></content>
       <categories>
         <category>笔记</category>
