@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C++中取绝对值</title>
-    <url>/2020/07/16/C++%E4%B8%AD%E5%8F%96%E7%BB%9D%E5%AF%B9%E5%80%BC/</url>
-    <content><![CDATA[<p>如果要在C++中取绝对值，可以使用<font color=#ff9494>stdlib.h</font>库中的<font color=#fff942>abs</font>函数。</p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">-6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main()&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">abs</span>(i);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++中char和int类型互化</title>
     <url>/2020/07/15/C++%E4%B8%ADchar%E5%92%8Cint%E7%B1%BB%E5%9E%8B%E4%BA%92%E5%8C%96/</url>
     <content><![CDATA[<p>1.<strong>char转为int</strong></p>
@@ -51,11 +31,47 @@
       </tags>
   </entry>
   <entry>
-    <title>C++中连续读取多行字符串</title>
-    <url>/2020/07/14/C++%E4%B8%AD%E8%BF%9E%E7%BB%AD%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<p><strong>C++中连续读取多行字符串</strong></p>
+    <title>C++中取绝对值</title>
+    <url>/2020/07/16/C++%E4%B8%AD%E5%8F%96%E7%BB%9D%E5%AF%B9%E5%80%BC/</url>
+    <content><![CDATA[<p>如果要在C++中取绝对值，可以使用<font color=#ff9494>stdlib.h</font>库中的<font color=#fff942>abs</font>函数。</p>
 <p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#incude<span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">1000</span>];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; s[i] &amp;&amp; s != <span class="string">'E'</span>)&#123;	<span class="comment">//当读取到E时结束输入</span></span><br><span class="line">        i++;</span><br><span class="line">    &#125;	</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">-6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main()&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">abs</span>(i);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++中的iterator（迭代器）</title>
+    <url>/2020/07/18/C++%E4%B8%AD%E7%9A%84iterator/</url>
+    <content><![CDATA[<p><strong>摘自Essential C++</strong></p>
+<p><em>如果 first 和 last 都是 list  的 iterator，我们可以这样写：</em></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// first和last皆为iterator class object</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(first != last)&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; *first &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    first++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>这就好像把 first 和 last 当作<strong>指针</strong>一样。唯一的差别在于其 *、！=、++ 运算符是由 iterator class 内相关的 inline 函数提供。对 list iterator 而言，其递增函数会沿着 list 的执政前进到下一个元素， 对 vector iterator 而言，其递增函数前进至下一个元素的方式，是将目前的地址加上一个元素的大小。</em></p>
+<hr>
+<a id="more"></a>
+
+<ol>
+<li>利用iterator为vector重新赋值并遍历vector</li>
+</ol>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span> <span class="params">(<span class="number">5</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; :: iterator vec_b;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; :: iterator vec_e;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">size</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; <span class="built_in">size</span>;</span><br><span class="line">	ivec.resize(<span class="built_in">size</span>);	<span class="comment">//重新设置ivec大小</span></span><br><span class="line">	vec_b = ivec.<span class="built_in">begin</span>();</span><br><span class="line">	vec_e = ivec.<span class="built_in">end</span>();</span><br><span class="line">	<span class="keyword">for</span>(; vec_b != vec_e; vec_b++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; *vec_b;	<span class="comment">//将iterator看作指针，用*运算符提取值</span></span><br><span class="line">	&#125;</span><br><span class="line">	vec_b = ivec.<span class="built_in">begin</span>();</span><br><span class="line">	<span class="keyword">for</span>(; vec_b != vec_e; vec_b++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; *vec_b &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -99,14 +115,18 @@
       </tags>
   </entry>
   <entry>
-    <title>html的页面结构</title>
-    <url>/2020/07/12/html%E7%9A%84%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<figure class="highlight html"><figcaption><span>html网页的页面结构</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span> <span class="comment">&lt;!-- 声明为HTML 5文档 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>这里是标题（浏览器显示的标签）<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>页面显示的标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>另一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    <title>C++中连续读取多行字符串</title>
+    <url>/2020/07/14/C++%E4%B8%AD%E8%BF%9E%E7%BB%AD%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<p><strong>C++中连续读取多行字符串</strong></p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#incude<span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">1000</span>];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; s[i] &amp;&amp; s != <span class="string">'E'</span>)&#123;	<span class="comment">//当读取到E时结束输入</span></span><br><span class="line">        i++;</span><br><span class="line">    &#125;	</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>编程</category>
       </categories>
       <tags>
-        <tag>html</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -139,29 +159,14 @@
       </tags>
   </entry>
   <entry>
-    <title>简单的桶排序</title>
-    <url>/2020/07/13/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A1%B6%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>对于一个大小为N的数据，可以将一个大小为N的数组A作为储存数据的“桶”，若数据中存在数字M，则对A中的第M个桶进行标记。</p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> data[<span class="number">100</span>] = &#123;<span class="number">0</span>&#125;, n, t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">        data[t]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(data[i] != <span class="number">0</span> )</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i;</span><br><span class="line">        <span class="keyword">if</span>(i != <span class="number">100</span>)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输入：</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">9</span> <span class="number">2</span> <span class="number">1</span> <span class="number">3</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>输出：</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
+    <title>html的页面结构</title>
+    <url>/2020/07/12/html%E7%9A%84%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<figure class="highlight html"><figcaption><span>html网页的页面结构</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span> <span class="comment">&lt;!-- 声明为HTML 5文档 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>这里是标题（浏览器显示的标签）<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>页面显示的标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>另一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>编程</category>
       </categories>
       <tags>
-        <tag>C++</tag>
-        <tag>算法</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -179,6 +184,32 @@
 
 <p><strong>输出</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">7</span> <span class="number">5</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>简单的桶排序</title>
+    <url>/2020/07/13/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A1%B6%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>对于一个大小为N的数据，可以将一个大小为N的数组A作为储存数据的“桶”，若数据中存在数字M，则对A中的第M个桶进行标记。</p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> data[<span class="number">100</span>] = &#123;<span class="number">0</span>&#125;, n, t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">        data[t]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(data[i] != <span class="number">0</span> )</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i;</span><br><span class="line">        <span class="keyword">if</span>(i != <span class="number">100</span>)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输入：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">9</span> <span class="number">2</span> <span class="number">1</span> <span class="number">3</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>输出：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+
 
 ]]></content>
       <categories>

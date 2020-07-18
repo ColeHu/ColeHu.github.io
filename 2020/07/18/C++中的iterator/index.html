@@ -22,21 +22,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="对于一个大小为N的数据，可以将一个大小为N的数组A作为储存数据的“桶”，若数据中存在数字M，则对A中的第M个桶进行标记。 实现 123456789101112131415161718#include &lt;iostream&gt;using namespace std;int main()&amp;#123;    int data[100] &#x3D; &amp;#123;0&amp;#125;, n, t;    cin">
+  <meta name="description" content="摘自Essential C++ 如果 first 和 last 都是 list  的 iterator，我们可以这样写： 123456&#x2F;&#x2F; first和last皆为iterator class objectwhile(first !&#x3D; last)&amp;#123;	cout &lt;&lt; *first &lt;&lt; &#39; &#39;;    first++;&amp;#125;  这就好像把 first 和 la">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单的桶排序">
-<meta property="og:url" content="http://yoursite.com/2020/07/13/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A1%B6%E6%8E%92%E5%BA%8F/index.html">
+<meta property="og:title" content="C++中的iterator（迭代器）">
+<meta property="og:url" content="http://yoursite.com/2020/07/18/C++%E4%B8%AD%E7%9A%84iterator/index.html">
 <meta property="og:site_name" content="Akazure的技术博客">
-<meta property="og:description" content="对于一个大小为N的数据，可以将一个大小为N的数组A作为储存数据的“桶”，若数据中存在数字M，则对A中的第M个桶进行标记。 实现 123456789101112131415161718#include &lt;iostream&gt;using namespace std;int main()&amp;#123;    int data[100] &#x3D; &amp;#123;0&amp;#125;, n, t;    cin">
+<meta property="og:description" content="摘自Essential C++ 如果 first 和 last 都是 list  的 iterator，我们可以这样写： 123456&#x2F;&#x2F; first和last皆为iterator class objectwhile(first !&#x3D; last)&amp;#123;	cout &lt;&lt; *first &lt;&lt; &#39; &#39;;    first++;&amp;#125;  这就好像把 first 和 la">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-13T09:33:56.000Z">
-<meta property="article:modified_time" content="2020-07-13T09:48:35.000Z">
+<meta property="article:published_time" content="2020-07-18T13:56:40.000Z">
+<meta property="article:modified_time" content="2020-07-18T14:27:05.029Z">
 <meta property="article:author" content="Akazure">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/07/13/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A1%B6%E6%8E%92%E5%BA%8F/">
+<link rel="canonical" href="http://yoursite.com/2020/07/18/C++%E4%B8%AD%E7%9A%84iterator/">
 
 
 <script id="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>简单的桶排序 | Akazure的技术博客</title>
+  <title>C++中的iterator（迭代器） | Akazure的技术博客</title>
   
 
 
@@ -193,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/%E7%AE%80%E5%8D%95%E7%9A%84%E6%A1%B6%E6%8E%92%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/18/C++%E4%B8%AD%E7%9A%84iterator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/usr.png">
@@ -206,7 +205,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          简单的桶排序
+          C++中的iterator（迭代器）
         </h1>
 
         <div class="post-meta">
@@ -217,7 +216,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-13 17:33:56 / 修改时间：17:48:35" itemprop="dateCreated datePublished" datetime="2020-07-13T17:33:56+08:00">2020-07-13</time>
+              <time title="创建时间：2020-07-18 21:56:40 / 修改时间：22:27:05" itemprop="dateCreated datePublished" datetime="2020-07-18T21:56:40+08:00">2020-07-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,19 +239,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>对于一个大小为N的数据，可以将一个大小为N的数组A作为储存数据的“桶”，若数据中存在数字M，则对A中的第M个桶进行标记。</p>
+        <p><strong>摘自Essential C++</strong></p>
+<p><em>如果 first 和 last 都是 list  的 iterator，我们可以这样写：</em></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// first和last皆为iterator class object</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(first != last)&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; *first &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    first++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>这就好像把 first 和 last 当作<strong>指针</strong>一样。唯一的差别在于其 *、！=、++ 运算符是由 iterator class 内相关的 inline 函数提供。对 list iterator 而言，其递增函数会沿着 list 的执政前进到下一个元素， 对 vector iterator 而言，其递增函数前进至下一个元素的方式，是将目前的地址加上一个元素的大小。</em></p>
+<hr>
+<a id="more"></a>
+
+<ol>
+<li>利用iterator为vector重新赋值并遍历vector</li>
+</ol>
 <p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> data[<span class="number">100</span>] = &#123;<span class="number">0</span>&#125;, n, t;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">        data[t]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(data[i] != <span class="number">0</span> )</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i;</span><br><span class="line">        <span class="keyword">if</span>(i != <span class="number">100</span>)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span> <span class="params">(<span class="number">5</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; :: iterator vec_b;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; :: iterator vec_e;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">size</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; <span class="built_in">size</span>;</span><br><span class="line">	ivec.resize(<span class="built_in">size</span>);	<span class="comment">//重新设置ivec大小</span></span><br><span class="line">	vec_b = ivec.<span class="built_in">begin</span>();</span><br><span class="line">	vec_e = ivec.<span class="built_in">end</span>();</span><br><span class="line">	<span class="keyword">for</span>(; vec_b != vec_e; vec_b++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; *vec_b;	<span class="comment">//将iterator看作指针，用*运算符提取值</span></span><br><span class="line">	&#125;</span><br><span class="line">	vec_b = ivec.<span class="built_in">begin</span>();</span><br><span class="line">	<span class="keyword">for</span>(; vec_b != vec_e; vec_b++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; *vec_b &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>输入：</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">9</span> <span class="number">2</span> <span class="number">1</span> <span class="number">3</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
 
-
-
-<p><strong>输出：</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
-
-
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -264,7 +269,6 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/C/" rel="tag"># C++</a>
-              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
           </div>
 
         
@@ -273,13 +277,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86_%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" rel="prev" title="计算机组成原理阅读笔记">
-      <i class="fa fa-chevron-left"></i> 计算机组成原理阅读笔记
+    <a href="/2020/07/17/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F(%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7)/" rel="prev" title="快速排序(从小到大)">
+      <i class="fa fa-chevron-left"></i> 快速排序(从小到大)
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/13/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/" rel="next" title="冒泡排序">
-      冒泡排序 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
