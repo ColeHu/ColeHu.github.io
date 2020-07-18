@@ -53,7 +53,7 @@
   <entry>
     <title>C++中的iterator（迭代器）</title>
     <url>/2020/07/18/C++%E4%B8%AD%E7%9A%84iterator/</url>
-    <content><![CDATA[<p><strong>摘自Essential C++</strong></p>
+    <content><![CDATA[<p><strong>摘自《Essential C++》</strong></p>
 <p><em>如果 first 和 last 都是 list  的 iterator，我们可以这样写：</em></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// first和last皆为iterator class object</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(first != last)&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; *first &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    first++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
