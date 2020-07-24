@@ -296,15 +296,20 @@
       </tags>
   </entry>
   <entry>
-    <title>C++中的泛型搜索算法</title>
-    <url>/2020/07/19/1/</url>
-    <content><![CDATA[<p><strong>摘自《Essential C++》</strong></p>
+    <title>C++中的几种容器</title>
+    <url>/2020/07/19/C++%E4%B8%AD%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%B9%E5%99%A8/</url>
+    <content><![CDATA[<ol>
+<li><p><strong>Vector</strong> </p>
+<p>与arry相比，vector可以进行动态操作，可以随时更改长度，并且可使用迭代器进行操作。</p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>编程</category>
       </categories>
       <tags>
         <tag>C++</tag>
+        <tag>概念</tag>
       </tags>
   </entry>
 </search>
