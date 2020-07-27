@@ -256,7 +256,7 @@
       </tags>
   </entry>
   <entry>
-    <title>计算机组成原理阅读笔记</title>
+    <title>《计算机组成原理》阅读笔记</title>
     <url>/2020/07/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86_%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<ol>
 <li>存储器中既保存了组成程序的指令，也保存了程序所用的数据。<font color=lghtblue><em>P10</em></font></li>
@@ -292,7 +292,7 @@
       </tags>
   </entry>
   <entry>
-    <title>计算机网络_自顶向下方法阅读笔记</title>
+    <title>《计算机网络 自顶向下方法》阅读笔记</title>
     <url>/2020/07/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C_%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>1.<strong>排队时延和分组丢失（丢包）</strong>    <font color=lghtblue><strong>P17</strong></font></p>
 <p>每台分组交换机有多条链路与之相连。对于每条相连的链路，该分组交换机具有一个输出缓存（输出队列），它用于存储路由器准备发往那条链路的分组。</p>
