@@ -30,7 +30,7 @@
 <meta property="og:description" content="1.排队时延和分组丢失（丢包）    P17 每台分组交换机有多条链路与之相连。对于每条相连的链路，该分组交换机具有一个输出缓存（输出队列），它用于存储路由器准备发往那条链路的分组。  排队时延 如果到达的分许要传输到某条链路，但发现该链路正忙于传输其他分组，该到达分组必须在输出缓存中等待。因此，分组需要承受输出缓存的排队时延。    分组丢失（丢包） 因为缓存空间的大小是有限的，一个到达的分组可">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-14T15:07:39.000Z">
-<meta property="article:modified_time" content="2020-07-27T08:30:45.029Z">
+<meta property="article:modified_time" content="2020-07-28T06:06:10.933Z">
 <meta property="article:author" content="Akazure">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="网络">
@@ -223,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-27 16:30:45" itemprop="dateModified" datetime="2020-07-27T16:30:45+08:00">2020-07-27</time>
+                <time title="修改时间：2020-07-28 14:06:10" itemprop="dateModified" datetime="2020-07-28T14:06:10+08:00">2020-07-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -272,6 +272,12 @@
 </li>
 </ul>
 <hr>
+<ol start="3">
+<li><p><strong>传输时延和传播时延区别</strong>    <font color=lghtblue><strong>P26</strong></font></p>
+<p><strong>传输时延</strong>是路由器推出分组所需要的时间，它是分组长度和链路传输速率的函数，而与两台路由器之间的距离无关。<em>换言之，可以将每个比特看作一辆汽车，要传输的报文看作一个由比特组成的车队，整个车队通过收费站（路由器）并被推向高速公路的时间即为传输时延。</em></p>
+<p><strong>传播时延</strong>是一个比特从一台路由器传输到另一台路由器所需要的时间，它是两台路由器之间距离的函数。<em>换言之，一个车队（报文）从一个收费站到另一个收费站（路由器）经过的路程所用的时间即为传播时延。</em></p>
+</li>
+</ol>
 
     </div>
 
