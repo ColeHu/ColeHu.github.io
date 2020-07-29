@@ -361,4 +361,30 @@
         <tag>网络</tag>
       </tags>
   </entry>
+  <entry>
+    <title>C++中的栈</title>
+    <url>/2020/07/29/%E6%A0%88/</url>
+    <content><![CDATA[<p><strong>栈</strong>是一种非常常见的数据结构，其是一种后进后出的结构，即只能在一端进行插入和删除操作。</p>
+<p><font color = lghtblue>可以利用<strong>栈</strong>结构来判断一个数是否为回文数</font></p>
+<a id="more"></a>
+
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_palindrome</span><span class="params">(<span class="built_in">string</span> s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">stack</span>[<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">int</span> top = <span class="number">0</span>, i, next, l, mid;   <span class="comment">//定义top为栈的顶部</span></span><br><span class="line">    l = s.length();</span><br><span class="line">    mid = l / <span class="number">2</span> - <span class="number">1</span>; </span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt;= mid; i++)&#123;</span><br><span class="line">        <span class="built_in">stack</span>[++top] = s[i];    <span class="comment">//将中间数之前的数全部入栈</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(mid % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">        next = mid + <span class="number">1</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(mid % <span class="number">2</span> != <span class="number">0</span>)&#123;</span><br><span class="line">        next = mid + <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i = next; i &lt; l; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">stack</span>[top] != s[i])&#123;     <span class="comment">//检测栈中的数与s中的数是否一一对应</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        top--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(top == <span class="number">0</span>)&#123;   <span class="comment">//若一一对应，则不会进入if语句，top值会减至0</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">    <span class="keyword">if</span>(is_palindrome(s))&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="string">" is a palindrome."</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="string">" is not a palindrome."</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">12321</span></span><br><span class="line"><span class="number">1233211</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">123321</span> is a palindrome.</span><br><span class="line"><span class="number">1233211</span> is <span class="keyword">not</span> a palindrome.</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>概念</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
 </search>
