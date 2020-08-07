@@ -166,6 +166,18 @@
 </li>
 </ol>
 <hr>
+<ol start="4">
+<li><p><strong>queue</strong></p>
+<p><strong>queue</strong>为队列模板，定义在<queue>头文件中</p>
+<p><strong>queue模板的操作符：</strong></p>
+<p><em>back()</em> 返回最后一个元素</p>
+<p><em>front()</em> 返回第一个元素</p>
+<p><em>pop</em>() 删除第一个元素</p>
+<p><em>push()</em> 在末尾插入一个元素</p>
+<p><em>empty()</em> 检查队列是否为空，是则返回true，否则返回false</p>
+<p><em>size()</em> 返回队列的大小</p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>编程</category>
