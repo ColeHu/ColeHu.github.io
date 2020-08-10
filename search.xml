@@ -468,6 +468,8 @@
     <title>C++中的链表</title>
     <url>/2020/08/10/C++%E4%B8%AD%E7%9A%84%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<p><strong>链表</strong>是一种常见的数据结构，其是一种非连续，非顺序的存储结构，数据元素的逻辑顺序通过指针依次连接。链表由一系列的节点（node）组成，每个节点包括两个部分，一个是储存该节点数据元素的<strong>数据域</strong>，一个是储存下一个节点地址的<strong>指针域</strong>。</p>
+<a id="more"></a>
+
 <img src="E:\Hexo\source\_posts\C++中的链表\map.png" alt="map"  />
 
 <p><strong>myLinkedlist的操作符：</strong></p>
