@@ -193,6 +193,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/10/C++%E4%B8%AD%E7%9A%84%E9%93%BE%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/usr.png">
+      <meta itemprop="name" content="Akazure">
+      <meta itemprop="description" content="NOOB">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Akazure的技术博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/10/C++%E4%B8%AD%E7%9A%84%E9%93%BE%E8%A1%A8/" class="post-title-link" itemprop="url">C++中的链表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-10 15:24:30 / 修改时间：20:36:16" itemprop="dateCreated datePublished" datetime="2020-08-10T15:24:30+08:00">2020-08-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>链表</strong>是一种常见的数据结构，其是一种非连续，非顺序的存储结构，数据元素的逻辑顺序通过指针依次连接。链表由一系列的节点（node）组成，每个节点包括两个部分，一个是储存该节点数据元素的<strong>数据域</strong>，一个是储存下一个节点地址的<strong>指针域</strong>。</p>
+<img src="E:\Hexo\source\_posts\C++中的链表\map.png" alt="map"  />
+
+<p><strong>myLinkedlist的操作符：</strong></p>
+<p>get(pos)：获得链表中第pos个节点的数据元素。</p>
+<p>insert(pos, val)：在第pos个节点后添加一个数据元素为val的节点。</p>
+<p>pushHead(val)：在头节点前添加一个数据元素为val的节点。</p>
+<p>pushBack(val)：在尾节点后面添加一个数据元素为val的节点。</p>
+<p>remove(pos)：删除第pos个节点。</p>
+<p>removeHead()：删除头节点。</p>
+<p>removeBack()：删除尾节点。</p>
+<p>print()：打印链表。</p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*为了便于操作，这里会使用一个虚拟头节点*/</span></span><br><span class="line"><span class="comment">/*为了简便，这里只举例了一部分操作符*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myLinkedlist</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">            <span class="keyword">int</span> val;</span><br><span class="line">            node* next;</span><br><span class="line">            node(<span class="keyword">int</span> val):val(val), next(<span class="literal">nullptr</span>)&#123;&#125;;</span><br><span class="line">        &#125;; </span><br><span class="line">        myLinkedlist()&#123;</span><br><span class="line">            dummyHead = <span class="keyword">new</span> node(<span class="number">0</span>);</span><br><span class="line">            <span class="built_in">size</span> = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> pos)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> val)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">pushHead</span><span class="params">(<span class="keyword">int</span> val)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">pushTail</span><span class="params">(<span class="keyword">int</span> val)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> pos)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">removeHead</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">removeBack</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">int</span> <span class="built_in">size</span>;</span><br><span class="line">        node* dummyHead;    <span class="comment">//定义虚拟头节点</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::get</span><span class="params">(<span class="keyword">int</span> pos)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos &lt; <span class="number">0</span> || pos &gt; <span class="built_in">size</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"invalid pos!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    node* tmp = dummyHead -&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(pos--)&#123;</span><br><span class="line">        tmp = tmp -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; tmp -&gt;val &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::insert</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos &lt; <span class="number">0</span> || pos &gt; <span class="built_in">size</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"invalid pos!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    node* tmp = dummyHead;</span><br><span class="line">    node* newNode = <span class="keyword">new</span> node(val);</span><br><span class="line">    <span class="keyword">while</span>(pos--)&#123;</span><br><span class="line">        tmp = tmp -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">    newNode -&gt;next = tmp -&gt;next;</span><br><span class="line">    tmp -&gt;next = newNode;</span><br><span class="line">    <span class="built_in">size</span>++;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::pushHead</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">    node* newNode = <span class="keyword">new</span> node(val);</span><br><span class="line">    newNode -&gt;next = dummyHead -&gt;next;</span><br><span class="line">    dummyHead -&gt;next = newNode;</span><br><span class="line">    <span class="built_in">size</span>++;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::pushTail</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">    node* tmp = dummyHead;</span><br><span class="line">    node* newNode = <span class="keyword">new</span> node(val);</span><br><span class="line">    <span class="keyword">int</span> i = <span class="built_in">size</span>;</span><br><span class="line">    <span class="keyword">while</span>(i--)&#123;</span><br><span class="line">        tmp = tmp -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    newNode -&gt;next = tmp -&gt;next;</span><br><span class="line">    tmp -&gt;next = newNode;</span><br><span class="line">    <span class="built_in">size</span>++;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::remove</span><span class="params">(<span class="keyword">int</span> pos)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos &gt; <span class="number">0</span> || pos &gt; <span class="built_in">size</span> - <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    node* tmp = dummyHead;</span><br><span class="line">    <span class="keyword">while</span>(pos--)&#123;</span><br><span class="line">        tmp = tmp -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    node* temp = tmp -&gt; next; </span><br><span class="line">    tmp -&gt;next = tmp -&gt;next -&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> temp;</span><br><span class="line">    <span class="built_in">size</span>--;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::removeBack</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="built_in">size</span>;</span><br><span class="line">    node* tmp = dummyHead;</span><br><span class="line">    <span class="keyword">while</span>(i--)&#123;</span><br><span class="line">        tmp = tmp -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span> tmp;</span><br><span class="line">    <span class="built_in">size</span>--;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::removeHead</span><span class="params">()</span></span>&#123;</span><br><span class="line">    node* tmp = dummyHead -&gt;next;</span><br><span class="line">    dummyHead -&gt;next = dummyHead -&gt;next -&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> tmp;</span><br><span class="line">    <span class="built_in">size</span>--;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    myLinkedlist node_1;</span><br><span class="line">    node_1.pushHead(<span class="number">0</span>);</span><br><span class="line">    node_1.pushHead(<span class="number">3</span>);</span><br><span class="line">    node_1.pushTail(<span class="number">66</span>);</span><br><span class="line">    node_1.removeBack();</span><br><span class="line">    node_1.removeHead();</span><br><span class="line">    node_1.insert(<span class="number">1</span>, <span class="number">99</span>);</span><br><span class="line">    node_1.<span class="built_in">get</span>(<span class="number">0</span>);</span><br><span class="line">    node_1.<span class="built_in">get</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">99</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/04/C++%E4%B8%AD%E7%9A%84find%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -928,94 +1013,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/14/C++%E4%B8%AD%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E4%B8%BA%E6%95%B0%E7%BB%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/usr.png">
-      <meta itemprop="name" content="Akazure">
-      <meta itemprop="description" content="NOOB">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Akazure的技术博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/14/C++%E4%B8%AD%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E4%B8%BA%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">C++中char类型数组和string的互化</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-14 13:33:45" itemprop="dateCreated datePublished" datetime="2020-07-14T13:33:45+08:00">2020-07-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-15 15:02:27" itemprop="dateModified" datetime="2020-07-15T15:02:27+08:00">2020-07-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>1.<strong>将string类型的字符串转为char类型数组</strong></p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> l;</span><br><span class="line">	<span class="built_in">string</span> str = <span class="string">"Hello, World!"</span>;</span><br><span class="line">	<span class="keyword">char</span> s[<span class="number">20</span>];</span><br><span class="line">	l = str.length();	<span class="comment">//获取str字符串长度</span></span><br><span class="line">	str.copy(s, l, <span class="number">0</span>);	<span class="comment">//str.copy(要复制到的数组，复制的字符数量，从第几个开始复制)</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; s[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello, World!</span><br></pre></td></tr></table></figure>
-
-<hr>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/14/C++%E4%B8%AD%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E4%B8%BA%E6%95%B0%E7%BB%84/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1087,7 +1084,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
