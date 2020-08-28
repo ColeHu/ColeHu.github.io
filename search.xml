@@ -569,10 +569,10 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">4</span> # # <span class="number">5</span> # # <span class="number">3</span> # #</span><br></pre></td></tr></table></figure>
 
 <p><strong>二叉树示例</strong></p>
-<p>​                <strong>1</strong></p>
-<p>​            /         \</p>
-<p>​          <strong>2 **         **3</strong>    </p>
-<p>​    /            \</p>
+<p>​                 <em>1*</em></p>
+<p>​             /         \</p>
+<p>​          <strong>2</strong>           <strong>3</strong>    </p>
+<p>​    /             \</p>
 <p><strong>4</strong>                <strong>5</strong></p>
 <p><strong>输出</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Max <span class="built_in">step</span> of <span class="keyword">this</span> bitree is : <span class="number">3</span></span><br></pre></td></tr></table></figure>]]></content>
