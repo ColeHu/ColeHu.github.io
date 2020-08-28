@@ -569,7 +569,7 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">4</span> # # <span class="number">5</span> # # <span class="number">3</span> # #</span><br></pre></td></tr></table></figure>
 
 <p><strong>二叉树示例</strong></p>
-<p>​                 <em>1*</em></p>
+<p>​                 <strong>1</strong></p>
 <p>​             /         \</p>
 <p>​          <strong>2</strong>           <strong>3</strong>    </p>
 <p>​    /             \</p>
