@@ -558,7 +558,7 @@
   <entry>
     <title>广度优先搜索（bfs）</title>
     <url>/2020/08/28/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%EF%BC%88bfs%EF%BC%89/</url>
-    <content><![CDATA[<p><strong>广度优先搜索算法</strong>（英语：Breadth-First Search，缩写为BFS），又译作<strong>宽度优先搜索</strong>，或<strong>横向优先搜索</strong>，是一种[图形搜索算法。简单的说，BFS是从根节点开始，沿着树的宽度遍历树的节点。如果所有节点均被访问，则算法中止。广度优先搜索的实现一般采用open-closed表。*<font color = gray>摘自维基百科</font>*</p>
+    <content><![CDATA[<p><strong>广度优先搜索算法</strong>（英语：Breadth-First Search，缩写为BFS），又译作<strong>宽度优先搜索</strong>，或<strong>横向优先搜索</strong>，是一种[图形搜索算法。简单的说，BFS是从根节点开始，沿着树的宽度遍历树的节点。如果所有节点均被访问，则算法中止。广度优先搜索的实现一般采用open-closed表。<font color = gray><em>摘自维基百科</em></font></p>
 <a id="more"></a>
 
 <p>可以利用BFS来求二叉树的最大深度</p>
