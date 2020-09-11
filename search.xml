@@ -340,9 +340,14 @@
 <hr>
 <a id="more"></a>
 
-<p>find函数的用法：</p>
+<p><strong>find</strong>函数的用法：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line"><span class="built_in">find</span>(vec.<span class="built_in">begin</span>(), vec.<span class="built_in">end</span>(), numToFind); <span class="comment">//若找到，则返回指向该数的迭代器，若没找到，则返回指向vec末尾的迭代器</span></span><br></pre></td></tr></table></figure>
 
+<hr>
+<p><strong>unique</strong>函数的用法与<strong>find</strong>函数类似</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">unique(vec.<span class="built_in">begin</span>(), vec.<span class="built_in">end</span>());</span><br></pre></td></tr></table></figure>
+
+<p>unique函数会将vec中重复的数移到vec的末尾，从而达到去重的效果。</p>
 <hr>
 ]]></content>
       <categories>
