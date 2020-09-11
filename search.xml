@@ -331,14 +331,20 @@
   <entry>
     <title>C++备忘录</title>
     <url>/2020/08/30/C++%E5%A4%87%E5%BF%98%E5%BD%95/</url>
-    <content><![CDATA[<p>1.将一个函数定义为<strong>内联函数</strong>可以提高程序的运行效率，将函数定义为<strong>内联函数</strong>后编译器会直接用该函数中的内容替换调用该函数的代码，以此来提高运行效率。将一个函数定义为内联函数应符合以下几点要求：</p>
+    <content><![CDATA[<p>将一个函数定义为<strong>内联函数</strong>可以提高程序的运行效率，将函数定义为<strong>内联函数</strong>后编译器会直接用该函数中的内容替换调用该函数的代码，以此来提高运行效率。将一个函数定义为内联函数应符合以下几点要求：</p>
 <ul>
 <li>代码必须为10行以内</li>
 <li>不能含有循环语句</li>
 <li>必须在第一次调用该函数之前将该函数定义为<strong>内联函数</strong></li>
 </ul>
 <hr>
-<a id="more"></a>]]></content>
+<a id="more"></a>
+
+<p>find函数的用法：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line"><span class="built_in">find</span>(vec.<span class="built_in">begin</span>(), vec.<span class="built_in">end</span>(), numToFind); <span class="comment">//若找到，则返回指向该数的迭代器，若没找到，则返回指向vec末尾的迭代器</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+]]></content>
       <categories>
         <category>笔记</category>
         <category>编程</category>
