@@ -1145,7 +1145,7 @@ pre .javascript .function {
 }
 .site-author-image {
   transition: transform 1s ease-out;
-  animation: rotate 5s linear infinite;
+  animation: rotate 4s linear infinite;
 }
 @-moz-keyframes rotate {
   from {
@@ -1205,7 +1205,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #8eff29;
+  background: #5bb8d6;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
