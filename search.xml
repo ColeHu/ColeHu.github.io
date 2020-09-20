@@ -698,4 +698,21 @@
         <tag>动态规划</tag>
       </tags>
   </entry>
+  <entry>
+    <title>滑动窗口算法</title>
+    <url>/2020/09/20/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>滑动窗口算法可以用来解决一些与一连串的数字或字符有关的题目。</p>
+<p><strong>例：<a href="https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/" target="_blank" rel="noopener">剑指 Offer 57 - II. 和为s的连续正数序列</a></strong></p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">findContinuousSequence</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">1</span>, r = <span class="number">1</span>, sum = <span class="number">0</span>; r &lt; target; r++)&#123;</span><br><span class="line">            sum += r;</span><br><span class="line">            <span class="keyword">while</span>(sum &gt; target)&#123;</span><br><span class="line">                sum -= l++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(sum == target)&#123;</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; path;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = l; i &lt;= r; i++)&#123;</span><br><span class="line">                    path.push_back(i);</span><br><span class="line">                &#125;</span><br><span class="line">                res.push_back(path);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
 </search>
