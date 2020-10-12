@@ -343,6 +343,8 @@
 
 <p>unique函数会将vec中重复的数移到vec的末尾，从而达到去重的效果。</p>
 <hr>
+<p>利用<strong>中序遍历</strong>可以直接以<strong>数字大小升序</strong>输出一个<strong><em><a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9" target="_blank" rel="noopener">二叉搜索树</a></em></strong></p>
+<hr>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -735,7 +737,7 @@
       </tags>
   </entry>
   <entry>
-    <title>力扣No.121爬楼梯</title>
+    <title>力扣No.121爬楼梯解题笔记</title>
     <url>/2020/10/12/%E7%88%AC%E6%A5%BC%E6%A2%AF/</url>
     <content><![CDATA[<p>​    <strong>原题：<a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">70. 爬楼梯</a></strong></p>
 <a id="more"></a>
