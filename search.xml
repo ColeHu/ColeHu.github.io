@@ -759,4 +759,32 @@
         <tag>动态规划</tag>
       </tags>
   </entry>
+  <entry>
+    <title>算法备忘录</title>
+    <url>/2020/10/13/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95/</url>
+    <content><![CDATA[<p><strong>Floyd-Warshell算法</strong></p>
+<p>该算法适用在<font color = lightblue>n x n</font>的图中于求两地的最短路径，该算法会将从a地到b地所有的中转方法算出，并将最小的路径储存在data[a][b]中。</p>
+<a id="more"></a>
+
+<p><strong>核心代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; n; k++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(data[i][j] &gt; data[i][k] + data[k][j]) data[i][j] = data[i][k] + data[k][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用样例</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; data;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, des, str;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"What's the size of the map(n x n): "</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Which city you are in: "</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; str;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Which city you want to go: "</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; des;</span><br><span class="line">    data.resize(n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n, <span class="number">10000</span>));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"Now reading the cost from city "</span> &lt;&lt; i &lt;&lt; <span class="string">" to city "</span> &lt;&lt; j &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; data[i][j]; </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; n; k++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(data[i][j] &gt; data[i][k] + data[k][j]) data[i][j] = data[i][k] + data[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"The least cost is "</span> &lt;&lt; data[str][des];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">0</span> <span class="number">2</span> <span class="number">6</span> <span class="number">4</span></span><br><span class="line"># <span class="number">0</span> <span class="number">3</span> #</span><br><span class="line"><span class="number">7</span> # <span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="number">5</span> # <span class="number">12</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
 </search>
