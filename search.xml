@@ -345,6 +345,8 @@
 <hr>
 <p>利用<strong>中序遍历</strong>可以直接以<strong>数字大小升序</strong>输出一个<strong><em><a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9" target="_blank" rel="noopener">二叉搜索树</a></em></strong></p>
 <hr>
+<p><strong>substr(pos, n)</strong>函数可用于拷贝一个字符串类型，<strong>pos</strong>表示从第几个下标开始，n表示拷贝几个。</p>
+<hr>
 ]]></content>
       <categories>
         <category>笔记</category>
