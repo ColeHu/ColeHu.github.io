@@ -347,6 +347,20 @@
 <hr>
 <p><strong>substr(pos, n)</strong>函数可用于拷贝一个字符串类型，<strong>pos</strong>表示从第几个下标开始，n表示拷贝几个。</p>
 <hr>
+<p><strong>C++的类和对象</strong></p>
+<p>c++中的类(class)类似于c的struct，利用他可以实现构造一个数据类型。</p>
+<p><strong>实例</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">box</span>&#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">int</span> x;</span><br><span class="line">		<span class="keyword">int</span> y;</span><br><span class="line">		<span class="keyword">int</span> z;</span><br><span class="line">		<span class="function"><span class="keyword">int</span> <span class="title">getV</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> box :: getV(<span class="keyword">void</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span> x * y * z;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	box b1;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; b1.x &gt;&gt; b1.y &gt;&gt; b1.z;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; b1.x &lt;&lt; b1.y &lt;&lt; b1.z &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; b1.getV();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">123</span></span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p>上述代码构造了一个box类型，其中包含3个成员x, y, z,和一个求体积的成员函数getV()，对于成员函数，可以在声明时直接定义函数，或者在类外使用范围解析运算符 <strong>::</strong> 定义该函数。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
