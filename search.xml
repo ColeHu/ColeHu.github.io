@@ -345,7 +345,17 @@
 <hr>
 <p>利用<strong>中序遍历</strong>可以直接以<strong>数字大小升序</strong>输出一个<strong><em><a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9" target="_blank" rel="noopener">二叉搜索树</a></em></strong></p>
 <hr>
-<p><strong>substr(pos, n)</strong>函数可用于拷贝一个字符串类型，<strong>pos</strong>表示从第几个下标开始，n表示拷贝几个。</p>
+<p><strong>substr(pos, n)</strong>函数可用于拷贝一个字符串类型，<strong>pos</strong>表示从第几个下标开始，n表示拷贝几个，若pos+n大于源字符串大小，则会拷贝从<strong>pos</strong>之后所有的字符。</p>
+<p><strong>实例</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s = <span class="string">"abcdef"</span>;</span><br><span class="line">    <span class="built_in">string</span> s1 = s.substr(<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s1;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">bcd</span><br></pre></td></tr></table></figure>
+
+
+
 <hr>
 <p><strong>C++的类和对象</strong></p>
 <p>c++中的类(class)类似于c的struct，利用他可以实现构造一个数据类型。</p>
