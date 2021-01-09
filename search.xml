@@ -875,4 +875,22 @@
         <tag>算法</tag>
       </tags>
   </entry>
+  <entry>
+    <title>CodeForces</title>
+    <url>/2021/01/10/CodeForces%20Round%20#695/</url>
+    <content><![CDATA[<p><strong>A. Wizard of Orz</strong></p>
+<p>贪心题，对于一组panel，要使其组成的数字最大，则要尽量使高位数字大，故只有首位数字为9时才可以取得最大值。而要使首位数字为9，就要使第n个panel在第10-n秒时暂停，此时得到的数为</p>
+<p><strong>9 8 7 … (10 - n) … 7 8 9</strong>，以10-n为中心向两侧递增，因为要使高位数尽量大，故只有当第8秒时暂停第二个panel才可得最大结果。</p>
+<a id="more"></a>
+
+<p><strong>B. Hills And Valleys</strong></p>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>CF</tag>
+      </tags>
+  </entry>
 </search>
