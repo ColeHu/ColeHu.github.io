@@ -876,8 +876,8 @@
       </tags>
   </entry>
   <entry>
-    <title>CodeForces#695(Div.2)解题笔记</title>
-    <url>/2021/01/10/CodeForces%20Round%20#695/</url>
+    <title>CodeForce695(Div.2)解题笔记</title>
+    <url>/2021/01/10/CodeForce695(Div.2)%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>–</p>
 <p><strong>A. Wizard of Orz</strong></p>
 <p>贪心题，对于一组panel，要使其组成的数字最大，则要尽量使高位数字大，故只有首位数字为9时才可以取得最大值。而要使首位数字为9，就要使第n个panel在第10-n秒时暂停，此时得到的数为</p>
