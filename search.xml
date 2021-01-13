@@ -31,6 +31,26 @@
       </tags>
   </entry>
   <entry>
+    <title>C++中取绝对值</title>
+    <url>/2020/07/16/C++%E4%B8%AD%E5%8F%96%E7%BB%9D%E5%AF%B9%E5%80%BC/</url>
+    <content><![CDATA[<p>如果要在C++中取绝对值，可以使用<font color=#ff9494>stdlib.h</font>库中的<font color=#fff942>abs</font>函数。</p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">-6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main()&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">abs</span>(i);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++中二叉树的基本操作</title>
     <url>/2020/08/22/C++%E4%B8%AD%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p><strong>二叉树</strong>是一种重要的数据结构，这里记录了二叉树的几个基本操作</p>
@@ -54,26 +74,6 @@
       <tags>
         <tag>C++</tag>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++中取绝对值</title>
-    <url>/2020/07/16/C++%E4%B8%AD%E5%8F%96%E7%BB%9D%E5%AF%B9%E5%80%BC/</url>
-    <content><![CDATA[<p>如果要在C++中取绝对值，可以使用<font color=#ff9494>stdlib.h</font>库中的<font color=#fff942>abs</font>函数。</p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">-6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main()&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">abs</span>(i);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -107,6 +107,153 @@
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++中的堆排序</title>
+    <url>/2020/08/26/C++%E4%B8%AD%E7%9A%84%E5%A0%86%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapBuild</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>, <span class="keyword">int</span> root)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num[<span class="number">5</span>] = &#123;<span class="number">3</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    heapSort(num, <span class="number">5</span>); </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = x;</span><br><span class="line">    x = y;</span><br><span class="line">    y = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapBuild</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>, <span class="keyword">int</span> root)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = root * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(left &lt; <span class="built_in">size</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> right = left + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> flag = left;</span><br><span class="line">        <span class="keyword">if</span>(right &lt; <span class="built_in">size</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(val[right] &gt; val[flag])&#123;</span><br><span class="line">                flag = right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(val[root] &lt; val[flag])&#123;</span><br><span class="line">            swap(val[root], val[flag]);</span><br><span class="line">            heapBuild(val, <span class="built_in">size</span>, flag);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="built_in">size</span> / <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">        heapBuild(val, <span class="built_in">size</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="built_in">size</span> - <span class="number">1</span>; j &gt; <span class="number">0</span>; --j)&#123;</span><br><span class="line">        swap(val[<span class="number">0</span>], val[j]);</span><br><span class="line">        heapBuild(val, j, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>算法，C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++中的iterator（迭代器）</title>
+    <url>/2020/07/18/C++%E4%B8%AD%E7%9A%84iterator/</url>
+    <content><![CDATA[<p><strong>摘自《Essential C++》</strong></p>
+<p><em>如果 first 和 last 都是 list  的 iterator，我们可以这样写：</em></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// first和last皆为iterator class object</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(first != last)&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; *first &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    first++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>这就好像把 first 和 last 当作<strong>指针</strong>一样。唯一的差别在于其 *、！=、++ 运算符是由 iterator class 内相关的 inline 函数提供。对 list iterator 而言，其递增函数会沿着 list 的执政前进到下一个元素， 对 vector iterator 而言，其递增函数前进至下一个元素的方式，是将目前的地址加上一个元素的大小。</em></p>
+<hr>
+<a id="more"></a>
+
+<ol>
+<li>利用iterator为vector重新赋值并遍历vector</li>
+</ol>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span> <span class="params">(<span class="number">5</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; :: iterator vec_b;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; :: iterator vec_e;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">size</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; <span class="built_in">size</span>;</span><br><span class="line">	ivec.resize(<span class="built_in">size</span>);	<span class="comment">//重新设置ivec大小</span></span><br><span class="line">	vec_b = ivec.<span class="built_in">begin</span>();</span><br><span class="line">	vec_e = ivec.<span class="built_in">end</span>();</span><br><span class="line">	<span class="keyword">for</span>(; vec_b != vec_e; vec_b++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; *vec_b;	<span class="comment">//将iterator看作指针，用*运算符提取值</span></span><br><span class="line">	&#125;</span><br><span class="line">	vec_b = ivec.<span class="built_in">begin</span>();</span><br><span class="line">	<span class="keyword">for</span>(; vec_b != vec_e; vec_b++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; *vec_b &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>概念</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++中的find函数</title>
+    <url>/2020/08/04/C++%E4%B8%AD%E7%9A%84find%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<ol>
+<li><p><strong>string</strong>的find函数</p>
+<p><strong>string</strong>的find函数可用于返回某个字符第一次出现时的下标，若字符串中无该字符，则会返回一个特殊值<strong>nope</strong>（值为4294967295）</p>
+<a id="more"></a>
+
+<p><strong>样例</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="built_in">string</span> s;</span><br><span class="line">   <span class="keyword">char</span> c;</span><br><span class="line">   <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; c;</span><br><span class="line">   <span class="keyword">if</span>(s.<span class="built_in">find</span>(c) != <span class="number">4294967295</span>)&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; c;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"Nope!"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">abcde</span><br><span class="line">a</span><br><span class="line">z</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line">Nope！</span><br></pre></td></tr></table></figure>
+
+<hr>
+</li>
+<li><p><strong>map</strong>的find函数</p>
+<p>对于<strong>map</strong>类型的数据，对其使用find函数，其会返回一个指向要找的数据的迭代器（iterator），若改数据不存在，则会返回一个指向end的迭代器。</p>
+<p><strong>样例</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; m1;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   m1[<span class="string">"a"</span>] = <span class="number">100</span>;</span><br><span class="line">   m1[<span class="string">"b"</span>] = <span class="number">200</span>;</span><br><span class="line">   <span class="built_in">string</span> c;</span><br><span class="line">   <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">   <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; :: iterator it = m1.<span class="built_in">find</span>(c);</span><br><span class="line">   <span class="keyword">if</span>(it != m1.<span class="built_in">end</span>())&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"Find it!"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"Can't find it!"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">a</span><br><span class="line">c</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Find it！</span><br><span class="line">Can<span class="number">'</span>t <span class="built_in">find</span> it！</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello_World</title>
+    <url>/2020/07/11/Hello-World/</url>
+    <content><![CDATA[<p><font color=lightblue size=10><strong>Hello,World!</strong></font></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>C++中连续读取多行字符串</title>
+    <url>/2020/07/14/C++%E4%B8%AD%E8%BF%9E%E7%BB%AD%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<p><strong>C++中连续读取多行字符串</strong></p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#incude<span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">1000</span>];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; s[i] &amp;&amp; s != <span class="string">'E'</span>)&#123;	<span class="comment">//当读取到E时结束输入</span></span><br><span class="line">        i++;</span><br><span class="line">    &#125;	</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++中的链表</title>
+    <url>/2020/08/10/C++%E4%B8%AD%E7%9A%84%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<p><strong>链表</strong>是一种常见的数据结构，其是一种非连续，非顺序的存储结构，数据元素的逻辑顺序通过指针依次连接。链表由一系列的节点（node）组成，每个节点包括两个部分，一个是储存该节点数据元素的<strong>数据域</strong>，一个是储存下一个节点地址的<strong>指针域</strong>。</p>
+<a id="more"></a>
+
+<img src="map.png" alt="map"  />
+
+<p><strong>myLinkedlist的操作符：</strong></p>
+<p>get(pos)：获得链表中第pos个节点的数据元素。</p>
+<p>insert(pos, val)：在第pos个节点后添加一个数据元素为val的节点。</p>
+<p>pushHead(val)：在头节点前添加一个数据元素为val的节点。</p>
+<p>pushBack(val)：在尾节点后面添加一个数据元素为val的节点。</p>
+<p>remove(pos)：删除第pos个节点。</p>
+<p>removeHead()：删除头节点。</p>
+<p>removeBack()：删除尾节点。</p>
+<p>print()：打印链表。</p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*为了便于操作，这里会使用一个虚拟头节点*/</span></span><br><span class="line"><span class="comment">/*为了简便，这里只举例了一部分操作符*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myLinkedlist</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">            <span class="keyword">int</span> val;</span><br><span class="line">            node* next;</span><br><span class="line">            node(<span class="keyword">int</span> val):val(val), next(<span class="literal">nullptr</span>)&#123;&#125;;</span><br><span class="line">        &#125;; </span><br><span class="line">        myLinkedlist()&#123;</span><br><span class="line">            dummyHead = <span class="keyword">new</span> node(<span class="number">0</span>);</span><br><span class="line">            <span class="built_in">size</span> = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> pos)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> val)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">pushHead</span><span class="params">(<span class="keyword">int</span> val)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">pushTail</span><span class="params">(<span class="keyword">int</span> val)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> pos)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">removeHead</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">removeBack</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">int</span> <span class="built_in">size</span>;</span><br><span class="line">        node* dummyHead;    <span class="comment">//定义虚拟头节点</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::get</span><span class="params">(<span class="keyword">int</span> pos)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos &lt; <span class="number">0</span> || pos &gt; <span class="built_in">size</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"invalid pos!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    node* tmp = dummyHead -&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(pos--)&#123;</span><br><span class="line">        tmp = tmp -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; tmp -&gt;val &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::insert</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos &lt; <span class="number">0</span> || pos &gt; <span class="built_in">size</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"invalid pos!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    node* tmp = dummyHead;</span><br><span class="line">    node* newNode = <span class="keyword">new</span> node(val);</span><br><span class="line">    <span class="keyword">while</span>(pos--)&#123;</span><br><span class="line">        tmp = tmp -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">    newNode -&gt;next = tmp -&gt;next;</span><br><span class="line">    tmp -&gt;next = newNode;</span><br><span class="line">    <span class="built_in">size</span>++;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::pushHead</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">    node* newNode = <span class="keyword">new</span> node(val);</span><br><span class="line">    newNode -&gt;next = dummyHead -&gt;next;</span><br><span class="line">    dummyHead -&gt;next = newNode;</span><br><span class="line">    <span class="built_in">size</span>++;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::pushTail</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">    node* tmp = dummyHead;</span><br><span class="line">    node* newNode = <span class="keyword">new</span> node(val);</span><br><span class="line">    <span class="keyword">int</span> i = <span class="built_in">size</span>;</span><br><span class="line">    <span class="keyword">while</span>(i--)&#123;</span><br><span class="line">        tmp = tmp -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    newNode -&gt;next = tmp -&gt;next;</span><br><span class="line">    tmp -&gt;next = newNode;</span><br><span class="line">    <span class="built_in">size</span>++;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::remove</span><span class="params">(<span class="keyword">int</span> pos)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos &gt; <span class="number">0</span> || pos &gt; <span class="built_in">size</span> - <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    node* tmp = dummyHead;</span><br><span class="line">    <span class="keyword">while</span>(pos--)&#123;</span><br><span class="line">        tmp = tmp -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    node* temp = tmp -&gt; next; </span><br><span class="line">    tmp -&gt;next = tmp -&gt;next -&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> temp;</span><br><span class="line">    <span class="built_in">size</span>--;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::removeBack</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="built_in">size</span>;</span><br><span class="line">    node* tmp = dummyHead;</span><br><span class="line">    <span class="keyword">while</span>(i--)&#123;</span><br><span class="line">        tmp = tmp -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span> tmp;</span><br><span class="line">    <span class="built_in">size</span>--;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::removeHead</span><span class="params">()</span></span>&#123;</span><br><span class="line">    node* tmp = dummyHead -&gt;next;</span><br><span class="line">    dummyHead -&gt;next = dummyHead -&gt;next -&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> tmp;</span><br><span class="line">    <span class="built_in">size</span>--;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    myLinkedlist node_1;</span><br><span class="line">    node_1.pushHead(<span class="number">0</span>);</span><br><span class="line">    node_1.pushHead(<span class="number">3</span>);</span><br><span class="line">    node_1.pushTail(<span class="number">66</span>);</span><br><span class="line">    node_1.removeBack();</span><br><span class="line">    node_1.removeHead();</span><br><span class="line">    node_1.insert(<span class="number">1</span>, <span class="number">99</span>);</span><br><span class="line">    node_1.<span class="built_in">get</span>(<span class="number">0</span>);</span><br><span class="line">    node_1.<span class="built_in">get</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">99</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>数据结构</tag>
+        <tag>概念</tag>
       </tags>
   </entry>
   <entry>
@@ -182,147 +329,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C++中的find函数</title>
-    <url>/2020/08/04/C++%E4%B8%AD%E7%9A%84find%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<ol>
-<li><p><strong>string</strong>的find函数</p>
-<p><strong>string</strong>的find函数可用于返回某个字符第一次出现时的下标，若字符串中无该字符，则会返回一个特殊值<strong>nope</strong>（值为4294967295）</p>
-<a id="more"></a>
-
-<p><strong>样例</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="built_in">string</span> s;</span><br><span class="line">   <span class="keyword">char</span> c;</span><br><span class="line">   <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; c;</span><br><span class="line">   <span class="keyword">if</span>(s.<span class="built_in">find</span>(c) != <span class="number">4294967295</span>)&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; c;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"Nope!"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输入</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">abcde</span><br><span class="line">a</span><br><span class="line">z</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line">Nope！</span><br></pre></td></tr></table></figure>
-
-<hr>
-</li>
-<li><p><strong>map</strong>的find函数</p>
-<p>对于<strong>map</strong>类型的数据，对其使用find函数，其会返回一个指向要找的数据的迭代器（iterator），若改数据不存在，则会返回一个指向end的迭代器。</p>
-<p><strong>样例</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; m1;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   m1[<span class="string">"a"</span>] = <span class="number">100</span>;</span><br><span class="line">   m1[<span class="string">"b"</span>] = <span class="number">200</span>;</span><br><span class="line">   <span class="built_in">string</span> c;</span><br><span class="line">   <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">   <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; :: iterator it = m1.<span class="built_in">find</span>(c);</span><br><span class="line">   <span class="keyword">if</span>(it != m1.<span class="built_in">end</span>())&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"Find it!"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"Can't find it!"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输入</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">a</span><br><span class="line">c</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Find it！</span><br><span class="line">Can<span class="number">'</span>t <span class="built_in">find</span> it！</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++中的堆排序</title>
-    <url>/2020/08/26/C++%E4%B8%AD%E7%9A%84%E5%A0%86%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapBuild</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>, <span class="keyword">int</span> root)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num[<span class="number">5</span>] = &#123;<span class="number">3</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    heapSort(num, <span class="number">5</span>); </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = x;</span><br><span class="line">    x = y;</span><br><span class="line">    y = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapBuild</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>, <span class="keyword">int</span> root)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = root * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(left &lt; <span class="built_in">size</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> right = left + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> flag = left;</span><br><span class="line">        <span class="keyword">if</span>(right &lt; <span class="built_in">size</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(val[right] &gt; val[flag])&#123;</span><br><span class="line">                flag = right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(val[root] &lt; val[flag])&#123;</span><br><span class="line">            swap(val[root], val[flag]);</span><br><span class="line">            heapBuild(val, <span class="built_in">size</span>, flag);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="built_in">size</span> / <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">        heapBuild(val, <span class="built_in">size</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="built_in">size</span> - <span class="number">1</span>; j &gt; <span class="number">0</span>; --j)&#123;</span><br><span class="line">        swap(val[<span class="number">0</span>], val[j]);</span><br><span class="line">        heapBuild(val, j, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>算法，C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++中的iterator（迭代器）</title>
-    <url>/2020/07/18/C++%E4%B8%AD%E7%9A%84iterator/</url>
-    <content><![CDATA[<p><strong>摘自《Essential C++》</strong></p>
-<p><em>如果 first 和 last 都是 list  的 iterator，我们可以这样写：</em></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// first和last皆为iterator class object</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(first != last)&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; *first &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    first++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><em>这就好像把 first 和 last 当作<strong>指针</strong>一样。唯一的差别在于其 *、！=、++ 运算符是由 iterator class 内相关的 inline 函数提供。对 list iterator 而言，其递增函数会沿着 list 的执政前进到下一个元素， 对 vector iterator 而言，其递增函数前进至下一个元素的方式，是将目前的地址加上一个元素的大小。</em></p>
-<hr>
-<a id="more"></a>
-
-<ol>
-<li>利用iterator为vector重新赋值并遍历vector</li>
-</ol>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ivec</span> <span class="params">(<span class="number">5</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; :: iterator vec_b;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; :: iterator vec_e;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">size</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; <span class="built_in">size</span>;</span><br><span class="line">	ivec.resize(<span class="built_in">size</span>);	<span class="comment">//重新设置ivec大小</span></span><br><span class="line">	vec_b = ivec.<span class="built_in">begin</span>();</span><br><span class="line">	vec_e = ivec.<span class="built_in">end</span>();</span><br><span class="line">	<span class="keyword">for</span>(; vec_b != vec_e; vec_b++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; *vec_b;	<span class="comment">//将iterator看作指针，用*运算符提取值</span></span><br><span class="line">	&#125;</span><br><span class="line">	vec_b = ivec.<span class="built_in">begin</span>();</span><br><span class="line">	<span class="keyword">for</span>(; vec_b != vec_e; vec_b++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; *vec_b &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输入</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>概念</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++中的链表</title>
-    <url>/2020/08/10/C++%E4%B8%AD%E7%9A%84%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<p><strong>链表</strong>是一种常见的数据结构，其是一种非连续，非顺序的存储结构，数据元素的逻辑顺序通过指针依次连接。链表由一系列的节点（node）组成，每个节点包括两个部分，一个是储存该节点数据元素的<strong>数据域</strong>，一个是储存下一个节点地址的<strong>指针域</strong>。</p>
-<a id="more"></a>
-
-<img src="map.png" alt="map"  />
-
-<p><strong>myLinkedlist的操作符：</strong></p>
-<p>get(pos)：获得链表中第pos个节点的数据元素。</p>
-<p>insert(pos, val)：在第pos个节点后添加一个数据元素为val的节点。</p>
-<p>pushHead(val)：在头节点前添加一个数据元素为val的节点。</p>
-<p>pushBack(val)：在尾节点后面添加一个数据元素为val的节点。</p>
-<p>remove(pos)：删除第pos个节点。</p>
-<p>removeHead()：删除头节点。</p>
-<p>removeBack()：删除尾节点。</p>
-<p>print()：打印链表。</p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*为了便于操作，这里会使用一个虚拟头节点*/</span></span><br><span class="line"><span class="comment">/*为了简便，这里只举例了一部分操作符*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myLinkedlist</span>&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">            <span class="keyword">int</span> val;</span><br><span class="line">            node* next;</span><br><span class="line">            node(<span class="keyword">int</span> val):val(val), next(<span class="literal">nullptr</span>)&#123;&#125;;</span><br><span class="line">        &#125;; </span><br><span class="line">        myLinkedlist()&#123;</span><br><span class="line">            dummyHead = <span class="keyword">new</span> node(<span class="number">0</span>);</span><br><span class="line">            <span class="built_in">size</span> = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> pos)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> val)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">pushHead</span><span class="params">(<span class="keyword">int</span> val)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">pushTail</span><span class="params">(<span class="keyword">int</span> val)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> pos)</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">removeHead</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">removeBack</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">int</span> <span class="built_in">size</span>;</span><br><span class="line">        node* dummyHead;    <span class="comment">//定义虚拟头节点</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::get</span><span class="params">(<span class="keyword">int</span> pos)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos &lt; <span class="number">0</span> || pos &gt; <span class="built_in">size</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"invalid pos!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    node* tmp = dummyHead -&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(pos--)&#123;</span><br><span class="line">        tmp = tmp -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; tmp -&gt;val &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::insert</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos &lt; <span class="number">0</span> || pos &gt; <span class="built_in">size</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"invalid pos!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    node* tmp = dummyHead;</span><br><span class="line">    node* newNode = <span class="keyword">new</span> node(val);</span><br><span class="line">    <span class="keyword">while</span>(pos--)&#123;</span><br><span class="line">        tmp = tmp -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">    newNode -&gt;next = tmp -&gt;next;</span><br><span class="line">    tmp -&gt;next = newNode;</span><br><span class="line">    <span class="built_in">size</span>++;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::pushHead</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">    node* newNode = <span class="keyword">new</span> node(val);</span><br><span class="line">    newNode -&gt;next = dummyHead -&gt;next;</span><br><span class="line">    dummyHead -&gt;next = newNode;</span><br><span class="line">    <span class="built_in">size</span>++;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::pushTail</span><span class="params">(<span class="keyword">int</span> val)</span></span>&#123;</span><br><span class="line">    node* tmp = dummyHead;</span><br><span class="line">    node* newNode = <span class="keyword">new</span> node(val);</span><br><span class="line">    <span class="keyword">int</span> i = <span class="built_in">size</span>;</span><br><span class="line">    <span class="keyword">while</span>(i--)&#123;</span><br><span class="line">        tmp = tmp -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    newNode -&gt;next = tmp -&gt;next;</span><br><span class="line">    tmp -&gt;next = newNode;</span><br><span class="line">    <span class="built_in">size</span>++;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::remove</span><span class="params">(<span class="keyword">int</span> pos)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos &gt; <span class="number">0</span> || pos &gt; <span class="built_in">size</span> - <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    node* tmp = dummyHead;</span><br><span class="line">    <span class="keyword">while</span>(pos--)&#123;</span><br><span class="line">        tmp = tmp -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    node* temp = tmp -&gt; next; </span><br><span class="line">    tmp -&gt;next = tmp -&gt;next -&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> temp;</span><br><span class="line">    <span class="built_in">size</span>--;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::removeBack</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="built_in">size</span>;</span><br><span class="line">    node* tmp = dummyHead;</span><br><span class="line">    <span class="keyword">while</span>(i--)&#123;</span><br><span class="line">        tmp = tmp -&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span> tmp;</span><br><span class="line">    <span class="built_in">size</span>--;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myLinkedlist::removeHead</span><span class="params">()</span></span>&#123;</span><br><span class="line">    node* tmp = dummyHead -&gt;next;</span><br><span class="line">    dummyHead -&gt;next = dummyHead -&gt;next -&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> tmp;</span><br><span class="line">    <span class="built_in">size</span>--;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    myLinkedlist node_1;</span><br><span class="line">    node_1.pushHead(<span class="number">0</span>);</span><br><span class="line">    node_1.pushHead(<span class="number">3</span>);</span><br><span class="line">    node_1.pushTail(<span class="number">66</span>);</span><br><span class="line">    node_1.removeBack();</span><br><span class="line">    node_1.removeHead();</span><br><span class="line">    node_1.insert(<span class="number">1</span>, <span class="number">99</span>);</span><br><span class="line">    node_1.<span class="built_in">get</span>(<span class="number">0</span>);</span><br><span class="line">    node_1.<span class="built_in">get</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">99</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>数据结构</tag>
-        <tag>概念</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++中连续读取多行字符串</title>
-    <url>/2020/07/14/C++%E4%B8%AD%E8%BF%9E%E7%BB%AD%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<p><strong>C++中连续读取多行字符串</strong></p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#incude<span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">1000</span>];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; s[i] &amp;&amp; s != <span class="string">'E'</span>)&#123;	<span class="comment">//当读取到E时结束输入</span></span><br><span class="line">        i++;</span><br><span class="line">    &#125;	</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++备忘录</title>
     <url>/2020/08/30/C++%E5%A4%87%E5%BF%98%E5%BD%95/</url>
     <content><![CDATA[<p>将一个函数定义为<strong>内联函数</strong>可以提高程序的运行效率，将函数定义为<strong>内联函数</strong>后编译器会直接用该函数中的内容替换调用该函数的代码，以此来提高运行效率。将一个函数定义为内联函数应符合以下几点要求：</p>
@@ -379,12 +385,6 @@
       <tags>
         <tag>C++</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello_World</title>
-    <url>/2020/07/11/Hello-World/</url>
-    <content><![CDATA[<p><font color=lightblue size=10><strong>Hello,World!</strong></font></p>
-]]></content>
   </entry>
   <entry>
     <title>html的页面结构</title>
@@ -472,20 +472,18 @@
       </tags>
   </entry>
   <entry>
-    <title>冒泡排序</title>
-    <url>/2020/07/13/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p><strong>冒泡排序</strong></p>
-<p>对于一个大小为N的数组，可以分别将该数组中的每一个数与其他数比较，若找到比其大/小的数，交换其位置。</p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x, buf[<span class="number">100</span>];</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; buf[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;    <span class="comment">//从数组中的第一个数开始比较</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)&#123; </span><br><span class="line">            <span class="keyword">if</span> (buf[i] &gt; buf[j])&#123;   <span class="comment">//若找到比该数小的，交换位置</span></span><br><span class="line">                x = buf[i];</span><br><span class="line">                buf[i] = buf[j];</span><br><span class="line">                buf[j] = x;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; buf[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>归并排序模板</title>
+    <url>/2020/12/20/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> a[<span class="number">5000001</span>], sorted[<span class="number">5000001</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		merge(l, mid);</span><br><span class="line">		merge(mid + <span class="number">1</span>, r);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> i = l, j = mid + <span class="number">1</span>, t = l;</span><br><span class="line">	<span class="keyword">while</span>(i &lt;= mid &amp;&amp; j &lt;= r)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i] &lt; a[j])&#123;</span><br><span class="line">			sorted[t] = a[i];</span><br><span class="line">			t++;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> sorted[t++] = a[j++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(i &lt;= mid)&#123;</span><br><span class="line">		sorted[t] = a[i];</span><br><span class="line">		t++;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(j &lt;= r)&#123;</span><br><span class="line">		sorted[t] = a[j];</span><br><span class="line">		t++;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = l; i &lt;= r; i++)&#123;</span><br><span class="line">		a[i] = sorted[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">	merge(<span class="number">1</span>, n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; sorted[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
+<a id="more"></a>
 
 <p><strong>输入</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">5</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7</span> <span class="number">3</span> <span class="number">2</span> <span class="number">4</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">7</span> <span class="number">5</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -529,12 +527,20 @@
       </tags>
   </entry>
   <entry>
-    <title>图的遍历</title>
-    <url>/2020/09/20/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/</url>
-    <content><![CDATA[<a id="more"></a>
-
+    <title>冒泡排序</title>
+    <url>/2020/07/13/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p><strong>冒泡排序</strong></p>
+<p>对于一个大小为N的数组，可以分别将该数组中的每一个数与其他数比较，若找到比其大/小的数，交换其位置。</p>
 <p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">map</span> <span class="params">(<span class="number">5</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">book</span> <span class="params">(<span class="number">100</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="keyword">int</span> mi = <span class="number">999</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur, <span class="keyword">int</span> sum)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur == <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(sum &lt; mi) mi = sum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">map</span>[cur][i] != <span class="number">-1</span> &amp;&amp; book[i] == <span class="number">0</span>)&#123;</span><br><span class="line">            sum += <span class="built_in">map</span>[cur][i];</span><br><span class="line">            dfs(i, sum);</span><br><span class="line">            book[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">map</span>[i].resize(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i == j) <span class="built_in">map</span>[i][j] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">map</span>[i][j] = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> hei, wid, dist;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; hei &gt;&gt; wid &gt;&gt; dist;</span><br><span class="line">        <span class="built_in">map</span>[hei][wid] = dist;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; mi &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x, buf[<span class="number">100</span>];</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; buf[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;    <span class="comment">//从数组中的第一个数开始比较</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)&#123; </span><br><span class="line">            <span class="keyword">if</span> (buf[i] &gt; buf[j])&#123;   <span class="comment">//若找到比该数小的，交换位置</span></span><br><span class="line">                x = buf[i];</span><br><span class="line">                buf[i] = buf[j];</span><br><span class="line">                buf[j] = x;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; buf[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">5</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">7</span> <span class="number">5</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -546,18 +552,12 @@
       </tags>
   </entry>
   <entry>
-    <title>归并排序模板</title>
-    <url>/2020/12/20/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<p><strong>代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> a[<span class="number">5000001</span>], sorted[<span class="number">5000001</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		merge(l, mid);</span><br><span class="line">		merge(mid + <span class="number">1</span>, r);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> i = l, j = mid + <span class="number">1</span>, t = l;</span><br><span class="line">	<span class="keyword">while</span>(i &lt;= mid &amp;&amp; j &lt;= r)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i] &lt; a[j])&#123;</span><br><span class="line">			sorted[t] = a[i];</span><br><span class="line">			t++;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> sorted[t++] = a[j++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(i &lt;= mid)&#123;</span><br><span class="line">		sorted[t] = a[i];</span><br><span class="line">		t++;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(j &lt;= r)&#123;</span><br><span class="line">		sorted[t] = a[j];</span><br><span class="line">		t++;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = l; i &lt;= r; i++)&#123;</span><br><span class="line">		a[i] = sorted[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">	merge(<span class="number">1</span>, n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; sorted[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>图的遍历</title>
+    <url>/2020/09/20/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/</url>
+    <content><![CDATA[<a id="more"></a>
 
-<a id="more"></a>
-
-<p><strong>输入</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7</span> <span class="number">3</span> <span class="number">2</span> <span class="number">4</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">map</span> <span class="params">(<span class="number">5</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">book</span> <span class="params">(<span class="number">100</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="keyword">int</span> mi = <span class="number">999</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur, <span class="keyword">int</span> sum)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur == <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(sum &lt; mi) mi = sum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">map</span>[cur][i] != <span class="number">-1</span> &amp;&amp; book[i] == <span class="number">0</span>)&#123;</span><br><span class="line">            sum += <span class="built_in">map</span>[cur][i];</span><br><span class="line">            dfs(i, sum);</span><br><span class="line">            book[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">map</span>[i].resize(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i == j) <span class="built_in">map</span>[i][j] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">map</span>[i][j] = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> hei, wid, dist;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; hei &gt;&gt; wid &gt;&gt; dist;</span><br><span class="line">        <span class="built_in">map</span>[hei][wid] = dist;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; mi &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -615,51 +615,25 @@
       </tags>
   </entry>
   <entry>
-    <title>广度优先搜索（bfs）</title>
-    <url>/2020/08/28/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%EF%BC%88bfs%EF%BC%89/</url>
-    <content><![CDATA[<p><strong>广度优先搜索算法</strong>（英语：Breadth-First Search，缩写为BFS），又译作<strong>宽度优先搜索</strong>，或<strong>横向优先搜索</strong>，是一种[图形搜索算法。简单的说，BFS是从根节点开始，沿着树的宽度遍历树的节点。如果所有节点均被访问，则算法中止。广度优先搜索的实现一般采用open-closed表。<font color = gray><em>摘自维基百科</em></font></p>
+    <title>洛谷P1873 砍树 解题笔记</title>
+    <url>/2020/12/19/%E6%B4%9B%E8%B0%B7P1873%20%E7%A0%8D%E6%A0%91%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong><a href="https://www.luogu.com.cn/problem/P1873" target="_blank" rel="noopener">原题</a></strong></p>
+<p>题干：<strong>帮助米尔科找到伐木机锯片的最大的整数高度H，使得他能得到木材至少为M米。</strong>换言之，该题要求找到<strong>至少</strong>得到<strong>M</strong>米木材的<strong>最大</strong>锯片高度<em>H</em>。</p>
 <a id="more"></a>
 
-<p>可以利用BFS来求二叉树的最大深度</p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">leafNode</span>&#123;</span>    <span class="comment">//创建叶节点结构</span></span><br><span class="line">    <span class="keyword">char</span> val;       <span class="comment">//val储存本节点数据</span></span><br><span class="line">    leafNode* left; <span class="comment">//left储存左儿子地址    </span></span><br><span class="line">    leafNode* right;<span class="comment">//right储存右儿子地址</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createBitree</span><span class="params">(leafNode* &amp;t)</span></span>;    <span class="comment">//这里一定要使用 leafNode*&amp;</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMaxStep</span><span class="params">(leafNode* &amp;t)</span></span>;      <span class="comment">//定义寻找最大深度函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    leafNode* a;</span><br><span class="line">    createBitree(a);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Max step of this bitree is : "</span> &lt;&lt; findMaxStep(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createBitree</span><span class="params">(leafNode* &amp;t)</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;                     <span class="comment">//临时储存要储存在节点中的数据</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">    <span class="keyword">if</span>(c == <span class="string">'#'</span>) t = <span class="literal">NULL</span>;      <span class="comment">//若输入为'#'，则该节点为空节点</span></span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        t = <span class="keyword">new</span> leafNode;       <span class="comment">//创建新节点</span></span><br><span class="line">        t -&gt;val = c;</span><br><span class="line">        <span class="keyword">if</span>(t == <span class="literal">NULL</span>) <span class="keyword">return</span>;   <span class="comment">//若该节点为空，则退出创建</span></span><br><span class="line">        createBitree(t -&gt;left); <span class="comment">//继续对该节点的左儿子，右儿子进行处理</span></span><br><span class="line">        createBitree(t -&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMaxStep</span><span class="params">(leafNode* &amp;t)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(t == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">max</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">queue</span>&lt;leafNode*&gt; q;     <span class="comment">//bfs需要用到队列来储存数据</span></span><br><span class="line">    q.push(t);              <span class="comment">//将非空首节点入队</span></span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        <span class="keyword">int</span> len = q.<span class="built_in">size</span>(); <span class="comment">//储存该层的节点数</span></span><br><span class="line">        <span class="keyword">while</span>(len)&#123;                     <span class="comment">//当遍历完该层节点后，退出循环，进入下一层</span></span><br><span class="line">            leafNode* temp = q.front(); <span class="comment">//临时储存队首节点</span></span><br><span class="line">            q.pop();                    <span class="comment">//弹出队首</span></span><br><span class="line">            <span class="keyword">if</span>(temp-&gt;left != <span class="literal">NULL</span>) q.push(temp-&gt;left);</span><br><span class="line">            <span class="keyword">if</span>(temp-&gt;right != <span class="literal">NULL</span>) q.push(temp-&gt;right);</span><br><span class="line">            len--;                     </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">max</span>++;             <span class="comment">//层数加1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">max</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输入</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">4</span> # # <span class="number">5</span> # # <span class="number">3</span> # #</span><br></pre></td></tr></table></figure>
-
-<p><strong>二叉树示例</strong></p>
-<p>​                 <strong>1</strong></p>
-<p>​             /         \</p>
-<p>​          <strong>2</strong>           <strong>3</strong>    </p>
-<p>​    /             \</p>
-<p><strong>4</strong>                <strong>5</strong></p>
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Max <span class="built_in">step</span> of <span class="keyword">this</span> bitree is : <span class="number">3</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>滑动窗口算法</title>
-    <url>/2020/09/20/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<p>滑动窗口算法可以用来解决一些与一连串的数字或字符有关的题目。</p>
-<a id="more"></a>
-
-<p><strong>例：<a href="https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/" target="_blank" rel="noopener">剑指 Offer 57 - II. 和为s的连续正数序列</a></strong></p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">findContinuousSequence</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">1</span>, r = <span class="number">1</span>, sum = <span class="number">0</span>; r &lt; target; r++)&#123;</span><br><span class="line">            sum += r;</span><br><span class="line">            <span class="keyword">while</span>(sum &gt; target)&#123;</span><br><span class="line">                sum -= l++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(sum == target)&#123;</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; path;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = l; i &lt;= r; i++)&#123;</span><br><span class="line">                    path.push_back(i);</span><br><span class="line">                &#125;</span><br><span class="line">                res.push_back(path);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>分析：显然，锯片的高度<em>H</em>存在一个可行解范围[<em>l</em>, <em>r</em>]，当<em>H</em>为<strong>0</strong>时，所有树全部被锯断，此时可以获得最大木材长度，当<em>H</em>为最高树的高度<em>T</em>时，此时可以得到最小木材长度<em>0</em>。因此可知，这个可行解的范围为[<em>0</em>, <em>T</em>]，由此可联想到可使用<strong>二分答案</strong>解决该题。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; tree;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">judge</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> gain = <span class="number">0</span>;		<span class="comment">//用gain来存储获得的木材长度</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(x &lt; tree[i]) gain += <span class="built_in">abs</span>(x - tree[i]);	<span class="comment">//如果锯片高度大于第i棵树高度，获得高度x以上的木材</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> gain &gt;= m ? <span class="literal">true</span> : <span class="literal">false</span>;	<span class="comment">//如果获得的木材长度大于等于m，则高度x可行</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> l, r, mid, ans = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	tree.resize(n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">cin</span> &gt;&gt; tree[i];</span><br><span class="line">	sort(tree.<span class="built_in">begin</span>(), tree.<span class="built_in">end</span>());</span><br><span class="line">	l = <span class="number">0</span>, r = tree[n - <span class="number">1</span>];</span><br><span class="line">	<span class="keyword">while</span>(l &lt;= r)&#123;</span><br><span class="line">		mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(judge(mid))&#123;</span><br><span class="line">			l = mid + <span class="number">1</span>;</span><br><span class="line">			ans = mid;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
         <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
       </categories>
       <tags>
         <tag>C++</tag>
-        <tag>算法</tag>
+        <tag>二分答案</tag>
       </tags>
   </entry>
   <entry>
@@ -702,48 +676,51 @@
       </tags>
   </entry>
   <entry>
-    <title>洛谷P1873 砍树 解题笔记</title>
-    <url>/2020/12/19/%E6%B4%9B%E8%B0%B7P1873%20%E7%A0%8D%E6%A0%91%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p><strong><a href="https://www.luogu.com.cn/problem/P1873" target="_blank" rel="noopener">原题</a></strong></p>
-<p>题干：<strong>帮助米尔科找到伐木机锯片的最大的整数高度H，使得他能得到木材至少为M米。</strong>换言之，该题要求找到<strong>至少</strong>得到<strong>M</strong>米木材的<strong>最大</strong>锯片高度<em>H</em>。</p>
+    <title>滑动窗口算法</title>
+    <url>/2020/09/20/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>滑动窗口算法可以用来解决一些与一连串的数字或字符有关的题目。</p>
 <a id="more"></a>
 
-<p>分析：显然，锯片的高度<em>H</em>存在一个可行解范围[<em>l</em>, <em>r</em>]，当<em>H</em>为<strong>0</strong>时，所有树全部被锯断，此时可以获得最大木材长度，当<em>H</em>为最高树的高度<em>T</em>时，此时可以得到最小木材长度<em>0</em>。因此可知，这个可行解的范围为[<em>0</em>, <em>T</em>]，由此可联想到可使用<strong>二分答案</strong>解决该题。</p>
-<p><strong>代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span>&gt; tree;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">judge</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> gain = <span class="number">0</span>;		<span class="comment">//用gain来存储获得的木材长度</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(x &lt; tree[i]) gain += <span class="built_in">abs</span>(x - tree[i]);	<span class="comment">//如果锯片高度大于第i棵树高度，获得高度x以上的木材</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> gain &gt;= m ? <span class="literal">true</span> : <span class="literal">false</span>;	<span class="comment">//如果获得的木材长度大于等于m，则高度x可行</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> l, r, mid, ans = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	tree.resize(n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">cin</span> &gt;&gt; tree[i];</span><br><span class="line">	sort(tree.<span class="built_in">begin</span>(), tree.<span class="built_in">end</span>());</span><br><span class="line">	l = <span class="number">0</span>, r = tree[n - <span class="number">1</span>];</span><br><span class="line">	<span class="keyword">while</span>(l &lt;= r)&#123;</span><br><span class="line">		mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(judge(mid))&#123;</span><br><span class="line">			l = mid + <span class="number">1</span>;</span><br><span class="line">			ans = mid;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>例：<a href="https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/" target="_blank" rel="noopener">剑指 Offer 57 - II. 和为s的连续正数序列</a></strong></p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">findContinuousSequence</span><span class="params">(<span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">1</span>, r = <span class="number">1</span>, sum = <span class="number">0</span>; r &lt; target; r++)&#123;</span><br><span class="line">            sum += r;</span><br><span class="line">            <span class="keyword">while</span>(sum &gt; target)&#123;</span><br><span class="line">                sum -= l++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(sum == target)&#123;</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; path;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> i = l; i &lt;= r; i++)&#123;</span><br><span class="line">                    path.push_back(i);</span><br><span class="line">                &#125;</span><br><span class="line">                res.push_back(path);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
         <category>编程</category>
-        <category>笔记</category>
-        <category>题解</category>
       </categories>
       <tags>
         <tag>C++</tag>
-        <tag>二分答案</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
-    <title>力扣No.121爬楼梯解题笔记</title>
-    <url>/2020/10/12/%E7%88%AC%E6%A5%BC%E6%A2%AF/</url>
-    <content><![CDATA[<p>​    <strong>原题：<a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">70. 爬楼梯</a></strong></p>
+    <title>广度优先搜索（bfs）</title>
+    <url>/2020/08/28/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%EF%BC%88bfs%EF%BC%89/</url>
+    <content><![CDATA[<p><strong>广度优先搜索算法</strong>（英语：Breadth-First Search，缩写为BFS），又译作<strong>宽度优先搜索</strong>，或<strong>横向优先搜索</strong>，是一种[图形搜索算法。简单的说，BFS是从根节点开始，沿着树的宽度遍历树的节点。如果所有节点均被访问，则算法中止。广度优先搜索的实现一般采用open-closed表。<font color = gray><em>摘自维基百科</em></font></p>
 <a id="more"></a>
 
-<p>这是一道经典的动态规划题，若使用递归算法，则重复计算会过多，导致解答超时，故要使用动态规划。</p>
-<p>若要爬上n阶楼梯，只需在第n-2阶时爬2阶或在n-1阶时爬一阶，以此类推，即可推出状态转移方程：</p>
-<p><strong>f(x) = f(x - 1) + f(x - 2)</strong></p>
-<p><strong>动态规划</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">2</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> q = <span class="number">1</span>, p = <span class="number">2</span>, r = <span class="number">3</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(r &lt;= n)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = q + p;</span><br><span class="line">            q = p;</span><br><span class="line">            p = temp;</span><br><span class="line">            r++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>可以利用BFS来求二叉树的最大深度</p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">leafNode</span>&#123;</span>    <span class="comment">//创建叶节点结构</span></span><br><span class="line">    <span class="keyword">char</span> val;       <span class="comment">//val储存本节点数据</span></span><br><span class="line">    leafNode* left; <span class="comment">//left储存左儿子地址    </span></span><br><span class="line">    leafNode* right;<span class="comment">//right储存右儿子地址</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createBitree</span><span class="params">(leafNode* &amp;t)</span></span>;    <span class="comment">//这里一定要使用 leafNode*&amp;</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMaxStep</span><span class="params">(leafNode* &amp;t)</span></span>;      <span class="comment">//定义寻找最大深度函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    leafNode* a;</span><br><span class="line">    createBitree(a);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Max step of this bitree is : "</span> &lt;&lt; findMaxStep(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createBitree</span><span class="params">(leafNode* &amp;t)</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;                     <span class="comment">//临时储存要储存在节点中的数据</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">    <span class="keyword">if</span>(c == <span class="string">'#'</span>) t = <span class="literal">NULL</span>;      <span class="comment">//若输入为'#'，则该节点为空节点</span></span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        t = <span class="keyword">new</span> leafNode;       <span class="comment">//创建新节点</span></span><br><span class="line">        t -&gt;val = c;</span><br><span class="line">        <span class="keyword">if</span>(t == <span class="literal">NULL</span>) <span class="keyword">return</span>;   <span class="comment">//若该节点为空，则退出创建</span></span><br><span class="line">        createBitree(t -&gt;left); <span class="comment">//继续对该节点的左儿子，右儿子进行处理</span></span><br><span class="line">        createBitree(t -&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findMaxStep</span><span class="params">(leafNode* &amp;t)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(t == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">int</span> <span class="built_in">max</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">queue</span>&lt;leafNode*&gt; q;     <span class="comment">//bfs需要用到队列来储存数据</span></span><br><span class="line">    q.push(t);              <span class="comment">//将非空首节点入队</span></span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        <span class="keyword">int</span> len = q.<span class="built_in">size</span>(); <span class="comment">//储存该层的节点数</span></span><br><span class="line">        <span class="keyword">while</span>(len)&#123;                     <span class="comment">//当遍历完该层节点后，退出循环，进入下一层</span></span><br><span class="line">            leafNode* temp = q.front(); <span class="comment">//临时储存队首节点</span></span><br><span class="line">            q.pop();                    <span class="comment">//弹出队首</span></span><br><span class="line">            <span class="keyword">if</span>(temp-&gt;left != <span class="literal">NULL</span>) q.push(temp-&gt;left);</span><br><span class="line">            <span class="keyword">if</span>(temp-&gt;right != <span class="literal">NULL</span>) q.push(temp-&gt;right);</span><br><span class="line">            len--;                     </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">max</span>++;             <span class="comment">//层数加1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">max</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-]]></content>
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">4</span> # # <span class="number">5</span> # # <span class="number">3</span> # #</span><br></pre></td></tr></table></figure>
+
+<p><strong>二叉树示例</strong></p>
+<p>​                 <strong>1</strong></p>
+<p>​             /         \</p>
+<p>​          <strong>2</strong>           <strong>3</strong>    </p>
+<p>​    /             \</p>
+<p><strong>4</strong>                <strong>5</strong></p>
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Max <span class="built_in">step</span> of <span class="keyword">this</span> bitree is : <span class="number">3</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>题解</category>
         <category>编程</category>
-        <category>笔记</category>
       </categories>
       <tags>
         <tag>C++</tag>
-        <tag>动态规划</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -770,6 +747,29 @@
       <tags>
         <tag>C++</tag>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣No.121爬楼梯解题笔记</title>
+    <url>/2020/10/12/%E7%88%AC%E6%A5%BC%E6%A2%AF/</url>
+    <content><![CDATA[<p>​    <strong>原题：<a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">70. 爬楼梯</a></strong></p>
+<a id="more"></a>
+
+<p>这是一道经典的动态规划题，若使用递归算法，则重复计算会过多，导致解答超时，故要使用动态规划。</p>
+<p>若要爬上n阶楼梯，只需在第n-2阶时爬2阶或在n-1阶时爬一阶，以此类推，即可推出状态转移方程：</p>
+<p><strong>f(x) = f(x - 1) + f(x - 2)</strong></p>
+<p><strong>动态规划</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">climbStairs</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">2</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> q = <span class="number">1</span>, p = <span class="number">2</span>, r = <span class="number">3</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(r &lt;= n)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = q + p;</span><br><span class="line">            q = p;</span><br><span class="line">            p = temp;</span><br><span class="line">            r++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>题解</category>
+        <category>编程</category>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -806,50 +806,6 @@
       </categories>
       <tags>
         <tag>计算机</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《计算机网络 自顶向下方法》阅读笔记</title>
-    <url>/2020/07/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C_%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>1.<strong>排队时延和分组丢失（丢包）</strong>    <font color=lghtblue><strong>P17</strong></font></p>
-<p>每台分组交换机有多条链路与之相连。对于每条相连的链路，该分组交换机具有一个输出缓存（输出队列），它用于存储路由器准备发往那条链路的分组。</p>
-<ul>
-<li><p>排队时延</p>
-<p>如果到达的分许要传输到某条链路，但发现该链路正忙于传输其他分组，该到达分组必须在输出缓存中等待。因此，分组需要承受输出缓存的排队时延。</p>
-</li>
-</ul>
-<ul>
-<li><p>分组丢失（丢包）</p>
-<p>因为缓存空间的大小是有限的，一个到达的分组可能发现该缓存已被其他等待传输的分组完全充满了，无法充入缓存，在此情况下，将出现分组丢失（丢包），到达的分组或已经排队的分组之一将被丢弃。</p>
-</li>
-</ul>
-<hr>
-<a id="more"></a>
-
-<p>​    2.<strong>电路交换和分组交换的区别</strong>    <font color=lghtblue><strong>P15、P19</strong></font></p>
-<p>​    在各种网络应用中，端系统彼此交换报文（文件、信息、数据等）。</p>
-<ul>
-<li><p>分组交换</p>
-<p>为了从源端系统向目的系统发送一个报文，源将长报文划分为较小的数据块，每个分组通过信链路和分组交换机（路由器、链路层交换机）传送。分组以等于该链路最大传输速率的速度传输通过通信链路。</p>
-</li>
-<li><p>电路交换</p>
-<p>在电路交换中，在端系统通信会话期间，预留了端系统间沿路径通信所需的资源（缓存、链路传输速率），而在分组交换中这些都没有预留，会话报文按需使用这些资源。<em>换言之，电路交换在进行通信前需要先接入预留的通信线路，而预留通信线路会导致可用传输速率下降</em></p>
-</li>
-</ul>
-<hr>
-<ol start="3">
-<li><p><strong>传输时延和传播时延区别</strong>    <font color=lghtblue><strong>P26</strong></font></p>
-<p>   <strong>传输时延</strong>是路由器推出分组所需要的时间，它是分组长度和链路传输速率的函数，而与两台路由器之间的距离无关。<em>换言之，可以将每个比特看作一辆汽车，要传输的报文看作一个由比特组成的车队，整个车队通过收费站（路由器）并被推向高速公路的时间即为传输时延。</em></p>
-<p>   <strong>传播时延</strong>是一个比特从一台路由器传输到另一台路由器所需要的时间，它是两台路由器之间距离的函数。<em>换言之，一个车队（报文）从一个收费站到另一个收费站（路由器）经过的路程所用的时间即为传播时延。</em></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机</tag>
-        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
@@ -895,6 +851,50 @@
       </categories>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《计算机网络 自顶向下方法》阅读笔记</title>
+    <url>/2020/07/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C_%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>1.<strong>排队时延和分组丢失（丢包）</strong>    <font color=lghtblue><strong>P17</strong></font></p>
+<p>每台分组交换机有多条链路与之相连。对于每条相连的链路，该分组交换机具有一个输出缓存（输出队列），它用于存储路由器准备发往那条链路的分组。</p>
+<ul>
+<li><p>排队时延</p>
+<p>如果到达的分许要传输到某条链路，但发现该链路正忙于传输其他分组，该到达分组必须在输出缓存中等待。因此，分组需要承受输出缓存的排队时延。</p>
+</li>
+</ul>
+<ul>
+<li><p>分组丢失（丢包）</p>
+<p>因为缓存空间的大小是有限的，一个到达的分组可能发现该缓存已被其他等待传输的分组完全充满了，无法充入缓存，在此情况下，将出现分组丢失（丢包），到达的分组或已经排队的分组之一将被丢弃。</p>
+</li>
+</ul>
+<hr>
+<a id="more"></a>
+
+<p>​    2.<strong>电路交换和分组交换的区别</strong>    <font color=lghtblue><strong>P15、P19</strong></font></p>
+<p>​    在各种网络应用中，端系统彼此交换报文（文件、信息、数据等）。</p>
+<ul>
+<li><p>分组交换</p>
+<p>为了从源端系统向目的系统发送一个报文，源将长报文划分为较小的数据块，每个分组通过信链路和分组交换机（路由器、链路层交换机）传送。分组以等于该链路最大传输速率的速度传输通过通信链路。</p>
+</li>
+<li><p>电路交换</p>
+<p>在电路交换中，在端系统通信会话期间，预留了端系统间沿路径通信所需的资源（缓存、链路传输速率），而在分组交换中这些都没有预留，会话报文按需使用这些资源。<em>换言之，电路交换在进行通信前需要先接入预留的通信线路，而预留通信线路会导致可用传输速率下降</em></p>
+</li>
+</ul>
+<hr>
+<ol start="3">
+<li><p><strong>传输时延和传播时延区别</strong>    <font color=lghtblue><strong>P26</strong></font></p>
+<p>   <strong>传输时延</strong>是路由器推出分组所需要的时间，它是分组长度和链路传输速率的函数，而与两台路由器之间的距离无关。<em>换言之，可以将每个比特看作一辆汽车，要传输的报文看作一个由比特组成的车队，整个车队通过收费站（路由器）并被推向高速公路的时间即为传输时延。</em></p>
+<p>   <strong>传播时延</strong>是一个比特从一台路由器传输到另一台路由器所需要的时间，它是两台路由器之间距离的函数。<em>换言之，一个车队（报文）从一个收费站到另一个收费站（路由器）经过的路程所用的时间即为传播时延。</em></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机</tag>
+        <tag>网络</tag>
       </tags>
   </entry>
 </search>
