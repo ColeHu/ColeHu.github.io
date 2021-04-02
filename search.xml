@@ -874,4 +874,28 @@
         <tag>网络</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.5（最长回文子串）解题笔记</title>
+    <url>/2021/04/02/%E5%8A%9B%E6%89%A3No.5%EF%BC%88%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%EF%BC%89%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>第一眼看到<strong>1 &lt;= s.length &lt;= 1000</strong>，想到暴力解，枚举每个字串并判断是否回文，记录最长的，毫不意外地TLE了，又看了会题目，由于是最长字串问题，想到用动态规划来解。</p>
+<p>对于一个长度为<strong>L</strong>的字符串S，要判断其是否为回文串，可以从两头开始判断，<strong>若S[0] = S[L]，接下来只需判断S[1]  == S[L - 1]，S[2] == S[L - 2]……S[L / 2 - 1] == S[L / 2 + 1] **，显然，这里可以使用dp数组来记录回文情况，</strong>DP(i, j)<strong>记录</strong>S[i]<strong>至</strong>S[j]**是否为回文串，这样，可以推出状态转移方程：</p>
+<center>DP(i, j) = (DP(i + 1, j - 1)) && (S[i] == S[j])</center>
+
+<a id="more"></a>
+
+<p>对于长度为1的串，其一定是回文串，故需初始化DP(i, i) = 1</p>
+<p><strong>AC代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; &gt; <span class="title">dp</span><span class="params">(s.<span class="built_in">size</span>(), <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(s.<span class="built_in">size</span>(), <span class="number">0</span>))</span></span>;</span><br><span class="line">        <span class="built_in">string</span> ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">0</span>; l &lt; s.<span class="built_in">size</span>(); l++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j + l &lt; s.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> i = l + j;</span><br><span class="line">                <span class="keyword">if</span>(l == <span class="number">1</span>)&#123;</span><br><span class="line">                    dp[j][i] = (s[i] == s[j]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(l == <span class="number">0</span>) dp[j][i] = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[j][i] = (s[i] == s[j]) &amp;&amp; (dp[j + <span class="number">1</span>][i - <span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(dp[j][i] &amp;&amp; l + <span class="number">1</span> &gt; ans.<span class="built_in">size</span>())&#123;</span><br><span class="line">                    ans = s.substr(j, l + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>这里使用了substr(j, l)函数，该函数返回字符串从j开始到j + l - 1的子串。</strong> </p>
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
