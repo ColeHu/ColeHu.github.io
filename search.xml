@@ -902,6 +902,8 @@
     <title>POJ3616解题笔记</title>
     <url>/2021/04/07/POJ3616%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p><strong>题目：</strong>龙鸣John由一头牛，它一共有<strong>M</strong>个产奶区间，每个区间给定开始时间<strong>a</strong>，结束时间<strong>b</strong>和产奶量<strong>c</strong>，每次挤奶后需要休息<strong>R</strong>小时，求出<strong>N</strong>小时内的最大产奶量。</p>
+<a id="more"></a>
+
 <p>上眼瞧，区间dp问题。对于牛的产奶区间，由于其在<strong>c-c+r</strong>是无法产奶的，可以直接将其所有产奶区间的结束时间<strong>b加上r</strong>，并按照开始时间a递增排序，这样，就得到了一个从有序的产奶区间表。接下来，定义dp数组dp(i)，其含义为到第i个产奶区间（包括第i个）时的最大产奶量。要求dp(i)，只需求出dp(i - 1)加上当前区间产奶量。以此类推，可以得到递推式:</p>
 <p><strong>dp(i) = max(dp(i), dp(j) + d(i).c)</strong> <em>（dp(i)要初始化为d(i).c）</em></p>
 <p>j的含义：对于每一个区间i，遍历其之前的区间，如果遇到与之不重合的，即d(j)的结束时间小于等于d(i)的开始时间，那么就让dp(j)加上该区间，即<em>dp(i - 1)加上当前区间产奶量</em></p>
