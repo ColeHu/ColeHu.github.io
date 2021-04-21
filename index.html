@@ -229,7 +229,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-21 12:51:12" itemprop="dateModified" datetime="2021-04-21T12:51:12+08:00">2021-04-21</time>
+                <time title="修改时间：2021-04-21 15:21:41" itemprop="dateModified" datetime="2021-04-21T15:21:41+08:00">2021-04-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,18 +252,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>A</strong></p>
+          <a id="more"></a>
+
+<p><strong>A</strong></p>
 <p><img src="A.png" alt="A"></p>
 <p>一眼题（<del>脑抽把kb当成1000byte了</del>） 256 x 1024 x 1024 / 4</p>
 <p><strong>答案：67108864</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/04/20/%E5%8D%81%E4%BA%8C%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9BB%E7%BB%84C++%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<!-- more -->
+
+<hr>
+<p><strong>B</strong></p>
+<p><img src="B.png" alt="B"></p>
+<p>暴力就完事</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 1e+9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> card[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">        card[i] = <span class="number">2021</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; ; i++)&#123;</span><br><span class="line">        <span class="built_in">string</span> s = to_string(i);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; s.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">            card[s[j] - <span class="string">'0'</span>] --;</span><br><span class="line">            <span class="keyword">if</span>(card[s[j] - <span class="string">'0'</span>] == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>答案</strong>：3181</p>
+<hr>
+<p><strong>C</strong></p>
+<p><img src="C.png" alt="C"></p>
+<hr>
+<p><strong>D</strong></p>
+<p><img src="D.png" alt="D"></p>
+<hr>
+<p><strong>E</strong></p>
+<p><img src="E.png" alt="E"></p>
+<hr>
+<p><strong>F</strong></p>
+<p><img src="F.png" alt="F"></p>
+<hr>
+<p><strong>G</strong></p>
+<p><img src="G.png" alt="G"></p>
+<p>DP题（<del>虽然在考场只写了个暴力dfs骗分</del>），定义一个二维DP[i][j]，代表前i个砝码是否可以称出重量j。</p>
+<p>对于每一个砝码，其有三种状态，<strong>①放在左盘</strong>，<strong>②不取</strong>，<strong>③放在右盘</strong>，由此可以推出状态转移式：</p>
+<p><strong>DP[i][j] = DP[i - 1][j - w[i]] || DP[i - 1][j] || DP[i - 1][j + w[i]] || DP[i][j]（j - w[i] &lt; 0时需要改为w[i] - j）</strong></p>
+<p>再设置一下初始状态<strong>DP[i][0] = 1</strong>，之后双重循环即可。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 1e+9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">110</span>][<span class="number">10010</span>];</span><br><span class="line"><span class="keyword">int</span> w[<span class="number">110</span>];</span><br><span class="line"><span class="keyword">bool</span> m[<span class="number">10010</span>];</span><br><span class="line"><span class="keyword">int</span> n, sum = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; w[i];</span><br><span class="line">        dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        sum += w[i];</span><br><span class="line">    &#125;</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= sum; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j - w[i] &gt;= <span class="number">0</span>) dp[i][j] = dp[i][j] || dp[i - <span class="number">1</span>][j - w[i]] || dp[i - <span class="number">1</span>][j + w[i]] || dp[i - <span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">else</span> dp[i][j] = dp[i][j] || dp[i - <span class="number">1</span>][w[i] - j] || dp[i - <span class="number">1</span>][j + w[i]] || dp[i - <span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">if</span>(dp[i][j]) m[j] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= sum; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(m[i]) ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
       
     </div>
 
