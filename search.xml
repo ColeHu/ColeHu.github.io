@@ -31,39 +31,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C++中char类型数组和string的互化</title>
-    <url>/2020/07/14/C++%E4%B8%AD%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E4%B8%BA%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<p>1.<strong>将string类型的字符串转为char类型数组</strong></p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> l;</span><br><span class="line">	<span class="built_in">string</span> str = <span class="string">"Hello, World!"</span>;</span><br><span class="line">	<span class="keyword">char</span> s[<span class="number">20</span>];</span><br><span class="line">	l = str.length();	<span class="comment">//获取str字符串长度</span></span><br><span class="line">	str.copy(s, l, <span class="number">0</span>);	<span class="comment">//str.copy(要复制到的数组，复制的字符数量，从第几个开始复制)</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; s[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Hello, World!</span><br></pre></td></tr></table></figure>
-
-<hr>
-<a id="more"></a>
-
-<p>2.<strong>将char类型数组转为string类型字符串</strong></p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> s[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; s[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">string</span> str = s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输入</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1234567890</span></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++中取绝对值</title>
     <url>/2020/07/16/C++%E4%B8%AD%E5%8F%96%E7%BB%9D%E5%AF%B9%E5%80%BC/</url>
     <content><![CDATA[<p>如果要在C++中取绝对值，可以使用<font color=#ff9494>stdlib.h</font>库中的<font color=#fff942>abs</font>函数。</p>
@@ -110,6 +77,39 @@
       </tags>
   </entry>
   <entry>
+    <title>C++中char类型数组和string的互化</title>
+    <url>/2020/07/14/C++%E4%B8%AD%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E4%B8%BA%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<p>1.<strong>将string类型的字符串转为char类型数组</strong></p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> l;</span><br><span class="line">	<span class="built_in">string</span> str = <span class="string">"Hello, World!"</span>;</span><br><span class="line">	<span class="keyword">char</span> s[<span class="number">20</span>];</span><br><span class="line">	l = str.length();	<span class="comment">//获取str字符串长度</span></span><br><span class="line">	str.copy(s, l, <span class="number">0</span>);	<span class="comment">//str.copy(要复制到的数组，复制的字符数量，从第几个开始复制)</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; l; i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; s[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Hello, World!</span><br></pre></td></tr></table></figure>
+
+<hr>
+<a id="more"></a>
+
+<p>2.<strong>将char类型数组转为string类型字符串</strong></p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> s[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; s[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">string</span> str = s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1234567890</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++中的iterator（迭代器）</title>
     <url>/2020/07/18/C++%E4%B8%AD%E7%9A%84iterator/</url>
     <content><![CDATA[<p><strong>摘自《Essential C++》</strong></p>
@@ -139,82 +139,6 @@
       <tags>
         <tag>C++</tag>
         <tag>概念</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++中的堆排序</title>
-    <url>/2020/08/26/C++%E4%B8%AD%E7%9A%84%E5%A0%86%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapBuild</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>, <span class="keyword">int</span> root)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num[<span class="number">5</span>] = &#123;<span class="number">3</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    heapSort(num, <span class="number">5</span>); </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = x;</span><br><span class="line">    x = y;</span><br><span class="line">    y = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapBuild</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>, <span class="keyword">int</span> root)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = root * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(left &lt; <span class="built_in">size</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> right = left + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> flag = left;</span><br><span class="line">        <span class="keyword">if</span>(right &lt; <span class="built_in">size</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(val[right] &gt; val[flag])&#123;</span><br><span class="line">                flag = right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(val[root] &lt; val[flag])&#123;</span><br><span class="line">            swap(val[root], val[flag]);</span><br><span class="line">            heapBuild(val, <span class="built_in">size</span>, flag);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="built_in">size</span> / <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">        heapBuild(val, <span class="built_in">size</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="built_in">size</span> - <span class="number">1</span>; j &gt; <span class="number">0</span>; --j)&#123;</span><br><span class="line">        swap(val[<span class="number">0</span>], val[j]);</span><br><span class="line">        heapBuild(val, j, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>算法，C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++中的find函数</title>
-    <url>/2020/08/04/C++%E4%B8%AD%E7%9A%84find%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<ol>
-<li><p><strong>string</strong>的find函数</p>
-<p><strong>string</strong>的find函数可用于返回某个字符第一次出现时的下标，若字符串中无该字符，则会返回一个特殊值<strong>nope</strong>（值为4294967295）</p>
-<a id="more"></a>
-
-<p><strong>样例</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="built_in">string</span> s;</span><br><span class="line">   <span class="keyword">char</span> c;</span><br><span class="line">   <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; c;</span><br><span class="line">   <span class="keyword">if</span>(s.<span class="built_in">find</span>(c) != <span class="number">4294967295</span>)&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; c;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"Nope!"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输入</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">abcde</span><br><span class="line">a</span><br><span class="line">z</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line">Nope！</span><br></pre></td></tr></table></figure>
-
-<hr>
-</li>
-<li><p><strong>map</strong>的find函数</p>
-<p>对于<strong>map</strong>类型的数据，对其使用find函数，其会返回一个指向要找的数据的迭代器（iterator），若改数据不存在，则会返回一个指向end的迭代器。</p>
-<p><strong>样例</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; m1;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   m1[<span class="string">"a"</span>] = <span class="number">100</span>;</span><br><span class="line">   m1[<span class="string">"b"</span>] = <span class="number">200</span>;</span><br><span class="line">   <span class="built_in">string</span> c;</span><br><span class="line">   <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">   <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; :: iterator it = m1.<span class="built_in">find</span>(c);</span><br><span class="line">   <span class="keyword">if</span>(it != m1.<span class="built_in">end</span>())&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"Find it!"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"Can't find it!"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输入</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">a</span><br><span class="line">c</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Find it！</span><br><span class="line">Can<span class="number">'</span>t <span class="built_in">find</span> it！</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++中连续读取多行字符串</title>
-    <url>/2020/07/14/C++%E4%B8%AD%E8%BF%9E%E7%BB%AD%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<p><strong>C++中连续读取多行字符串</strong></p>
-<p><strong>实现</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#incude<span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">1000</span>];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; s[i] &amp;&amp; s != <span class="string">'E'</span>)&#123;	<span class="comment">//当读取到E时结束输入</span></span><br><span class="line">        i++;</span><br><span class="line">    &#125;	</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -290,6 +214,67 @@
       </tags>
   </entry>
   <entry>
+    <title>C++中的find函数</title>
+    <url>/2020/08/04/C++%E4%B8%AD%E7%9A%84find%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<ol>
+<li><p><strong>string</strong>的find函数</p>
+<p><strong>string</strong>的find函数可用于返回某个字符第一次出现时的下标，若字符串中无该字符，则会返回一个特殊值<strong>nope</strong>（值为4294967295）</p>
+<a id="more"></a>
+
+<p><strong>样例</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="built_in">string</span> s;</span><br><span class="line">   <span class="keyword">char</span> c;</span><br><span class="line">   <span class="built_in">cin</span> &gt;&gt; s &gt;&gt; c;</span><br><span class="line">   <span class="keyword">if</span>(s.<span class="built_in">find</span>(c) != <span class="number">4294967295</span>)&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; c;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"Nope!"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">abcde</span><br><span class="line">a</span><br><span class="line">z</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span></span><br><span class="line">Nope！</span><br></pre></td></tr></table></figure>
+
+<hr>
+</li>
+<li><p><strong>map</strong>的find函数</p>
+<p>对于<strong>map</strong>类型的数据，对其使用find函数，其会返回一个指向要找的数据的迭代器（iterator），若改数据不存在，则会返回一个指向end的迭代器。</p>
+<p><strong>样例</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; m1;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   m1[<span class="string">"a"</span>] = <span class="number">100</span>;</span><br><span class="line">   m1[<span class="string">"b"</span>] = <span class="number">200</span>;</span><br><span class="line">   <span class="built_in">string</span> c;</span><br><span class="line">   <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">   <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; :: iterator it = m1.<span class="built_in">find</span>(c);</span><br><span class="line">   <span class="keyword">if</span>(it != m1.<span class="built_in">end</span>())&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"Find it!"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="string">"Can't find it!"</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">a</span><br><span class="line">c</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Find it！</span><br><span class="line">Can<span class="number">'</span>t <span class="built_in">find</span> it！</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++中的堆排序</title>
+    <url>/2020/08/26/C++%E4%B8%AD%E7%9A%84%E5%A0%86%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapBuild</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>, <span class="keyword">int</span> root)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> num[<span class="number">5</span>] = &#123;<span class="number">3</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    heapSort(num, <span class="number">5</span>); </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; num[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = x;</span><br><span class="line">    x = y;</span><br><span class="line">    y = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapBuild</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>, <span class="keyword">int</span> root)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = root * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(left &lt; <span class="built_in">size</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> right = left + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> flag = left;</span><br><span class="line">        <span class="keyword">if</span>(right &lt; <span class="built_in">size</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(val[right] &gt; val[flag])&#123;</span><br><span class="line">                flag = right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(val[root] &lt; val[flag])&#123;</span><br><span class="line">            swap(val[root], val[flag]);</span><br><span class="line">            heapBuild(val, <span class="built_in">size</span>, flag);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heapSort</span><span class="params">(<span class="keyword">int</span> val[], <span class="keyword">int</span> <span class="built_in">size</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="built_in">size</span> / <span class="number">2</span>; i &gt;= <span class="number">0</span>; --i)&#123;</span><br><span class="line">        heapBuild(val, <span class="built_in">size</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="built_in">size</span> - <span class="number">1</span>; j &gt; <span class="number">0</span>; --j)&#123;</span><br><span class="line">        swap(val[<span class="number">0</span>], val[j]);</span><br><span class="line">        heapBuild(val, j, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>算法，C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++中的链表</title>
     <url>/2020/08/10/C++%E4%B8%AD%E7%9A%84%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<p><strong>链表</strong>是一种常见的数据结构，其是一种非连续，非顺序的存储结构，数据元素的逻辑顺序通过指针依次连接。链表由一系列的节点（node）组成，每个节点包括两个部分，一个是储存该节点数据元素的<strong>数据域</strong>，一个是储存下一个节点地址的<strong>指针域</strong>。</p>
@@ -320,6 +305,43 @@
         <tag>C++</tag>
         <tag>数据结构</tag>
         <tag>概念</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++中连续读取多行字符串</title>
+    <url>/2020/07/14/C++%E4%B8%AD%E8%BF%9E%E7%BB%AD%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<p><strong>C++中连续读取多行字符串</strong></p>
+<p><strong>实现</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#incude<span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">1000</span>];</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; s[i] &amp;&amp; s != <span class="string">'E'</span>)&#123;	<span class="comment">//当读取到E时结束输入</span></span><br><span class="line">        i++;</span><br><span class="line">    &#125;	</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CodeForce695(Div.2)解题笔记</title>
+    <url>/2021/01/10/CodeForce695(Div.2)%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>–</p>
+<p><strong>A. Wizard of Orz</strong></p>
+<p>贪心题，对于一组panel，要使其组成的数字最大，则要尽量使高位数字大，故只有首位数字为9时才可以取得最大值。而要使首位数字为9，就要使第n个panel在第10-n秒时暂停，此时得到的数为</p>
+<p>9 8 7 … (10 - n) … 7 8 9，以10-n为中心向两侧递增，因为要使高位数尽量大，故只有当第8秒时暂停第二个panel才可得最大结果。</p>
+<hr>
+<a id="more"></a>
+
+<p><strong>B. Hills And Valleys</strong></p>
+<hr>
+<p><del>CDE都不会</del></p>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>CF</tag>
       </tags>
   </entry>
   <entry>
@@ -381,28 +403,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CodeForce695(Div.2)解题笔记</title>
-    <url>/2021/01/10/CodeForce695(Div.2)%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>–</p>
-<p><strong>A. Wizard of Orz</strong></p>
-<p>贪心题，对于一组panel，要使其组成的数字最大，则要尽量使高位数字大，故只有首位数字为9时才可以取得最大值。而要使首位数字为9，就要使第n个panel在第10-n秒时暂停，此时得到的数为</p>
-<p>9 8 7 … (10 - n) … 7 8 9，以10-n为中心向两侧递增，因为要使高位数尽量大，故只有当第8秒时暂停第二个panel才可得最大结果。</p>
-<hr>
-<a id="more"></a>
-
-<p><strong>B. Hills And Valleys</strong></p>
-<hr>
-<p><del>CDE都不会</del></p>
-]]></content>
-      <categories>
-        <category>题解</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>CF</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello_World</title>
     <url>/2020/07/11/Hello-World/</url>
     <content><![CDATA[<p><font color=lightblue size=10><strong>Hello,World!</strong></font></p>
@@ -431,6 +431,17 @@
       </tags>
   </entry>
   <entry>
+    <title>html的页面结构</title>
+    <url>/2020/07/12/html%E7%9A%84%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<figure class="highlight html"><figcaption><span>html网页的页面结构</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span> <span class="comment">&lt;!-- 声明为HTML 5文档 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>这里是标题（浏览器显示的标签）<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>页面显示的标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>另一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>冒泡排序</title>
     <url>/2020/07/13/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p><strong>冒泡排序</strong></p>
@@ -453,17 +464,6 @@
       <tags>
         <tag>C++</tag>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>html的页面结构</title>
-    <url>/2020/07/12/html%E7%9A%84%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<figure class="highlight html"><figcaption><span>html网页的页面结构</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span> <span class="comment">&lt;!-- 声明为HTML 5文档 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>这里是标题（浏览器显示的标签）<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>页面显示的标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>另一个段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -535,56 +535,6 @@
       </tags>
   </entry>
   <entry>
-    <title>十二届蓝桥杯省赛B组C++个人题解</title>
-    <url>/2021/04/20/%E5%8D%81%E4%BA%8C%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9BB%E7%BB%84C++%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[<p><strong>A</strong></p>
-<a id="more"></a>
-
-<p><img src="A.png" alt="A"></p>
-<p>一眼题（<del>脑抽把kb当成1000byte了</del>） 256 x 1024 x 1024 / 4</p>
-<p><strong>答案：67108864</strong></p>
-<hr>
-<p><strong>B</strong></p>
-<p><img src="B.png" alt="B"></p>
-<p>暴力就完事</p>
-<p><strong>代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 1e+9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> card[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">        card[i] = <span class="number">2021</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; ; i++)&#123;</span><br><span class="line">        <span class="built_in">string</span> s = to_string(i);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; s.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">            card[s[j] - <span class="string">'0'</span>] --;</span><br><span class="line">            <span class="keyword">if</span>(card[s[j] - <span class="string">'0'</span>] == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>答案</strong>：3181</p>
-<hr>
-<p><strong>C</strong></p>
-<p><img src="C.png" alt="C"></p>
-<hr>
-<p><strong>D</strong></p>
-<p><img src="D.png" alt="D"></p>
-<hr>
-<p><strong>E</strong></p>
-<p><img src="E.png" alt="E"></p>
-<hr>
-<p><strong>F</strong></p>
-<p><img src="F.png" alt="F"></p>
-<hr>
-<p><strong>G</strong></p>
-<p><img src="G.png" alt="G"></p>
-<p>DP题（<del>虽然在考场只写了个暴力dfs骗分</del>），定义一个二维DP[i][j]，代表前i个砝码是否可以称出重量j。</p>
-<p>对于每一个砝码，其有三种状态，<strong>①放在左盘</strong>，<strong>②不取</strong>，<strong>③放在右盘</strong>，由此可以推出状态转移式：</p>
-<p><strong>DP[i][j] = DP[i - 1][j - w[i]] || DP[i - 1][j] || DP[i - 1][j + w[i]] || DP[i][j]（j - w[i] &lt; 0时需要改为w[i] - j）</strong></p>
-<p>再设置一下初始状态<strong>DP[i][0] = 1</strong>，之后双重循环即可。</p>
-<p><strong>代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 1e+9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">110</span>][<span class="number">10010</span>];</span><br><span class="line"><span class="keyword">int</span> w[<span class="number">110</span>];</span><br><span class="line"><span class="keyword">bool</span> m[<span class="number">10010</span>];</span><br><span class="line"><span class="keyword">int</span> n, sum = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; w[i];</span><br><span class="line">        dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        sum += w[i];</span><br><span class="line">    &#125;</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= sum; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j - w[i] &gt;= <span class="number">0</span>) dp[i][j] = dp[i][j] || dp[i - <span class="number">1</span>][j - w[i]] || dp[i - <span class="number">1</span>][j + w[i]] || dp[i - <span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">else</span> dp[i][j] = dp[i][j] || dp[i - <span class="number">1</span>][w[i] - j] || dp[i - <span class="number">1</span>][j + w[i]] || dp[i - <span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">if</span>(dp[i][j]) m[j] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= sum; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(m[i]) ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>题解</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>编程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>力扣No.332（零钱兑换）解题笔记</title>
     <url>/2020/09/13/%E5%8A%9B%E6%89%A3No.332%EF%BC%88%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2%EF%BC%89%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p><strong>原题</strong>：<a href="https://leetcode-cn.com/problems/coin-change/" target="_blank" rel="noopener">322. 零钱兑换</a></p>
@@ -638,35 +588,62 @@
       </tags>
   </entry>
   <entry>
+    <title>十二届蓝桥杯省赛B组C++个人题解</title>
+    <url>/2021/04/20/%E5%8D%81%E4%BA%8C%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9BB%E7%BB%84C++%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/</url>
+    <content><![CDATA[<p><strong>A</strong></p>
+<a id="more"></a>
+
+<p><img src="A.png" alt="A"></p>
+<p>一眼题（<del>脑抽把kb当成1000byte了</del>） 256 x 1024 x 1024 / 4</p>
+<p><strong>答案：67108864</strong></p>
+<hr>
+<p><strong>B</strong></p>
+<p><img src="B.png" alt="B"></p>
+<p>暴力就完事</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 1e+9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> card[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">        card[i] = <span class="number">2021</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; ; i++)&#123;</span><br><span class="line">        <span class="built_in">string</span> s = to_string(i);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; s.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">            card[s[j] - <span class="string">'0'</span>] --;</span><br><span class="line">            <span class="keyword">if</span>(card[s[j] - <span class="string">'0'</span>] == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>答案</strong>：3181</p>
+<hr>
+<p><strong>C</strong></p>
+<p><img src="C.png" alt="C"></p>
+<hr>
+<p><strong>D</strong></p>
+<p><img src="D.png" alt="D"></p>
+<hr>
+<p><strong>E</strong></p>
+<p><img src="E.png" alt="E"></p>
+<hr>
+<p><strong>F</strong></p>
+<p><img src="F.png" alt="F"></p>
+<hr>
+<p><strong>G</strong></p>
+<p><img src="G.png" alt="G"></p>
+<p>DP题（<del>虽然在考场只写了个暴力dfs骗分</del>），定义一个二维DP[i][j]，代表前i个砝码是否可以称出重量j。</p>
+<p>对于每一个砝码，其有三种状态，<strong>①放在左盘</strong>，<strong>②不取</strong>，<strong>③放在右盘</strong>，由此可以推出状态转移式：</p>
+<p><strong>DP[i][j] = DP[i - 1][j - w[i]] || DP[i - 1][j] || DP[i - 1][j + w[i]] || DP[i][j]（j - w[i] &lt; 0时需要改为w[i] - j）</strong></p>
+<p>再设置一下初始状态<strong>DP[i][0] = 1</strong>，之后双重循环即可。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 1e+9</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">110</span>][<span class="number">10010</span>];</span><br><span class="line"><span class="keyword">int</span> w[<span class="number">110</span>];</span><br><span class="line"><span class="keyword">bool</span> m[<span class="number">10010</span>];</span><br><span class="line"><span class="keyword">int</span> n, sum = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; w[i];</span><br><span class="line">        dp[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        sum += w[i];</span><br><span class="line">    &#125;</span><br><span class="line">    dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= sum; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j - w[i] &gt;= <span class="number">0</span>) dp[i][j] = dp[i][j] || dp[i - <span class="number">1</span>][j - w[i]] || dp[i - <span class="number">1</span>][j + w[i]] || dp[i - <span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">else</span> dp[i][j] = dp[i][j] || dp[i - <span class="number">1</span>][w[i] - j] || dp[i - <span class="number">1</span>][j + w[i]] || dp[i - <span class="number">1</span>][j];</span><br><span class="line">            <span class="keyword">if</span>(dp[i][j]) m[j] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= sum; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(m[i]) ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>编程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图的遍历</title>
     <url>/2020/09/20/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/</url>
     <content><![CDATA[<a id="more"></a>
 
 <p><strong>实现</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">map</span> <span class="params">(<span class="number">5</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">book</span> <span class="params">(<span class="number">100</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="keyword">int</span> mi = <span class="number">999</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur, <span class="keyword">int</span> sum)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(cur == <span class="number">4</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(sum &lt; mi) mi = sum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">map</span>[cur][i] != <span class="number">-1</span> &amp;&amp; book[i] == <span class="number">0</span>)&#123;</span><br><span class="line">            sum += <span class="built_in">map</span>[cur][i];</span><br><span class="line">            dfs(i, sum);</span><br><span class="line">            book[i] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">map</span>[i].resize(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">5</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i == j) <span class="built_in">map</span>[i][j] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">map</span>[i][j] = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> hei, wid, dist;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; hei &gt;&gt; wid &gt;&gt; dist;</span><br><span class="line">        <span class="built_in">map</span>[hei][wid] = dist;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; mi &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>归并排序模板</title>
-    <url>/2020/12/20/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<p><strong>代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> a[<span class="number">5000001</span>], sorted[<span class="number">5000001</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		merge(l, mid);</span><br><span class="line">		merge(mid + <span class="number">1</span>, r);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> i = l, j = mid + <span class="number">1</span>, t = l;</span><br><span class="line">	<span class="keyword">while</span>(i &lt;= mid &amp;&amp; j &lt;= r)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i] &lt; a[j])&#123;</span><br><span class="line">			sorted[t] = a[i];</span><br><span class="line">			t++;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> sorted[t++] = a[j++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(i &lt;= mid)&#123;</span><br><span class="line">		sorted[t] = a[i];</span><br><span class="line">		t++;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(j &lt;= r)&#123;</span><br><span class="line">		sorted[t] = a[j];</span><br><span class="line">		t++;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = l; i &lt;= r; i++)&#123;</span><br><span class="line">		a[i] = sorted[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">	merge(<span class="number">1</span>, n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; sorted[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<p><strong>输入</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7</span> <span class="number">3</span> <span class="number">2</span> <span class="number">4</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -698,6 +675,29 @@
 <p><strong>4</strong>                <strong>5</strong></p>
 <p><strong>输出</strong></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Max <span class="built_in">step</span> of <span class="keyword">this</span> bitree is : <span class="number">3</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>归并排序模板</title>
+    <url>/2020/12/20/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">long</span> a[<span class="number">5000001</span>], sorted[<span class="number">5000001</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		merge(l, mid);</span><br><span class="line">		merge(mid + <span class="number">1</span>, r);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> i = l, j = mid + <span class="number">1</span>, t = l;</span><br><span class="line">	<span class="keyword">while</span>(i &lt;= mid &amp;&amp; j &lt;= r)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i] &lt; a[j])&#123;</span><br><span class="line">			sorted[t] = a[i];</span><br><span class="line">			t++;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> sorted[t++] = a[j++];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(i &lt;= mid)&#123;</span><br><span class="line">		sorted[t] = a[i];</span><br><span class="line">		t++;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(j &lt;= r)&#123;</span><br><span class="line">		sorted[t] = a[j];</span><br><span class="line">		t++;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = l; i &lt;= r; i++)&#123;</span><br><span class="line">		a[i] = sorted[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">	merge(<span class="number">1</span>, n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; sorted[i] &lt;&lt; <span class="string">' '</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p><strong>输入</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">7</span> <span class="number">3</span> <span class="number">2</span> <span class="number">4</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">7</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>编程</category>
       </categories>
@@ -927,42 +927,6 @@
       </tags>
   </entry>
   <entry>
-    <title>《计算机组成原理》阅读笔记</title>
-    <url>/2020/07/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86_%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<ol>
-<li>存储器中既保存了组成程序的指令，也保存了程序所用的数据。<font color=lghtblue><em>P10</em></font></li>
-</ol>
-<hr>
-<ol start="2">
-<li><strong>总线</strong>将计算机的多个功能单元连接在一起并允许他们相互交换数据。 <font color=lghtblue><em>P38</em></font></li>
-</ol>
-<hr>
-<ol start="3">
-<li><strong>时钟</strong>：绝大多数数字电子电路都带有一个时钟，用以生成连续的间隔固定的电脉冲流，这些电脉冲流可以来计时或确定计算机内所有事件的顺序，所以被称作时钟，时钟可以用其重复速率或频率来定义。<font color=lghblue><em>P15</em></font></li>
-</ol>
-<hr>
-<a id="more"></a>
-
-<ol start="4">
-<li><p><strong>存储层次示意图</strong></p>
-<img src="1.png" style="zoom:50%;" alt="载入失败:(" />
-
-<p><strong>Cache：cpu中的一缓，二缓，三缓</strong></p>
-<p><font color=lghtblue><em>P36</em></font></p>
-</li>
-</ol>
-<hr>
-<p>​    5.<strong>补码</strong>：在二进制算术中，求一个数补数的方法是将其各位取反并加               1。<em>如：01100101的补数为10011010 + 1 = 10011011</em></p>
-<p>​    一个n位二进制数<font color=lightgreen><em>N</em></font>的二进制补码定义为 <font color=lightgreen>2<sup>n</sup> - <em>N</em></font>。若<em>N</em> = 5 =00000101，       则<em>N</em>的补码为 <font color=lightgreen>2<sup>8</sup> - 00000101 = 100000000 - 00000101 = 11111011</font>。 *    注意：11111011也可以表示 -00000101（-5）或 +123，这取决于我们    是将二进制数11111011看作补码还是非符号整数*  <font color=lghtblue><em>P53</em></font></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>计算机</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《计算机网络 自顶向下方法》阅读笔记</title>
     <url>/2020/07/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C_%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>1.<strong>排队时延和分组丢失（丢包）</strong>    <font color=lghtblue><strong>P17</strong></font></p>
@@ -1004,6 +968,42 @@
       <tags>
         <tag>计算机</tag>
         <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《计算机组成原理》阅读笔记</title>
+    <url>/2020/07/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86_%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<ol>
+<li>存储器中既保存了组成程序的指令，也保存了程序所用的数据。<font color=lghtblue><em>P10</em></font></li>
+</ol>
+<hr>
+<ol start="2">
+<li><strong>总线</strong>将计算机的多个功能单元连接在一起并允许他们相互交换数据。 <font color=lghtblue><em>P38</em></font></li>
+</ol>
+<hr>
+<ol start="3">
+<li><strong>时钟</strong>：绝大多数数字电子电路都带有一个时钟，用以生成连续的间隔固定的电脉冲流，这些电脉冲流可以来计时或确定计算机内所有事件的顺序，所以被称作时钟，时钟可以用其重复速率或频率来定义。<font color=lghblue><em>P15</em></font></li>
+</ol>
+<hr>
+<a id="more"></a>
+
+<ol start="4">
+<li><p><strong>存储层次示意图</strong></p>
+<img src="1.png" style="zoom:50%;" alt="载入失败:(" />
+
+<p><strong>Cache：cpu中的一缓，二缓，三缓</strong></p>
+<p><font color=lghtblue><em>P36</em></font></p>
+</li>
+</ol>
+<hr>
+<p>​    5.<strong>补码</strong>：在二进制算术中，求一个数补数的方法是将其各位取反并加               1。<em>如：01100101的补数为10011010 + 1 = 10011011</em></p>
+<p>​    一个n位二进制数<font color=lightgreen><em>N</em></font>的二进制补码定义为 <font color=lightgreen>2<sup>n</sup> - <em>N</em></font>。若<em>N</em> = 5 =00000101，       则<em>N</em>的补码为 <font color=lightgreen>2<sup>8</sup> - 00000101 = 100000000 - 00000101 = 11111011</font>。 *    注意：11111011也可以表示 -00000101（-5）或 +123，这取决于我们    是将二进制数11111011看作补码还是非符号整数*  <font color=lghtblue><em>P53</em></font></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机</tag>
       </tags>
   </entry>
 </search>
