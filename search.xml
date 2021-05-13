@@ -972,4 +972,40 @@
         <tag>网络</tag>
       </tags>
   </entry>
+  <entry>
+    <title>利用Python爬取携程上景点评论</title>
+    <url>/2021/05/13/%E5%88%A9%E7%94%A8Python%E7%88%AC%E5%8F%96%E6%90%BA%E7%A8%8B%E4%B8%8A%E6%99%AF%E7%82%B9%E8%AF%84%E8%AE%BA/</url>
+    <content><![CDATA[<h2 id="利用Python爬取携程上景点评论"><a href="#利用Python爬取携程上景点评论" class="headerlink" title="利用Python爬取携程上景点评论"></a>利用Python爬取携程上景点评论</h2><a id="more"></a>
+
+<h3 id="使用到的库："><a href="#使用到的库：" class="headerlink" title="使用到的库："></a>使用到的库：</h3><p>re</p>
+<p>request</p>
+<p>json</p>
+<p>BeautifulSoup4</p>
+<h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p>对于一个携程的景点评论页，在浏览器中查看其html源码，这里拿马鞍山景点小九华举例。</p>
+<p><img src="pic_1.png" alt="1"></p>
+<p>可以看到，这里评论的<strong>class</strong>均为<strong>commentItem</strong>，因此想到通过bs中的find_all函数寻找。但是，由于携程的评论分页是ajax请求，无法之间从html源码中换页，因此，需要从返回的json文件中获取评论信息。</p>
+<p>打开Network页面，点击下一页，可以找到一个POST请求</p>
+<p><img src="pic_2.png" alt="2"></p>
+<p>可以看到其请求链接为<a href="https://m.ctrip.com/restapi/soa2/13444/json/getCommentCollapseList?_fxpcqlniredt=09031087213874945013" target="_blank" rel="noopener">https://m.ctrip.com/restapi/soa2/13444/json/getCommentCollapseList?_fxpcqlniredt=09031087213874945013</a>**</p>
+<p>往下翻，可以找到其<strong>Request payload</strong></p>
+<p><img src="pic_3.png" alt="3"></p>
+<p>将其保存成json文件，读取这个python文件，每次循环修改其pageIndex值，即可访问所有分页。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'F:\\pycode\\xc_crawler\\setting.json'</span>, <span class="string">'r'</span>)</span><br><span class="line">setting = f.read()</span><br><span class="line">conten = json.loads(setting)</span><br><span class="line">res = open(<span class="string">'F:\\pycode\\xc_crawler\\res.txt'</span>, <span class="string">'w'</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'user-agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.108 Safari/537.36'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://m.ctrip.com/restapi/soa2/13444/json/getCommentCollapseList?_fxpcqlniredt=09031087213874945013'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">crawler</span><span class="params">()</span>:</span></span><br><span class="line">    good_review = []</span><br><span class="line">    mid_review = []</span><br><span class="line">    bad_review = []</span><br><span class="line">    cnt = int(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_reviews</span><span class="params">(self)</span>:</span></span><br><span class="line">        rq = requests.post(url, data=json.dumps(conten))</span><br><span class="line">        j = json.loads(rq.text)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(j[<span class="string">'result'</span>][<span class="string">'items'</span>])):</span><br><span class="line">            each = j[<span class="string">'result'</span>][<span class="string">'items'</span>][i]</span><br><span class="line">            c = each[<span class="string">'content'</span>]</span><br><span class="line">            comment = re.sub(<span class="string">r'&amp;#x\S\S'</span>, <span class="string">''</span>, c)</span><br><span class="line">            comment = re.sub(<span class="string">r'&amp;amp;quot;'</span>, <span class="string">''</span>, comment)</span><br><span class="line">            score = int(each[<span class="string">'score'</span>])</span><br><span class="line">            self.cnt += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> <span class="number">3</span> &lt; score &lt;= <span class="number">5</span>:</span><br><span class="line">                self.good_review.append(comment)</span><br><span class="line">            <span class="keyword">elif</span> score == <span class="number">3</span>:</span><br><span class="line">                self.mid_review.append(comment)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                self.bad_review.append(comment)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">write_to_file</span><span class="params">(self)</span>:</span></span><br><span class="line">        res.write(<span class="string">"总共找到了"</span> + str(self.cnt) + <span class="string">"条评论\n"</span>)</span><br><span class="line">        res.write(<span class="string">"\n好评：\n"</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(self.good_review)):</span><br><span class="line">            res.write(str(i+<span class="number">1</span>) + <span class="string">":"</span> + self.good_review[i] + <span class="string">'\n'</span>)</span><br><span class="line">        res.write(<span class="string">"\n中评：\n"</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(self.mid_review)):</span><br><span class="line">            res.write(str(i + <span class="number">1</span>) + <span class="string">":"</span> + self.mid_review[i] + <span class="string">'\n'</span>)</span><br><span class="line">        res.write(<span class="string">"\n差评：\n"</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(self.bad_review)):</span><br><span class="line">            res.write(str(i + <span class="number">1</span>) + <span class="string">":"</span> + self.bad_review[i] + <span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line">cw = crawler()</span><br><span class="line">conten[<span class="string">'arg'</span>][<span class="string">'poiId'</span>] = str(conten[<span class="string">'arg'</span>][<span class="string">'poiId'</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">    conten[<span class="string">'arg'</span>][<span class="string">"pageIndex"</span>] = str(i)</span><br><span class="line">    cw.get_reviews()</span><br><span class="line">    print(<span class="string">'正在爬取第%d页...'</span> % int(i), end=<span class="string">"\r"</span>)</span><br><span class="line">cw.write_to_file()</span><br><span class="line">res.write(<span class="string">"好评率：%.2f%%"</span> %((len(cw.good_review) / cw.cnt) * <span class="number">100</span>))</span><br><span class="line">res.close()</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>结果</strong></p>
+<p><img src="pic_4.png" alt="4"></p>
+<p><strong>参考</strong>:</p>
+<p><a href="https://blog.csdn.net/m0_51271122/article/details/112238459" target="_blank" rel="noopener">https://blog.csdn.net/m0_51271122/article/details/112238459</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/27346009" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/27346009</a></p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
 </search>
