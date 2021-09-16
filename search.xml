@@ -1014,7 +1014,7 @@
 
 <p><strong>1.思路</strong></p>
 <p>在AimLab中，目标往往是以单色的小球的形式出现，而背景往往是纯灰色，此时便可以通过滤色来过滤掉背景颜色，仅保留目标小球颜色。</p>
-<p><img src="F:%5CPYCODE%5CAutoAim%5C23.png" alt="pic1"></p>
+<p><img src="23.png" alt="pic1"></p>
 ]]></content>
       <categories>
         <category>编程</category>
