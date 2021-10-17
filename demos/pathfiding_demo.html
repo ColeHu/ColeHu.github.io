@@ -22,17 +22,19 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="啥也不会">
+  <meta name="description" content="three-pathfinding demo          	 		&#x2F;* global threePathfinding *&#x2F;  		const Color &#x3D; { 			GROUND: new THREE.Color( 0xe5e5ff ).convertGammaToLinear( 2.2 ).getHex(), 			NAVMESH: new THREE.Color( 0xe5e">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Akazure的冰室">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+<meta property="og:url" content="http://yoursite.com/demos/pathfiding_demo.html">
 <meta property="og:site_name" content="Akazure的冰室">
-<meta property="og:description" content="啥也不会">
+<meta property="og:description" content="three-pathfinding demo          	 		&#x2F;* global threePathfinding *&#x2F;  		const Color &#x3D; { 			GROUND: new THREE.Color( 0xe5e5ff ).convertGammaToLinear( 2.2 ).getHex(), 			NAVMESH: new THREE.Color( 0xe5e">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-17T05:40:24.981Z">
+<meta property="article:modified_time" content="2021-10-17T05:40:24.981Z">
 <meta property="article:author" content="Akazure">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/">
+<link rel="canonical" href="http://yoursite.com/demos/pathfiding_demo">
 
 
 <script id="page-configurations">
@@ -45,7 +47,8 @@
   };
 </script>
 
-  <title>归档 | Akazure的冰室</title>
+  <title> | Akazure的冰室
+</title>
   
 
 
@@ -191,237 +194,265 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
-          <div class="content archive">
+          <div class="content page posts-expand">
             
 
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">
+</h1>
+
+<div class="post-meta">
   
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">还行! 目前共计 36 篇日志。 继续努力。</span>
-      </div>
+
+</div>
+
+</header>
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+      
+      
+      <div class="post-body">
+          <!DOCTYPE html>
+<script src="../src/PathfindingHelper.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>three-pathfinding demo</title>
+<link href="style.css" rel="stylesheet">
+<script src="https://unpkg.com/three@0.124.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.124.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://unpkg.com/three@0.124.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="./three-pathfinding.umd.js"></script>
+
+<body>
+
+
+	<script>
+		/* global threePathfinding */
+
+		const Color = {
+			GROUND: new THREE.Color( 0xe5e5ff ).convertGammaToLinear( 2.2 ).getHex(),
+			NAVMESH: new THREE.Color( 0xe5e5ff ).convertGammaToLinear( 2.2 ).getHex(),
+		};
+
+		const ZONE = 'level';
+		const SPEED = 10;
+		const OFFSET = 0.2;
+
+		THREE.Pathfinding = threePathfinding.Pathfinding;
+		THREE.PathfindingHelper = threePathfinding.PathfindingHelper;
+
+		let level, navmesh;
+
+		let groupID, path;
+
+		const playerPosition = new THREE.Vector3( -3.5, 0.5, 5.5 );
+		const targetPosition = new THREE.Vector3();
+
+		const pathfinder = new THREE.Pathfinding();
+		const helper = new THREE.PathfindingHelper();
+		const clock = new THREE.Clock();
+		const mouse = new THREE.Vector2();
+		const raycaster = new THREE.Raycaster();
+
+		const scene = new THREE.Scene();
+		scene.add( helper );
+
+		const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
+		camera.position.set(50, 50, 50);
+
+		const renderer = new THREE.WebGLRenderer();
+		renderer.setPixelRatio( window.devicePixelRatio );
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		renderer.setClearColor(0xffffff);
+		renderer.outputEncoding = THREE.sRGBEncoding;
+		document.body.appendChild( renderer.domElement );
+
+		const controls = new THREE.OrbitControls( camera, renderer.domElement );
+		controls.damping = 0.2;
+
+		const ambient = new THREE.AmbientLight( 0x00001a );
+		scene.add( ambient );
+
+		const directionalLight = new THREE.DirectionalLight( 0xFFEEDD );
+		directionalLight.position.set( 0, 0.5, 0.5 );
+		scene.add( directionalLight );
+
+		init();
+		animate();
+
+		function init() {
+
+			const gltfLoader = new THREE.GLTFLoader();
+
+			gltfLoader.load( 'meshes/panel.glb', function( gltf ) {
+
+				const levelMesh = gltf.scene.children[0];
+				const levelMat = new THREE.MeshStandardMaterial({
+					color: Color.GROUND,
+					flatShading: true,
+					roughness: 1,
+					metalness: 0
+				});
+				level = new THREE.Mesh(levelMesh.geometry, levelMat);
+				window.level = level;
+				scene.add(levelMesh);
+			}, null);
+
+			gltfLoader.load( 'meshes/panel.nav.glb', function( gltf ) {
+
+				const _navmesh = gltf.scene.children[0];
+
+				//console.time('createZone()');
+				const zone = THREE.Pathfinding.createZone(_navmesh.geometry);
+				//console.timeEnd('createZone()');
+
+				pathfinder.setZoneData( ZONE, zone );
+
+				const navWireframe = new THREE.Mesh(_navmesh.geometry, new THREE.MeshBasicMaterial({
+					color: 0xffffff,
+					wireframe: true
+				}));
+				navWireframe.position.y = OFFSET / 2;
+				scene.add(navWireframe);
+
+				navmesh = new THREE.Mesh(_navmesh.geometry, new THREE.MeshBasicMaterial({
+					color: Color.NAVMESH,
+					opacity: 0.75,
+					transparent: true
+				}));
+
+				scene.add(navmesh);
+
+				// Set the player's navigation mesh group
+				groupID = pathfinder.getGroup( ZONE, playerPosition );	//定义navigation mesh组
+
+			}, null);
+
+			helper
+				.setPlayerPosition( new THREE.Vector3( -3.5, 0.5, 5.5 ) )
+				.setTargetPosition( new THREE.Vector3( -3.5, 0.5, 5.5 ) );
+
+			document.addEventListener( 'click', onDocumentMouseUp, false );
+			window.addEventListener( 'resize', onWindowResize, false );
+
+		}
+
+		function onDocumentMouseUp (event) {
+
+			mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+			mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+			camera.updateMatrixWorld();
+
+			raycaster.setFromCamera( mouse, camera );
+
+			const intersects = raycaster.intersectObject( navmesh );
+
+			if ( !intersects.length ) return;
+
+			targetPosition.copy( intersects[0].point );
+
+			helper
+				.reset()
+				.setPlayerPosition( playerPosition );
+
+			// Teleport on ctrl/cmd click or RMB.
+			if (event.metaKey || event.ctrlKey || event.button === 2) {
+
+				path = null;
+				groupID = pathfinder.getGroup(ZONE, targetPosition, true);
+				const closestNode = pathfinder.getClosestNode( playerPosition, ZONE, groupID, true );
+
+				helper.setPlayerPosition( playerPosition.copy( targetPosition ) )
+				if ( closestNode ) helper.setNodePosition( closestNode.centroid );
+
+				return;
+
+			}
+
+			const targetGroupID = pathfinder.getGroup( ZONE, targetPosition, true );
+			const closestTargetNode = pathfinder.getClosestNode( targetPosition, ZONE, targetGroupID, true );
+
+			helper.setTargetPosition( targetPosition );
+			if (closestTargetNode) helper.setNodePosition( closestTargetNode.centroid );
+
+			// Calculate a path to the target and store it
+			path = pathfinder.findPath( playerPosition, targetPosition, ZONE, groupID );	//获取路径
+
+			if ( path && path.length ) {
+
+				helper.setPath( path );
+
+			} else {
+
+				const closestPlayerNode = pathfinder.getClosestNode( playerPosition, ZONE, groupID );
+				const clamped = new THREE.Vector3();
+
+				// TODO(donmccurdy): Don't clone targetPosition, fix the bug.
+				pathfinder.clampStep(
+					playerPosition, targetPosition.clone(), closestPlayerNode, ZONE, groupID, clamped );
+
+				helper.setStepPosition( clamped );
+
+			}
+		}
+
+		function onWindowResize() {
+
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+
+			renderer.setSize( window.innerWidth, window.innerHeight );
+
+		}
+
+		function animate() {
+
+			requestAnimationFrame( animate );
+			tick(clock.getDelta());
+			renderer.render( scene, camera );
+
+		}
+
+		function tick ( dt ) {
+			if ( !level || !(path||[]).length ) return
+
+			let targetPosition = path[ 0 ];
+			const velocity = targetPosition.clone().sub( playerPosition );
+
+			if (velocity.lengthSq() > 0.05 * 0.05) {
+				velocity.normalize();
+				// Move player to target
+				playerPosition.add( velocity.multiplyScalar( dt * SPEED ) );
+				helper.setPlayerPosition( playerPosition );
+			} else {
+				// Remove node from the path we calculated
+				path.shift();
+			}
+		}
+
+	</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/aoba.model.json"},"display":{"position":"left","width":250,"height":450},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+      </div>
+      
+      
+      
     </div>
+    
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-12-20T22:24:21+08:00"
-              content="2020-12-20">
-          12-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/12/20/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/" itemprop="url">
-            <span itemprop="name">归并排序模板</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-12-19T13:57:19+08:00"
-              content="2020-12-19">
-          12-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/12/19/%E6%B4%9B%E8%B0%B7P1873%20%E7%A0%8D%E6%A0%91%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" itemprop="url">
-            <span itemprop="name">洛谷P1873 砍树 解题笔记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-10-13T15:06:44+08:00"
-              content="2020-10-13">
-          10-13
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/10/13/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98%E5%BD%95/" itemprop="url">
-            <span itemprop="name">算法备忘录</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-10-12T12:08:28+08:00"
-              content="2020-10-12">
-          10-12
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/10/12/%E7%88%AC%E6%A5%BC%E6%A2%AF/" itemprop="url">
-            <span itemprop="name">力扣No.121爬楼梯解题笔记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-09-20T16:54:21+08:00"
-              content="2020-09-20">
-          09-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/09/20/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/" itemprop="url">
-            <span itemprop="name">图的遍历</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-09-20T10:59:22+08:00"
-              content="2020-09-20">
-          09-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/09/20/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%AE%97%E6%B3%95/" itemprop="url">
-            <span itemprop="name">滑动窗口算法</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-09-15T17:38:24+08:00"
-              content="2020-09-15">
-          09-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/09/15/%E5%8A%9B%E6%89%A3No.121%EF%BC%88%E4%B9%B0%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%EF%BC%89%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" itemprop="url">
-            <span itemprop="name">力扣No.121（买股票的最佳时机）解题笔记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-09-13T23:12:21+08:00"
-              content="2020-09-13">
-          09-13
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/09/13/%E5%8A%9B%E6%89%A3No.332%EF%BC%88%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2%EF%BC%89%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" itemprop="url">
-            <span itemprop="name">力扣No.332（零钱兑换）解题笔记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-09-02T17:32:17+08:00"
-              content="2020-09-02">
-          09-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/09/02/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E7%AE%97%E6%B3%95/" itemprop="url">
-            <span itemprop="name">摩尔投票法</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-30T23:27:24+08:00"
-              content="2020-08-30">
-          08-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/30/C++%E5%A4%87%E5%BF%98%E5%BD%95/" itemprop="url">
-            <span itemprop="name">C++备忘录</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
-    </div>
-  </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><a class="extend next" rel="next" href="/archives/2020/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
+    
+    
+    
 
 
           </div>
