@@ -1013,7 +1013,7 @@
 <p>在Aimlab的GridShoot项目中，所有目标均以浅蓝色的小球的形式出现，且目标和背景的颜色插件非常大。因此，可以很简单地通过YOLO训练出小球的权重模型，之后利用该模型进行识别并实现自动瞄准。</p>
 <a id="more"></a>
 
-<p><img src=".._posts%5C%E5%9F%BA%E4%BA%8EYoloV5%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84AimLab%E8%87%AA%E5%8A%A8%E7%9E%84%E5%87%86%5C23.png" alt="23"></p>
+<p><img src="23.png" alt="23"></p>
 <p><strong>具体思路：游戏截图-&gt;标注小球位置-&gt;训练模型-&gt;截取屏幕-&gt;识别屏幕中的小球并获取位置-&gt;将鼠标移到小球上-&gt;点击-&gt;完成！</strong></p>
 <p><strong>1.训练模型</strong></p>
 <p>​    打开AimLab，进入GridShoot项目，开始后对屏幕进行截图。</p>
@@ -1028,7 +1028,7 @@
 <p>​    其中images保存图片，labels保存标签。train中保存用于训练的数据，val中保存用于验证的数据。</p>
 <p>​    图片的标签文件格式为文本，每一行代表图中的一个目标，其格式如下</p>
 <p>​    <strong>数字（目标名称） 左上角的横坐标 左上角的纵坐标 长度和宽度</strong>（坐标均要归一化）</p>
-<p>​     <img src=".._posts%5C%E5%9F%BA%E4%BA%8EYoloV5%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84AimLab%E8%87%AA%E5%8A%A8%E7%9E%84%E5%87%86%5Ccoco.png" alt="coco"></p>
+<p>​     <img src="coco.png" alt="coco"></p>
 <p>​    </p>
 <p>​    </p>
 ]]></content>
