@@ -1007,22 +1007,25 @@
       </tags>
   </entry>
   <entry>
-    <title>基于OpenCv的实现简单的AimLab辅助瞄准</title>
-    <url>/2021/09/16/%E5%9F%BA%E4%BA%8EOpenCv%E7%9A%84%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84AimLab%E8%BE%85%E5%8A%A9%E7%9E%84%E5%87%86/</url>
-    <content><![CDATA[<p><strong>本文仅供学习参考</strong></p>
-<a id="more"></a>
+    <title>基于YoloV5实现AimLab GridShoot自动瞄准</title>
+    <url>/2021/09/16/%E5%9F%BA%E4%BA%8EYoloV5%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84AimLab%E8%87%AA%E5%8A%A8%E7%9E%84%E5%87%86/</url>
+    <content><![CDATA[<a id="more"></a>
 
-<p><strong>1.思路</strong></p>
-<p>在AimLab中，目标往往是以单色的小球的形式出现，而背景往往是纯灰色，此时便可以通过滤色来过滤掉背景颜色，仅保留目标小球颜色。</p>
-<p><img src="23.png" alt="pic1"></p>
+<p><strong>0.思路</strong></p>
+<p>在Aimlab的GridShoot项目中，所有目标均以浅蓝色的小球的形式出现，且目标和背景的颜色插件非常大。因此，可以很简单地通过YOLO训练出小球的权重模型，之后利用该模型进行识别并实现自动瞄准。</p>
+<p><img src="E:%5CHexo%5Csource_posts%5C%E5%9F%BA%E4%BA%8EYoloV5%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84AimLab%E8%87%AA%E5%8A%A8%E7%9E%84%E5%87%86%5C23.png" alt="23"></p>
+<p><strong>具体思路：游戏截图-&gt;标注小球位置-&gt;训练模型-&gt;截取屏幕-&gt;识别屏幕中的小球并获取位置-&gt;将鼠标移到小球上-&gt;点击-&gt;完成！</strong></p>
+<p><strong>1.训练模型</strong></p>
+<p>​    打开AimLab，进入GridShoot项目，开始后对屏幕进行截图，保存截图后对图片进行剪裁，只保存含有小球的部分。</p>
+<p>​    </p>
 ]]></content>
       <categories>
         <category>编程</category>
       </categories>
       <tags>
-        <tag>OpenCV</tag>
-        <tag>计算机视觉</tag>
         <tag>Python</tag>
+        <tag>机器学习</tag>
+        <tag>Yolo</tag>
       </tags>
   </entry>
 </search>
