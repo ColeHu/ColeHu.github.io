@@ -1041,4 +1041,28 @@
         <tag>Yolo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Vue中无法读取静态文件的解决方法</title>
+    <url>/2021/11/26/Vue%E4%B8%AD%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>这几天在修改vue-admin-template的项目时出现了一个问题</p>
+<a id="more"></a>
+
+<p><img src="2.png" alt="2"></p>
+<p>我用相对路径引入了一张图片，但是在运行时无法显示，且浏览器控制台中无报错，查看浏览器中的网络窗口</p>
+<p><img src="1.png" alt="1"></p>
+<p>可以看到，浏览器确实读到了我在代码中设置的路径，但是就是无法显示这张图片，原因是因为VUE会动态加载js文件，js文件会被加载到内存中，若直接输入文件的地址，会导致无法访问该文件，也就无法显示该图片，如果我们查看其他文件的地址</p>
+<p><img src="3.png" alt="3"></p>
+<p>可以看到，其地址确实是在内存中的，因此，此时需要使用<strong>require()</strong>函数，将代码修改为如下</p>
+<p><img src="4.png" alt="4"></p>
+<p>刷新页面，可以看到图片已正常显示</p>
+<p><img src="5.png" alt="5"></p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>javaScript</tag>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
 </search>
