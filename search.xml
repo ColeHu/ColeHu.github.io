@@ -1080,4 +1080,25 @@
         <tag>网络</tag>
       </tags>
   </entry>
+  <entry>
+    <title>cocos creator中碰撞回调函数没反应的解决方法</title>
+    <url>/2021/12/05/cocos%20creator%E4%B8%AD%E7%A2%B0%E6%92%9E%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E6%B2%A1%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>最近在用cocos creator还原flappy bird的时候遇到一个问题，就是在碰撞组件无法调用回调函数，在网上查了查，发现要想正确调用回调函数要满足如下几点：</p>
+<a id="more"></a>
+
+<p><strong>1. 项目中物理引擎和碰撞引擎默认是关闭的，要先在代码中启动才可正常使用碰撞功能，启动代码如下（注意：以下代码只有放在onLoad中才有用）：</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> phy_manager = cc.director.getPhysicsManager();<span class="comment">//获取物理引擎</span></span><br><span class="line">phy_manager.enabled = <span class="literal">true</span>;<span class="comment">//开启物理引擎</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> manager = cc.director.getCollisionManager();<span class="comment">//获取碰撞引擎</span></span><br><span class="line">manager.enabled = <span class="literal">true</span>;<span class="comment">//开启碰撞引擎</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>2. 节点碰撞组件的回调函数要放在该节点的脚本中才可正常使用（我就是因为把回调函数放在初始化脚本中才导致无法使用）</strong></p>
+<p><strong>具体方法如下图</strong></p>
+<p><img src="1.png" alt="1"></p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>Cocos Creator</tag>
+      </tags>
+  </entry>
 </search>
