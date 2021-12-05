@@ -717,6 +717,7 @@
 <p>​    <img src="best.png" alt="best"></p>
 <p>​    至此，我们已经完成了模型的训练，得到了权重文件，下面将需要重构YoloV5部分代码，实现利用该权重文件进行实时判断。</p>
 <p>​    <strong>2.截取屏幕</strong></p>
+<p>​    </p>
 ]]></content>
       <categories>
         <category>编程</category>
