@@ -1101,4 +1101,18 @@
         <tag>网络</tag>
       </tags>
   </entry>
+  <entry>
+    <title>JS中箭头函数踩的一些坑</title>
+    <url>/2021/12/06/js%E4%B8%AD%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E8%B8%A9%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</url>
+    <content><![CDATA[<p>今天在使用three.js中的GLTFLoader加载模型时遇到无法在load方法中使用箭头函数加载模型的问题，在网上查了很久之后才发现问题所在，<strong>即箭头函数中只能访问外部变量，而不能直接改变外部变量，想要修改外部变量的值只能调用其修改方法。</strong></p>
+<p><img src="1.png" alt="1"></p>
+<p>这里无法在箭头函数中直接修改_playerMarker，要用geo来传递模型中的geometry，在再下面进行定义。</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
 </search>
