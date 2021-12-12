@@ -1137,7 +1137,7 @@
       </tags>
   </entry>
   <entry>
-    <title>广度优先搜索（bfs）</title>
+    <title>krusal算法的C++实现</title>
     <url>/2021/12/12/krusal%E7%AE%97%E6%B3%95%E7%9A%84C++%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<p><strong>krusal</strong>算法用于解决系数图中最小生成树的问题</p>
 <a id="more"></a>
