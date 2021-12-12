@@ -1115,4 +1115,25 @@
         <tag>JavaScript</tag>
       </tags>
   </entry>
+  <entry>
+    <title>cocos creator中如何定义全局变量</title>
+    <url>/2021/12/12/cocos%20creator%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<p>在cocos creator中可以通过创建用于保存数据的js，并在其他的js脚本中引入这个js并读取里面保存的数据来实现全局变量的定义。</p>
+<a id="more"></a>
+
+<p>举个例子，在复现flappy birds时，我用变量<strong>isStart</strong>来判断游戏是否开始，进而控制背景和水管是否移动。而我定义游戏的主脚本和碰撞回调函数脚本不是同一个文件，无法直接在碰撞回调脚本中修改主脚本中<strong>isStart</strong>的值，因此，可以通过定义全局变量的方法来实现参数的传递。</p>
+<p>保存全局变量的脚本<strong>datas.js</strong>如下：</p>
+<p><img src="1.png" alt="1"></p>
+<p>保存碰撞回调函数的脚本<strong>collision.js</strong>如下：</p>
+<p><img src="2.png" alt="2"></p>
+<p>通过require来引入传参脚本，即可实现全局变量的导入。</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>Cocos Creator</tag>
+      </tags>
+  </entry>
 </search>
