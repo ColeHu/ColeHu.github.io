@@ -22,19 +22,17 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="three-pathfinding demo          	 		&#x2F;* global threePathfinding *&#x2F;  		const Color &#x3D; { 			GROUND: new THREE.Color( 0xe5e5ff ).convertGammaToLinear( 2.2 ).getHex(), 			NAVMESH: new THREE.Color( 0xe5e">
+  <meta name="description" content="啥都想学，啥都不会">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Akazure的冰室">
-<meta property="og:url" content="http://yoursite.com/demos/pathfiding_demo.html">
+<meta property="og:url" content="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Akazure的冰室">
-<meta property="og:description" content="three-pathfinding demo          	 		&#x2F;* global threePathfinding *&#x2F;  		const Color &#x3D; { 			GROUND: new THREE.Color( 0xe5e5ff ).convertGammaToLinear( 2.2 ).getHex(), 			NAVMESH: new THREE.Color( 0xe5e">
+<meta property="og:description" content="啥都想学，啥都不会">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-10-17T06:03:16.789Z">
-<meta property="article:modified_time" content="2021-10-17T05:40:24.981Z">
 <meta property="article:author" content="Akazure">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/demos/pathfiding_demo">
+<link rel="canonical" href="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/%E9%A2%98%E8%A7%A3/">
 
 
 <script id="page-configurations">
@@ -47,8 +45,7 @@
   };
 </script>
 
-  <title> | Akazure的冰室
-</title>
+  <title>分类: 题解 | Akazure的冰室</title>
   
 
 
@@ -194,265 +191,54 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content category">
             
 
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h2 class="collection-header">题解
+          <small>分类</small>
+        </h2>
+      </div>
 
-<h1 class="post-title" itemprop="name headline">
-</h1>
+      
+    <div class="collection-year">
+      <span class="collection-header">2021</span>
+    </div>
 
-<div class="post-meta">
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-12-15T15:00:07+08:00"
+              content="2021-12-15">
+          12-15
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/12/15/%E5%8A%9B%E6%89%A3No.1631%20%E6%9C%80%E5%B0%8F%E4%BD%93%E5%8A%9B%E6%B6%88%E8%80%97%E8%B7%AF%E5%BE%84%20%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" itemprop="url">
+            <span itemprop="name">力扣No.1631 最小体力消耗路径 解题笔记</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+    </div>
+  </div>
+  
+  
   
 
-</div>
+  
 
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <!DOCTYPE html>
-<script src="../src/PathfindingHelper.js"></script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-<title>three-pathfinding demo</title>
-<link href="style.css" rel="stylesheet">
-<script src="https://unpkg.com/three@0.124.0/build/three.min.js"></script>
-<script src="https://unpkg.com/three@0.124.0/examples/js/controls/OrbitControls.js"></script>
-<script src="https://unpkg.com/three@0.124.0/examples/js/loaders/GLTFLoader.js"></script>
-<script src="./three-pathfinding.umd.js"></script>
-
-<body>
-
-
-	<script>
-		/* global threePathfinding */
-
-		const Color = {
-			GROUND: new THREE.Color( 0xe5e5ff ).convertGammaToLinear( 2.2 ).getHex(),
-			NAVMESH: new THREE.Color( 0xe5e5ff ).convertGammaToLinear( 2.2 ).getHex(),
-		};
-
-		const ZONE = 'level';
-		const SPEED = 10;
-		const OFFSET = 0.2;
-
-		THREE.Pathfinding = threePathfinding.Pathfinding;
-		THREE.PathfindingHelper = threePathfinding.PathfindingHelper;
-
-		let level, navmesh;
-
-		let groupID, path;
-
-		const playerPosition = new THREE.Vector3( -3.5, 0.5, 5.5 );
-		const targetPosition = new THREE.Vector3();
-
-		const pathfinder = new THREE.Pathfinding();
-		const helper = new THREE.PathfindingHelper();
-		const clock = new THREE.Clock();
-		const mouse = new THREE.Vector2();
-		const raycaster = new THREE.Raycaster();
-
-		const scene = new THREE.Scene();
-		scene.add( helper );
-
-		const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
-		camera.position.set(50, 50, 50);
-
-		const renderer = new THREE.WebGLRenderer();
-		renderer.setPixelRatio( window.devicePixelRatio );
-		renderer.setSize( window.innerWidth, window.innerHeight );
-		renderer.setClearColor(0xffffff);
-		renderer.outputEncoding = THREE.sRGBEncoding;
-		document.body.appendChild( renderer.domElement );
-
-		const controls = new THREE.OrbitControls( camera, renderer.domElement );
-		controls.damping = 0.2;
-
-		const ambient = new THREE.AmbientLight( 0x00001a );
-		scene.add( ambient );
-
-		const directionalLight = new THREE.DirectionalLight( 0xFFEEDD );
-		directionalLight.position.set( 0, 0.5, 0.5 );
-		scene.add( directionalLight );
-
-		init();
-		animate();
-
-		function init() {
-
-			const gltfLoader = new THREE.GLTFLoader();
-
-			gltfLoader.load( 'meshes/panel.glb', function( gltf ) {
-
-				const levelMesh = gltf.scene.children[0];
-				const levelMat = new THREE.MeshStandardMaterial({
-					color: Color.GROUND,
-					flatShading: true,
-					roughness: 1,
-					metalness: 0
-				});
-				level = new THREE.Mesh(levelMesh.geometry, levelMat);
-				window.level = level;
-				scene.add(levelMesh);
-			}, null);
-
-			gltfLoader.load( 'meshes/panel.nav.glb', function( gltf ) {
-
-				const _navmesh = gltf.scene.children[0];
-
-				//console.time('createZone()');
-				const zone = THREE.Pathfinding.createZone(_navmesh.geometry);
-				//console.timeEnd('createZone()');
-
-				pathfinder.setZoneData( ZONE, zone );
-
-				const navWireframe = new THREE.Mesh(_navmesh.geometry, new THREE.MeshBasicMaterial({
-					color: 0xffffff,
-					wireframe: true
-				}));
-				navWireframe.position.y = OFFSET / 2;
-				scene.add(navWireframe);
-
-				navmesh = new THREE.Mesh(_navmesh.geometry, new THREE.MeshBasicMaterial({
-					color: Color.NAVMESH,
-					opacity: 0.75,
-					transparent: true
-				}));
-
-				scene.add(navmesh);
-
-				// Set the player's navigation mesh group
-				groupID = pathfinder.getGroup( ZONE, playerPosition );	//定义navigation mesh组
-
-			}, null);
-
-			helper
-				.setPlayerPosition( new THREE.Vector3( -3.5, 0.5, 5.5 ) )
-				.setTargetPosition( new THREE.Vector3( -3.5, 0.5, 5.5 ) );
-
-			document.addEventListener( 'click', onDocumentMouseUp, false );
-			window.addEventListener( 'resize', onWindowResize, false );
-
-		}
-
-		function onDocumentMouseUp (event) {
-
-			mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-			mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-
-			camera.updateMatrixWorld();
-
-			raycaster.setFromCamera( mouse, camera );
-
-			const intersects = raycaster.intersectObject( navmesh );
-
-			if ( !intersects.length ) return;
-
-			targetPosition.copy( intersects[0].point );
-
-			helper
-				.reset()
-				.setPlayerPosition( playerPosition );
-
-			// Teleport on ctrl/cmd click or RMB.
-			if (event.metaKey || event.ctrlKey || event.button === 2) {
-
-				path = null;
-				groupID = pathfinder.getGroup(ZONE, targetPosition, true);
-				const closestNode = pathfinder.getClosestNode( playerPosition, ZONE, groupID, true );
-
-				helper.setPlayerPosition( playerPosition.copy( targetPosition ) )
-				if ( closestNode ) helper.setNodePosition( closestNode.centroid );
-
-				return;
-
-			}
-
-			const targetGroupID = pathfinder.getGroup( ZONE, targetPosition, true );
-			const closestTargetNode = pathfinder.getClosestNode( targetPosition, ZONE, targetGroupID, true );
-
-			helper.setTargetPosition( targetPosition );
-			if (closestTargetNode) helper.setNodePosition( closestTargetNode.centroid );
-
-			// Calculate a path to the target and store it
-			path = pathfinder.findPath( playerPosition, targetPosition, ZONE, groupID );	//获取路径
-
-			if ( path && path.length ) {
-
-				helper.setPath( path );
-
-			} else {
-
-				const closestPlayerNode = pathfinder.getClosestNode( playerPosition, ZONE, groupID );
-				const clamped = new THREE.Vector3();
-
-				// TODO(donmccurdy): Don't clone targetPosition, fix the bug.
-				pathfinder.clampStep(
-					playerPosition, targetPosition.clone(), closestPlayerNode, ZONE, groupID, clamped );
-
-				helper.setStepPosition( clamped );
-
-			}
-		}
-
-		function onWindowResize() {
-
-			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.updateProjectionMatrix();
-
-			renderer.setSize( window.innerWidth, window.innerHeight );
-
-		}
-
-		function animate() {
-
-			requestAnimationFrame( animate );
-			tick(clock.getDelta());
-			renderer.render( scene, camera );
-
-		}
-
-		function tick ( dt ) {
-			if ( !level || !(path||[]).length ) return
-
-			let targetPosition = path[ 0 ];
-			const velocity = targetPosition.clone().sub( playerPosition );
-
-			if (velocity.lengthSq() > 0.05 * 0.05) {
-				velocity.normalize();
-				// Move player to target
-				playerPosition.add( velocity.multiplyScalar( dt * SPEED ) );
-				helper.setPlayerPosition( playerPosition );
-			} else {
-				// Remove node from the path we calculated
-				path.shift();
-			}
-		}
-
-	</script>
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/aoba.model.json"},"display":{"position":"left","width":250,"height":450},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
-
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
