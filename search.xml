@@ -1227,4 +1227,26 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.1518 换酒问题解题笔记</title>
+    <url>/2021/12/17/%E5%8A%9B%E6%89%A3No.1518%20%E6%8D%A2%E9%85%92%E9%97%AE%E9%A2%98%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>小区便利店正在促销，用 numExchange 个空酒瓶可以兑换一瓶新酒。你购入了 numBottles 瓶酒。</p>
+<p>如果喝掉了酒瓶中的酒，那么酒瓶就会变成空的。</p>
+<p>请你计算 最多 能喝到多少瓶酒。</p>
+<p><strong>思路</strong></p>
+<p>用res记录喝的酒的瓶数，empty记录当前空酒瓶数，当numBottle大于0时，把酒全喝完，空瓶数加上numBottle，empty再模numExchange。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int numWaterBottles(int numBottles, int numExchange) &#123;</span><br><span class="line">        int res &#x3D; 0, empty &#x3D; 0;</span><br><span class="line">        while(numBottles &gt; 0)&#123;</span><br><span class="line">            res +&#x3D; numBottles;</span><br><span class="line">            empty +&#x3D; numBottles;</span><br><span class="line">            numBottles &#x3D; empty &#x2F; numExchange;</span><br><span class="line">            empty %&#x3D; numExchange; </span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
