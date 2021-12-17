@@ -1234,6 +1234,8 @@
 <p>小区便利店正在促销，用 numExchange 个空酒瓶可以兑换一瓶新酒。你购入了 numBottles 瓶酒。</p>
 <p>如果喝掉了酒瓶中的酒，那么酒瓶就会变成空的。</p>
 <p>请你计算 最多 能喝到多少瓶酒。</p>
+<a id="more"></a>
+
 <p><strong>思路</strong></p>
 <p>用res记录喝的酒的瓶数，empty记录当前空酒瓶数，当numBottle大于0时，把酒全喝完，空瓶数加上numBottle，empty再模numExchange。</p>
 <p><strong>代码</strong></p>
