@@ -1251,4 +1251,25 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.419 甲板上的战舰解题笔记</title>
+    <url>/2021/12/18/%E5%8A%9B%E6%89%A3No.419%20%E7%94%B2%E6%9D%BF%E4%B8%8A%E7%9A%84%E6%88%98%E8%88%B0%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>给你一个大小为 m x n 的矩阵 board 表示甲板，其中，每个单元格可以是一艘战舰 ‘X’ 或者是一个空位 ‘.’ ，返回在甲板 board 上放置的 战舰 的数量。</p>
+<p>战舰 只能水平或者垂直放置在 board 上。换句话说，战舰只能按 1 x k（1 行，k 列）或 k x 1（k 行，1 列）的形状建造，其中 k 可以是任意大小。两艘战舰之间至少有一个水平或垂直的空位分隔 （即没有相邻的战舰）。</p>
+<p><strong>思路</strong></p>
+<p>又是遍历地图类型的题，使用DFS来遍历地图，visited数组来记录每一个元素是否已经经过，遍历地图的每一个元素，若遇到‘X’，结果res自增，进入深搜，找到所有与该点有通路的其余‘X’，并将所有有通路的元素设置为‘X’。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; visited;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countBattleships</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board)</span> </span>&#123;</span><br><span class="line">        visited.resize(board.<span class="built_in">size</span>(), <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(board[<span class="number">0</span>].<span class="built_in">size</span>(), <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; board.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; board[i].<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(board[i][j] == <span class="string">'X'</span>)&#123;</span><br><span class="line">                    res++;</span><br><span class="line">                    dfs(i, j, board);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span> || x &gt;= visited.<span class="built_in">size</span>() || y &lt; <span class="number">0</span> || y &gt;= visited[<span class="number">0</span>].<span class="built_in">size</span>() || board[x][y] == <span class="string">'.'</span> || visited[x][y] == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        board[x][y] = <span class="string">'.'</span>;</span><br><span class="line">        visited[x][y] = <span class="number">1</span>;</span><br><span class="line">        dfs(x + <span class="number">1</span>, y, board);</span><br><span class="line">        dfs(x, y + <span class="number">1</span>, board);</span><br><span class="line">        dfs(x - <span class="number">1</span>, y, board);</span><br><span class="line">        dfs(x, y - <span class="number">1</span>, board);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
