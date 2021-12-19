@@ -22,20 +22,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="题目 你准备参加一场远足活动。给你一个二维 rows x columns 的地图 heights ，其中 heights[row][col] 表示格子 (row, col) 的高度。一开始你在最左上角的格子 (0, 0) ，且你希望去最右下角的格子 (rows-1, columns-1) （注意下标从 0 开始编号）。你每次可以往 上，下，左，右 四个方向之一移动，你想要找到耗费 体力 最小的一条">
+  <meta name="description" content="题目 在一个小镇里，按从 1 到 n 为 n 个人进行编号。传言称，这些人中有一个是小镇上的秘密法官。 如果小镇的法官真的存在，那么： 小镇的法官不相信任何人。每个人（除了小镇法官外）都信任小镇的法官。只有一个人同时满足条件 1 和条件 2 。给定数组 trust，该数组由信任对 trust[i] &#x3D; [a, b] 组成，表示编号为 a 的人信任编号为 b 的人。 如果小镇存在秘密法官并且可以确定">
 <meta property="og:type" content="article">
-<meta property="og:title" content="力扣No.1631 最小体力消耗路径 解题笔记">
-<meta property="og:url" content="http://yoursite.com/2021/12/15/%E5%8A%9B%E6%89%A3No.1631%20%E6%9C%80%E5%B0%8F%E4%BD%93%E5%8A%9B%E6%B6%88%E8%80%97%E8%B7%AF%E5%BE%84%20%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="力扣No.997 找到小镇的法官解题笔记">
+<meta property="og:url" content="http://yoursite.com/2021/12/19/%E5%8A%9B%E6%89%A3No.997%20%E6%89%BE%E5%88%B0%E5%B0%8F%E9%95%87%E7%9A%84%E6%B3%95%E5%AE%98%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Akazure的冰室">
-<meta property="og:description" content="题目 你准备参加一场远足活动。给你一个二维 rows x columns 的地图 heights ，其中 heights[row][col] 表示格子 (row, col) 的高度。一开始你在最左上角的格子 (0, 0) ，且你希望去最右下角的格子 (rows-1, columns-1) （注意下标从 0 开始编号）。你每次可以往 上，下，左，右 四个方向之一移动，你想要找到耗费 体力 最小的一条">
+<meta property="og:description" content="题目 在一个小镇里，按从 1 到 n 为 n 个人进行编号。传言称，这些人中有一个是小镇上的秘密法官。 如果小镇的法官真的存在，那么： 小镇的法官不相信任何人。每个人（除了小镇法官外）都信任小镇的法官。只有一个人同时满足条件 1 和条件 2 。给定数组 trust，该数组由信任对 trust[i] &#x3D; [a, b] 组成，表示编号为 a 的人信任编号为 b 的人。 如果小镇存在秘密法官并且可以确定">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-12-15T07:00:07.000Z">
-<meta property="article:modified_time" content="2021-12-15T11:29:06.995Z">
+<meta property="article:published_time" content="2021-12-19T03:18:17.000Z">
+<meta property="article:modified_time" content="2021-12-19T03:21:42.784Z">
 <meta property="article:author" content="Akazure">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2021/12/15/%E5%8A%9B%E6%89%A3No.1631%20%E6%9C%80%E5%B0%8F%E4%BD%93%E5%8A%9B%E6%B6%88%E8%80%97%E8%B7%AF%E5%BE%84%20%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://yoursite.com/2021/12/19/%E5%8A%9B%E6%89%A3No.997%20%E6%89%BE%E5%88%B0%E5%B0%8F%E9%95%87%E7%9A%84%E6%B3%95%E5%AE%98%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>力扣No.1631 最小体力消耗路径 解题笔记 | Akazure的冰室</title>
+  <title>力扣No.997 找到小镇的法官解题笔记 | Akazure的冰室</title>
   
 
 
@@ -202,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/12/15/%E5%8A%9B%E6%89%A3No.1631%20%E6%9C%80%E5%B0%8F%E4%BD%93%E5%8A%9B%E6%B6%88%E8%80%97%E8%B7%AF%E5%BE%84%20%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/12/19/%E5%8A%9B%E6%89%A3No.997%20%E6%89%BE%E5%88%B0%E5%B0%8F%E9%95%87%E7%9A%84%E6%B3%95%E5%AE%98%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/usr1.png">
@@ -215,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          力扣No.1631 最小体力消耗路径 解题笔记
+          力扣No.997 找到小镇的法官解题笔记
         </h1>
 
         <div class="post-meta">
@@ -226,7 +226,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-12-15 15:00:07 / 修改时间：19:29:06" itemprop="dateCreated datePublished" datetime="2021-12-15T15:00:07+08:00">2021-12-15</time>
+              <time title="创建时间：2021-12-19 11:18:17 / 修改时间：11:21:42" itemprop="dateCreated datePublished" datetime="2021-12-19T11:18:17+08:00">2021-12-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -254,15 +254,18 @@
 
       
         <p><strong>题目</strong></p>
-<p>你准备参加一场远足活动。给你一个二维 rows x columns 的地图 heights ，其中 heights[row][col] 表示格子 (row, col) 的高度。一开始你在最左上角的格子 (0, 0) ，且你希望去最右下角的格子 (rows-1, columns-1) （注意下标从 0 开始编号）。你每次可以往 上，下，左，右 四个方向之一移动，你想要找到耗费 体力 最小的一条路径。</p>
-<p>一条路径耗费的 体力值 是路径上相邻格子之间 高度差绝对值 的 最大值 决定的。</p>
-<p>请你返回从左上角走到右下角的最小 体力消耗值 。</p>
+<p>在一个小镇里，按从 1 到 n 为 n 个人进行编号。传言称，这些人中有一个是小镇上的秘密法官。</p>
+<p>如果小镇的法官真的存在，那么：</p>
+<p>小镇的法官不相信任何人。<br>每个人（除了小镇法官外）都信任小镇的法官。<br>只有一个人同时满足条件 1 和条件 2 。<br>给定数组 trust，该数组由信任对 trust[i] = [a, b] 组成，表示编号为 a 的人信任编号为 b 的人。</p>
+<p>如果小镇存在秘密法官并且可以确定他的身份，请返回该法官的编号。否则，返回 -1。</p>
 <a id="more"></a>
 
 <p><strong>思路</strong></p>
-<p>首先看题干，知道是遍历地图类型的题，想到利用DFS或者BFS来遍历地图找到路径。而由于该题中一条路径耗费的体力值是路径上相邻格子之间<strong>高度差绝对值</strong>的<strong>最大值</strong>决定的，即为求一定范围内的最大值问题，想到用二分答案的方法来解该题，先通过二分法来获得可能的体力消耗，再通过DFS或者BFS来判断能否在不大于这个体力消耗的情况下到达终点。</p>
-<p><strong>代码（BFS）</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minimumEffortPath</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; heights)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> dir[<span class="number">4</span>][<span class="number">2</span>] = &#123;&#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;&#125;;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">9999999</span>, res = <span class="number">0</span>, mid = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = heights.<span class="built_in">size</span>(), m = heights[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">            <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; <span class="title">visited</span><span class="params">(n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(m, <span class="number">0</span>))</span></span>;</span><br><span class="line">            mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">            <span class="built_in">queue</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; q;</span><br><span class="line">            q.push(make_pair(<span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">            <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">                <span class="keyword">int</span> <span class="built_in">size</span> = q.<span class="built_in">size</span>();</span><br><span class="line">                <span class="keyword">while</span>(<span class="built_in">size</span>--)&#123;</span><br><span class="line">                    <span class="keyword">int</span> a = q.front().first, b = q.front().second;</span><br><span class="line">                    q.pop();</span><br><span class="line">                    visited[a][b] = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123;</span><br><span class="line">                        <span class="keyword">int</span> t1 = a + dir[i][<span class="number">0</span>], t2 = b + dir[i][<span class="number">1</span>];</span><br><span class="line">                        <span class="keyword">if</span>(t1 &gt;= <span class="number">0</span> &amp;&amp; t1 &lt; n &amp;&amp; t2 &gt;= <span class="number">0</span> &amp;&amp; t2 &lt; m &amp;&amp;</span><br><span class="line">                        visited[t1][t2] == <span class="number">0</span> &amp;&amp; <span class="built_in">abs</span>(heights[t1][t2] - </span><br><span class="line">                        heights[a][b]) &lt;= mid)&#123;</span><br><span class="line">                            q.push(make_pair(t1, t2));</span><br><span class="line">                            visited[t1][t2] = <span class="number">1</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(visited[n - <span class="number">1</span>][m - <span class="number">1</span>])&#123;</span><br><span class="line">                res = mid;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>一眼模拟题，开一个二维数组记录每两个人之间的信任情况，先按列遍历，找到被所有人信任的人的编号，再遍历这个人的所有列，判断是否不信任所有人，若两个都满足，则这个人就是法官。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findJudge</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; trust)</span> </span>&#123;</span><br><span class="line">      <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">map</span> <span class="params">(n + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n + <span class="number">1</span>, <span class="number">0</span>))</span></span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; trust.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">          <span class="built_in">map</span>[trust[i][<span class="number">0</span>]][trust[i][<span class="number">1</span>]] = <span class="number">1</span>;</span><br><span class="line">      &#125;  </span><br><span class="line">      <span class="keyword">int</span> res = <span class="number">-1</span>;</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">          <span class="keyword">int</span> f1 = <span class="number">1</span>, f2 = <span class="number">1</span>;</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">              <span class="keyword">if</span>(i == j) <span class="keyword">continue</span>;</span><br><span class="line">              <span class="keyword">if</span>(<span class="built_in">map</span>[j][i] == <span class="number">0</span>)&#123;</span><br><span class="line">                  f1 = <span class="number">0</span>;</span><br><span class="line">                  <span class="keyword">break</span>;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span>(f1)&#123;</span><br><span class="line">              <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">                  <span class="keyword">if</span>(i == j) <span class="keyword">continue</span>;</span><br><span class="line">                  <span class="keyword">if</span>(<span class="built_in">map</span>[i][j] == <span class="number">1</span>) f2 = <span class="number">0</span>;</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span>(f1 &amp;&amp; f2) res = i;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
 
 
     </div>
@@ -282,13 +285,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/12/14/%E5%8A%9B%E6%89%A3No.67%EF%BC%88%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B1%82%E5%92%8C%EF%BC%89%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="prev" title="力扣No.67（二进制求和）解题笔记">
-      <i class="fa fa-chevron-left"></i> 力扣No.67（二进制求和）解题笔记
+    <a href="/2021/12/18/%E5%8A%9B%E6%89%A3No.419%20%E7%94%B2%E6%9D%BF%E4%B8%8A%E7%9A%84%E6%88%98%E8%88%B0%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="prev" title="力扣No.419 甲板上的战舰解题笔记">
+      <i class="fa fa-chevron-left"></i> 力扣No.419 甲板上的战舰解题笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/12/16/%E5%8A%9B%E6%89%A3No.48%20%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="next" title="力扣No.48 旋转图像解题笔记">
-      力扣No.48 旋转图像解题笔记 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
