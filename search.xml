@@ -1330,4 +1330,27 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.1154 一年中的第几天解题笔记</title>
+    <url>/2021/12/21/%E5%8A%9B%E6%89%A3No.1154%20%E4%B8%80%E5%B9%B4%E4%B8%AD%E7%9A%84%E7%AC%AC%E5%87%A0%E5%A4%A9%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>给你一个字符串 date ，按 YYYY-MM-DD 格式表示一个 现行公元纪年法 日期。请你计算并返回该日期是当年的第几天。</p>
+<p>通常情况下，我们认为 1 月 1 日是每年的第 1 天，1 月 2 日是每年的第 2 天，依此类推。每个月的天数与现行公元纪年法（格里高利历）一致。</p>
+<a id="more"></a>
+
+<p><strong>思路</strong></p>
+<p>简单的字符串分割，先分别用<strong>substr</strong>获取年月日，再判断是不是闰年，之后将当前月份之前的月份天数相加，最后输出相加的结果加上当前的天数。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isR</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x % <span class="number">400</span> == <span class="number">0</span> || (x % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; x % <span class="number">100</span> != <span class="number">0</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> monL[<span class="number">13</span>] = &#123;<span class="number">0</span>,<span class="number">31</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> monNotL[<span class="number">13</span>] = &#123;<span class="number">0</span>,<span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dayOfYear</span><span class="params">(<span class="built_in">string</span> date)</span> </span>&#123;</span><br><span class="line">             <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> year = stoi(date.substr(<span class="number">0</span>, <span class="number">4</span>));</span><br><span class="line">        <span class="keyword">int</span> month = stoi(date.substr(<span class="number">5</span>, <span class="number">2</span>));</span><br><span class="line">        <span class="keyword">int</span> day = stoi(date.substr(<span class="number">8</span>, <span class="number">2</span>));</span><br><span class="line">        <span class="keyword">if</span>(isR(year))&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; month; i++)&#123;</span><br><span class="line">                res += monL[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; month; i++)&#123;</span><br><span class="line">                res += monNotL[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res + day;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
