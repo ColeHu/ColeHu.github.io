@@ -1353,4 +1353,25 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.686 重复叠加字符串解题笔记</title>
+    <url>/2021/12/22/%E5%8A%9B%E6%89%A3No.686%20%E9%87%8D%E5%A4%8D%E5%8F%A0%E5%8A%A0%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>给定两个字符串 a 和 b，寻找重复叠加字符串 a 的最小次数，使得字符串 b 成为叠加后的字符串 a 的子串，如果不存在则返回 -1。</p>
+<p>注意：字符串 “abc” 重复叠加 0 次是 “”，重复叠加 1 次是 “abc”，重复叠加 2 次是 “abcabc”。</p>
+<p><strong>思路</strong></p>
+<p>如果a通过多次重复可以得到b，此时有三种情况：</p>
+<p>第一种：a的长度大于b，那么a重复得到b的情况一定是 <strong>a的尾部 + 数个a + a的头部</strong></p>
+<p>第二种：a的长度等于b，此时a与b一定相等，无需重复，结果为1。</p>
+<p>第三种：a的长度小于b，那么a重复得到b的情况一定是 <strong>a的尾部 + 数个a + a的头部</strong>，</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
