@@ -1380,4 +1380,29 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.1044 最长重复子串解题笔记</title>
+    <url>/2021/12/23/%E5%8A%9B%E6%89%A3No.1044%20%E6%9C%80%E9%95%BF%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>给你一个字符串 s ，考虑其所有 重复子串 ：即，s 的连续子串，在 s 中出现 2 次或更多次。这些出现之间可能存在重叠。</p>
+<p>返回 任意一个 可能具有最长长度的重复子串。如果 s 不含重复子串，那么答案为 “”</p>
+<a id="more"></a>
+
+<p><strong>思路</strong></p>
+<p>前置知识：<strong>字符串哈希</strong></p>
+<p>由于要求的是重复字串的长度，因此结果范围为(1, s.size())，结果范围已知，因此可以用二分答案解该题。对子串的长度进行二分，对于每一个mid，check函数实现如下：</p>
+<p>定义一个哈希表hash，用于存储<strong>每个长度为mid的子串</strong>的哈希值，从字符串头部开始，选出每一个长度为mid的字串，判断其是否已经存在于hash中，若已经存在，说明该字串存在重复，则此答案可行，返回true并将结果res设为该字串。如果不存在，则将该字串加入到hash中。若直到遍历结束都没有重复的字串，说明该mid无效，返回false。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="built_in">string</span> res = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> seed = <span class="number">131</span>, <span class="built_in">size</span>;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> p[<span class="number">30001</span>], h[<span class="number">30001</span>];</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">hash</span><span class="params">(<span class="built_in">string</span> s)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            p[i + <span class="number">1</span>] = p[i] * seed;</span><br><span class="line">            h[i + <span class="number">1</span>] = h[i] * seed + s[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> x, <span class="built_in">string</span> s)</span></span>&#123;</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>&gt; hash;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i + x &lt;= <span class="built_in">size</span> + <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> j = i + x - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> t = h[j] - h[i - <span class="number">1</span>] * p[j - i + <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(hash.count(t) &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                res = s.substr(i - <span class="number">1</span>, x);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            hash.insert(t);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestDupSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        p[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        hash(s);</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">1</span>, right = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">size</span> = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(check(mid, s)) left = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> right = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
