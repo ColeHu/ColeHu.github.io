@@ -22,20 +22,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="题目 给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。 你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。">
+  <meta name="description" content="题目 有一棵特殊的苹果树，一连 n 天，每天都可以长出若干个苹果。在第 i 天，树上会长出 apples[i] 个苹果，这些苹果将会在 days[i] 天后（也就是说，第 i + days[i] 天时）腐烂，变得无法食用。也可能有那么几天，树上不会长出新的苹果，此时用 apples[i] &#x3D;&#x3D; 0 且 days[i] &#x3D;&#x3D; 0 表示。 你打算每天 最多 吃一个苹果来保证营养均衡。注意，你可以在这">
 <meta property="og:type" content="article">
-<meta property="og:title" content="力扣No.48 旋转图像解题笔记">
-<meta property="og:url" content="http://yoursite.com/2021/12/16/%E5%8A%9B%E6%89%A3No.48%20%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="力扣No.1705 吃苹果的最大数目解题笔记">
+<meta property="og:url" content="http://yoursite.com/2021/12/24/%E5%8A%9B%E6%89%A3No.1705%20%E5%90%83%E8%8B%B9%E6%9E%9C%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E7%9B%AE%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Akazure的冰室">
-<meta property="og:description" content="题目 给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。 你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。">
+<meta property="og:description" content="题目 有一棵特殊的苹果树，一连 n 天，每天都可以长出若干个苹果。在第 i 天，树上会长出 apples[i] 个苹果，这些苹果将会在 days[i] 天后（也就是说，第 i + days[i] 天时）腐烂，变得无法食用。也可能有那么几天，树上不会长出新的苹果，此时用 apples[i] &#x3D;&#x3D; 0 且 days[i] &#x3D;&#x3D; 0 表示。 你打算每天 最多 吃一个苹果来保证营养均衡。注意，你可以在这">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-12-16T04:04:35.000Z">
-<meta property="article:modified_time" content="2021-12-16T04:12:13.543Z">
+<meta property="article:published_time" content="2021-12-24T07:07:15.000Z">
+<meta property="article:modified_time" content="2021-12-24T07:12:33.793Z">
 <meta property="article:author" content="Akazure">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2021/12/16/%E5%8A%9B%E6%89%A3No.48%20%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://yoursite.com/2021/12/24/%E5%8A%9B%E6%89%A3No.1705%20%E5%90%83%E8%8B%B9%E6%9E%9C%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E7%9B%AE%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>力扣No.48 旋转图像解题笔记 | Akazure的冰室</title>
+  <title>力扣No.1705 吃苹果的最大数目解题笔记 | Akazure的冰室</title>
   
 
 
@@ -202,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/12/16/%E5%8A%9B%E6%89%A3No.48%20%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/12/24/%E5%8A%9B%E6%89%A3No.1705%20%E5%90%83%E8%8B%B9%E6%9E%9C%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E7%9B%AE%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/usr1.png">
@@ -215,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          力扣No.48 旋转图像解题笔记
+          力扣No.1705 吃苹果的最大数目解题笔记
         </h1>
 
         <div class="post-meta">
@@ -226,7 +226,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-12-16 12:04:35 / 修改时间：12:12:13" itemprop="dateCreated datePublished" datetime="2021-12-16T12:04:35+08:00">2021-12-16</time>
+              <time title="创建时间：2021-12-24 15:07:15 / 修改时间：15:12:33" itemprop="dateCreated datePublished" datetime="2021-12-24T15:07:15+08:00">2021-12-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,14 +258,17 @@
 
       
         <p><strong>题目</strong></p>
-<p>给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。</p>
-<p>你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。</p>
+<p>有一棵特殊的苹果树，一连 n 天，每天都可以长出若干个苹果。在第 i 天，树上会长出 apples[i] 个苹果，这些苹果将会在 days[i] 天后（也就是说，第 i + days[i] 天时）腐烂，变得无法食用。也可能有那么几天，树上不会长出新的苹果，此时用 apples[i] == 0 且 days[i] == 0 表示。</p>
+<p>你打算每天 最多 吃一个苹果来保证营养均衡。注意，你可以在这 n 天之后继续吃苹果。</p>
+<p>给你两个长度为 n 的整数数组 days 和 apples ，返回你可以吃掉的苹果的最大数目。</p>
 <a id="more"></a>
 
 <p><strong>思路</strong></p>
-<p>看到题目，首先想到沿对角线交换，交换后的矩阵仍不符合题解，此时需要再将矩阵每一行逆转，即可完成矩阵的反转。（注意：矩阵沿对角线交换时需要开一个数组记录矩阵每一个元素是否被访问，防止重复交换）</p>
+<p>使用优先队列，以pair作为队列数据类型，由于pair优先按first进行排序，因此first为苹果第几天腐烂，second为苹果的个数，一个pair代表在第first有几个苹果腐烂。接下来开始计算吃掉苹果的个数，对于每一天i，首先将今天结的苹果入队，再判断当前队首的苹果是否腐烂，腐烂则出队，接下来将队首的苹果数减1，结果res加一，直至队列为空。</p>
 <p><strong>代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = matrix.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">visited</span><span class="params">(n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(n, <span class="number">0</span>))</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(j == i || visited[i][j]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">int</span> t = matrix[i][j];</span><br><span class="line">                matrix[i][j] = matrix[j][i];</span><br><span class="line">                matrix[j][i] = t;</span><br><span class="line">                visited[i][j] = visited[j][i] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n / <span class="number">2</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> t = matrix[i][j];</span><br><span class="line">                matrix[i][j] = matrix[i][n - j - <span class="number">1</span>];</span><br><span class="line">                matrix[i][n - j - <span class="number">1</span>] = t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">eatenApples</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; apples, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; days)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;, <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt;, greater&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt;&gt; q;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> s = apples.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; !q.empty() || i &lt; s; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; s &amp;&amp; apples[i] != <span class="number">0</span> &amp;&amp; days[i] != <span class="number">0</span>)&#123;</span><br><span class="line">                q.emplace(i + days[i], apples[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(!q.empty() &amp;&amp; i &gt;= q.top().first)&#123;</span><br><span class="line">                q.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!q.empty())&#123;</span><br><span class="line">                pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; t = q.top();</span><br><span class="line">                q.pop();</span><br><span class="line">                res++;</span><br><span class="line">                <span class="keyword">if</span>(t.second &gt; <span class="number">1</span>)&#123;</span><br><span class="line">                    t.second--;</span><br><span class="line">                    q.push(t);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
 
 
     </div>
@@ -285,13 +288,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/12/15/%E5%8A%9B%E6%89%A3No.1631%20%E6%9C%80%E5%B0%8F%E4%BD%93%E5%8A%9B%E6%B6%88%E8%80%97%E8%B7%AF%E5%BE%84%20%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="prev" title="力扣No.1631 最小体力消耗路径 解题笔记">
-      <i class="fa fa-chevron-left"></i> 力扣No.1631 最小体力消耗路径 解题笔记
+    <a href="/2021/12/23/%E5%8A%9B%E6%89%A3No.1044%20%E6%9C%80%E9%95%BF%E9%87%8D%E5%A4%8D%E5%AD%90%E4%B8%B2%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="prev" title="力扣No.1044 最长重复子串解题笔记">
+      <i class="fa fa-chevron-left"></i> 力扣No.1044 最长重复子串解题笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/12/17/%E5%8A%9B%E6%89%A3No.1518%20%E6%8D%A2%E9%85%92%E9%97%AE%E9%A2%98%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="next" title="力扣No.1518 换酒问题解题笔记">
-      力扣No.1518 换酒问题解题笔记 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
