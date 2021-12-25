@@ -22,20 +22,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="第一眼看到1 &lt;&#x3D; s.length &lt;&#x3D; 1000，想到暴力解，枚举每个字串并判断是否回文，记录最长的，毫不意外地TLE了，又看了会题目，由于是最长字串问题，想到用动态规划来解。 对于一个长度为L的字符串S，要判断其是否为回文串，可以从两头开始判断，若S[0] &#x3D; S[L]，接下来只需判断S[1]  &#x3D;&#x3D; S[L - 1]，S[2] &#x3D;&#x3D; S[L - 2]……S[L &#x2F; 2 - 1]">
+  <meta name="description" content="题目 如果一棵二叉树满足下述几个条件，则可以称为 奇偶树 ： 二叉树根节点所在层下标为 0 ，根的子节点所在层下标为 1 ，根的孙节点所在层下标为 2 ，依此类推。偶数下标 层上的所有节点的值都是 奇 整数，从左到右按顺序 严格递增奇数下标 层上的所有节点的值都是 偶 整数，从左到右按顺序 严格递减给你二叉树的根节点，如果二叉树为 奇偶树 ，则返回 true ，否则返回 false 。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="力扣No.5（最长回文子串）解题笔记">
-<meta property="og:url" content="http://yoursite.com/2021/04/02/%E5%8A%9B%E6%89%A3No.5%EF%BC%88%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%EF%BC%89%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="力扣No.1609 奇偶数解题笔记">
+<meta property="og:url" content="http://yoursite.com/2021/12/25/%E5%8A%9B%E6%89%A3No.1609%20%E5%A5%87%E5%81%B6%E6%A0%91%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Akazure的冰室">
-<meta property="og:description" content="第一眼看到1 &lt;&#x3D; s.length &lt;&#x3D; 1000，想到暴力解，枚举每个字串并判断是否回文，记录最长的，毫不意外地TLE了，又看了会题目，由于是最长字串问题，想到用动态规划来解。 对于一个长度为L的字符串S，要判断其是否为回文串，可以从两头开始判断，若S[0] &#x3D; S[L]，接下来只需判断S[1]  &#x3D;&#x3D; S[L - 1]，S[2] &#x3D;&#x3D; S[L - 2]……S[L &#x2F; 2 - 1]">
+<meta property="og:description" content="题目 如果一棵二叉树满足下述几个条件，则可以称为 奇偶树 ： 二叉树根节点所在层下标为 0 ，根的子节点所在层下标为 1 ，根的孙节点所在层下标为 2 ，依此类推。偶数下标 层上的所有节点的值都是 奇 整数，从左到右按顺序 严格递增奇数下标 层上的所有节点的值都是 偶 整数，从左到右按顺序 严格递减给你二叉树的根节点，如果二叉树为 奇偶树 ，则返回 true ，否则返回 false 。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-02T08:26:43.000Z">
-<meta property="article:modified_time" content="2021-04-02T09:05:01.976Z">
+<meta property="article:published_time" content="2021-12-25T04:18:21.000Z">
+<meta property="article:modified_time" content="2021-12-25T04:24:17.882Z">
 <meta property="article:author" content="Akazure">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2021/04/02/%E5%8A%9B%E6%89%A3No.5%EF%BC%88%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%EF%BC%89%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://yoursite.com/2021/12/25/%E5%8A%9B%E6%89%A3No.1609%20%E5%A5%87%E5%81%B6%E6%A0%91%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>力扣No.5（最长回文子串）解题笔记 | Akazure的冰室</title>
+  <title>力扣No.1609 奇偶数解题笔记 | Akazure的冰室</title>
   
 
 
@@ -202,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/02/%E5%8A%9B%E6%89%A3No.5%EF%BC%88%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%EF%BC%89%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/12/25/%E5%8A%9B%E6%89%A3No.1609%20%E5%A5%87%E5%81%B6%E6%A0%91%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/usr1.png">
@@ -215,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          力扣No.5（最长回文子串）解题笔记
+          力扣No.1609 奇偶数解题笔记
         </h1>
 
         <div class="post-meta">
@@ -226,7 +226,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-04-02 16:26:43 / 修改时间：17:05:01" itemprop="dateCreated datePublished" datetime="2021-04-02T16:26:43+08:00">2021-04-02</time>
+              <time title="创建时间：2021-12-25 12:18:21 / 修改时间：12:24:17" itemprop="dateCreated datePublished" datetime="2021-12-25T12:18:21+08:00">2021-12-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -257,17 +257,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>第一眼看到<strong>1 &lt;= s.length &lt;= 1000</strong>，想到暴力解，枚举每个字串并判断是否回文，记录最长的，毫不意外地TLE了，又看了会题目，由于是最长字串问题，想到用动态规划来解。</p>
-<p>对于一个长度为<strong>L</strong>的字符串S，要判断其是否为回文串，可以从两头开始判断，<strong>若S[0] = S[L]，接下来只需判断S[1]  == S[L - 1]，S[2] == S[L - 2]……S[L / 2 - 1] == S[L / 2 + 1] **，显然，这里可以使用dp数组来记录回文情况，</strong>DP(i, j)<strong>记录</strong>S[i]<strong>至</strong>S[j]**是否为回文串，这样，可以推出状态转移方程：</p>
-<center>DP(i, j) = (DP(i + 1, j - 1)) && (S[i] == S[j])</center>
-
+        <p><strong>题目</strong></p>
+<p>如果一棵二叉树满足下述几个条件，则可以称为 奇偶树 ：</p>
+<p>二叉树根节点所在层下标为 0 ，根的子节点所在层下标为 1 ，根的孙节点所在层下标为 2 ，依此类推。<br>偶数下标 层上的所有节点的值都是 奇 整数，从左到右按顺序 严格递增<br>奇数下标 层上的所有节点的值都是 偶 整数，从左到右按顺序 严格递减<br>给你二叉树的根节点，如果二叉树为 奇偶树 ，则返回 true ，否则返回 false 。</p>
 <a id="more"></a>
 
-<p>对于长度为1的串，其一定是回文串，故需初始化DP(i, i) = 1</p>
-<p><strong>AC代码</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; &gt; <span class="title">dp</span><span class="params">(s.<span class="built_in">size</span>(), <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(s.<span class="built_in">size</span>(), <span class="number">0</span>))</span></span>;</span><br><span class="line">        <span class="built_in">string</span> ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> l = <span class="number">0</span>; l &lt; s.<span class="built_in">size</span>(); l++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j + l &lt; s.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> i = l + j;</span><br><span class="line">                <span class="keyword">if</span>(l == <span class="number">1</span>)&#123;</span><br><span class="line">                    dp[j][i] = (s[i] == s[j]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(l == <span class="number">0</span>) dp[j][i] = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[j][i] = (s[i] == s[j]) &amp;&amp; (dp[j + <span class="number">1</span>][i - <span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(dp[j][i] &amp;&amp; l + <span class="number">1</span> &gt; ans.<span class="built_in">size</span>())&#123;</span><br><span class="line">                    ans = s.substr(j, l + <span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>思路</strong></p>
+<p>显然通过层序遍历可以解该题，用一个变量计数为第几层，用广搜遍历树的每一层：</p>
+<p>若为基层则判断其子节点的值是否都为偶数，且该层的数是否严格递增</p>
+<p>若为基层则判断其子节点的值是否都为奇数，且该层的数是否严递减</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isEvenOddTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">bool</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">bool</span> f = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> last = <span class="number">-99999999</span>;</span><br><span class="line">        <span class="built_in">queue</span>&lt;TreeNode*&gt; q;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;val % <span class="number">2</span> == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        q.push(root);</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> s = q.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">while</span>(s--)&#123;</span><br><span class="line">                TreeNode* t = q.front();</span><br><span class="line">                q.pop(); </span><br><span class="line">                <span class="keyword">if</span>(f == <span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(t-&gt;val &lt;= last) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">if</span>(t-&gt;left != <span class="literal">nullptr</span> &amp;&amp; t-&gt;left-&gt;val % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                        q.push(t-&gt;left);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(t-&gt;left != <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">if</span>(t-&gt;right != <span class="literal">nullptr</span> &amp;&amp; t-&gt;right-&gt;val % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                        q.push(t-&gt;right);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(t-&gt;right != <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(t-&gt;val &gt;= last) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">if</span>(t-&gt;left != <span class="literal">nullptr</span> &amp;&amp; t-&gt;left-&gt;val % <span class="number">2</span> == <span class="number">1</span>)&#123;</span><br><span class="line">                        q.push(t-&gt;left);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(t-&gt;left != <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">if</span>(t-&gt;right != <span class="literal">nullptr</span> &amp;&amp; t-&gt;right-&gt;val % <span class="number">2</span> == <span class="number">1</span>)&#123;</span><br><span class="line">                        q.push(t-&gt;right);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(t-&gt;right != <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                last = t-&gt;val;</span><br><span class="line">            &#125;</span><br><span class="line">            f = !f;</span><br><span class="line">            <span class="keyword">if</span>(f == <span class="number">1</span>)&#123;</span><br><span class="line">                last = <span class="number">-99999999</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> last = <span class="number">99999999</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p><strong>这里使用了substr(j, l)函数，该函数返回字符串从j开始到j + l - 1的子串。</strong> </p>
 
     </div>
 
@@ -286,13 +287,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/10/CodeForce695(Div.2)%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="prev" title="CodeForce695(Div.2)解题笔记">
-      <i class="fa fa-chevron-left"></i> CodeForce695(Div.2)解题笔记
+    <a href="/2021/12/24/%E5%8A%9B%E6%89%A3No.1705%20%E5%90%83%E8%8B%B9%E6%9E%9C%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E7%9B%AE%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="prev" title="力扣No.1705 吃苹果的最大数目解题笔记">
+      <i class="fa fa-chevron-left"></i> 力扣No.1705 吃苹果的最大数目解题笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/04/07/POJ3616%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="next" title="POJ3616解题笔记">
-      POJ3616解题笔记 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
