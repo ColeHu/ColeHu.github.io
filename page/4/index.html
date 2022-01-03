@@ -198,6 +198,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/02/%E5%8A%9B%E6%89%A3No.5%EF%BC%88%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%EF%BC%89%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/usr1.png">
+      <meta itemprop="name" content="Akazure">
+      <meta itemprop="description" content="啥都想学，啥都不会">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Akazure的冰室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/02/%E5%8A%9B%E6%89%A3No.5%EF%BC%88%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%EF%BC%89%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">力扣No.5（最长回文子串）解题笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-02 16:26:43 / 修改时间：17:05:01" itemprop="dateCreated datePublished" datetime="2021-04-02T16:26:43+08:00">2021-04-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>第一眼看到<strong>1 &lt;= s.length &lt;= 1000</strong>，想到暴力解，枚举每个字串并判断是否回文，记录最长的，毫不意外地TLE了，又看了会题目，由于是最长字串问题，想到用动态规划来解。</p>
+<p>对于一个长度为<strong>L</strong>的字符串S，要判断其是否为回文串，可以从两头开始判断，<strong>若S[0] = S[L]，接下来只需判断S[1]  == S[L - 1]，S[2] == S[L - 2]……S[L / 2 - 1] == S[L / 2 + 1] **，显然，这里可以使用dp数组来记录回文情况，</strong>DP(i, j)<strong>记录</strong>S[i]<strong>至</strong>S[j]**是否为回文串，这样，可以推出状态转移方程：</p>
+<center>DP(i, j) = (DP(i + 1, j - 1)) && (S[i] == S[j])</center>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/02/%E5%8A%9B%E6%89%A3No.5%EF%BC%88%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%EF%BC%89%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/10/CodeForce695(Div.2)%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -927,81 +1012,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/02/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/usr1.png">
-      <meta itemprop="name" content="Akazure">
-      <meta itemprop="description" content="啥都想学，啥都不会">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Akazure的冰室">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/02/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">摩尔投票法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-02 17:32:17 / 修改时间：17:56:22" itemprop="dateCreated datePublished" datetime="2020-09-02T17:32:17+08:00">2020-09-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>摩尔投票算法</strong>是一种用来求一组数据中的众数的算法，其要求该组数据中的众数必须占该数据总数的<strong>二分之一</strong>以上。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/02/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E7%AE%97%E6%B3%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1073,7 +1083,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
