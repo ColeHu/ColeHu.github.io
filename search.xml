@@ -1682,4 +1682,27 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.203 移除链表元素解题笔记</title>
+    <url>/2022/01/04/%E5%8A%9B%E6%89%A3No.203%20%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>给你一个链表的头节点 <code>head</code> 和一个整数 <code>val</code> ，请你删除链表中所有满足 <code>Node.val == val</code> 的节点，并返回 <strong>新的头节点</strong> 。</p>
+<a id="more"></a>
+
+<p><strong>思路</strong></p>
+<p><del>考试周水一题</del></p>
+<p>创建新链表，不是val的结点接上，是val的舍去，最后返回新链表头节点即可</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeElements</span><span class="params">(ListNode* head, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        ListNode* t = head;</span><br><span class="line">        ListNode* res = <span class="keyword">new</span> ListNode();</span><br><span class="line">        ListNode* ans = res;</span><br><span class="line">        <span class="keyword">while</span>(t != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(t-&gt;val != val)&#123;</span><br><span class="line">                res-&gt;next = <span class="keyword">new</span> ListNode(t-&gt;val);</span><br><span class="line">                res = res-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            t = t-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
