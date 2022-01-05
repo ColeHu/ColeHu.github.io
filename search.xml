@@ -1705,4 +1705,29 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.1576 替换所有的问号解题笔记</title>
+    <url>/2022/01/05/%E5%8A%9B%E6%89%A3No.1576%20%E6%9B%BF%E6%8D%A2%E6%89%80%E6%9C%89%E7%9A%84%E9%97%AE%E5%8F%B7%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>给你一个仅包含小写英文字母和 ‘?’ 字符的字符串 s，请你将所有的 ‘?’ 转换为若干小写字母，使最终的字符串不包含任何 连续重复 的字符。</p>
+<p>注意：你 不能 修改非 ‘?’ 字符。</p>
+<p>题目测试用例保证 除 ‘?’ 字符 之外，不存在连续重复的字符。</p>
+<p>在完成所有转换（可能无需转换）后返回最终的字符串。如果有多个解决方案，请返回其中任何一个。可以证明，在给定的约束条件下，答案总是存在的。</p>
+<a id="more"></a>
+
+<p><strong>思路</strong></p>
+<p>遍历整个字符串，遇到问号的时候找与前后字母不同的字母，然后替换即可。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">modifyString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span> t[<span class="number">26</span>] = &#123;<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'g'</span>, <span class="string">'h'</span>, <span class="string">'i'</span>, <span class="string">'j'</span>, <span class="string">'k'</span>, <span class="string">'l'</span>, <span class="string">'m'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>, <span class="string">'p'</span>, <span class="string">'q'</span>, <span class="string">'r'</span>, <span class="string">'s'</span>, <span class="string">'t'</span>, <span class="string">'u'</span>, <span class="string">'v'</span>, <span class="string">'w'</span>, <span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">'?'</span>)&#123;</span><br><span class="line">                <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span>(i != <span class="number">0</span> &amp;&amp; i != s.<span class="built_in">size</span>() - <span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="keyword">while</span>(t[j] == s[i - <span class="number">1</span>] || t[j] == s[i + <span class="number">1</span>])&#123;</span><br><span class="line">                        j++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i == <span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">while</span>(t[j] == s[i + <span class="number">1</span>])&#123;</span><br><span class="line">                        j++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(i == s.<span class="built_in">size</span>() - <span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="keyword">while</span>(t[j] == s[i - <span class="number">1</span>])&#123;</span><br><span class="line">                        j++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                s[i] = t[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
