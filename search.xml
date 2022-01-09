@@ -1835,4 +1835,30 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.306 累加数解题笔记</title>
+    <url>/2022/01/10/%E5%8A%9B%E6%89%A3No.306%20%E7%B4%AF%E5%8A%A0%E6%95%B0%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>累加数 是一个字符串，组成它的数字可以形成累加序列。</p>
+<p>一个有效的 累加序列 必须 至少 包含 3 个数。除了最开始的两个数以外，字符串中的其他数都等于它之前两个数相加的和。</p>
+<p>给你一个只包含数字 ‘0’-‘9’ 的字符串，编写一个算法来判断给定输入是否是 累加数 。如果是，返回 true ；否则，返回 false 。</p>
+<p>说明：累加序列里的数 不会 以 0 开头，所以不会出现 1, 2, 03 或者 1, 02, 3 的情况。</p>
+<a id="more"></a>
+
+<p><strong>思路</strong></p>
+<p>根据题意，可以知道一个有效的累加数序列中除了第一个和第二个数，其余的数均为前两个数的和，但是数的长度未知，而题目中num的长度最长为35，因此可以枚举每一种长度来找到符合条件的序列。</p>
+<p>从长度为1开始枚举前两个数，计算第三个数，如果第三个数等于前两个数之和，则继续计算下一个数。只要遇到一个可以完成的序列即说明该字符串为累加数，返回真。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> b, <span class="keyword">int</span> cur)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(cur == n) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = cur; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[cur] == <span class="string">'0'</span> &amp;&amp; i &gt; cur) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">long</span> <span class="keyword">long</span> t = stoll(s.substr(cur, i - cur + <span class="number">1</span>));</span><br><span class="line">            <span class="keyword">if</span>(t &gt; a + b) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(t == a + b)&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">isValid</span>(s, b, t, i + <span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isAdditiveNumber</span><span class="params">(<span class="built_in">string</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(num.<span class="built_in">size</span>() &lt; <span class="number">3</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> n = num.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n / <span class="number">2</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(num[<span class="number">0</span>] == <span class="string">'0'</span> &amp;&amp; i &gt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; i + <span class="number">1</span> + (n - i - <span class="number">1</span>) / <span class="number">2</span>; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(num[i + <span class="number">1</span>] == <span class="string">'0'</span> &amp;&amp; j &gt; i + <span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">long</span> <span class="keyword">long</span> a = stoll(num.substr(<span class="number">0</span>, i + <span class="number">1</span>));</span><br><span class="line">                <span class="keyword">long</span> <span class="keyword">long</span> b = stoll(num.substr(i + <span class="number">1</span>, j - i));</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">isValid</span>(num, a, b, j + <span class="number">1</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
