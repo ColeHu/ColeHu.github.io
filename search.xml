@@ -1935,4 +1935,28 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.373 查找最小的K对数字解题笔记</title>
+    <url>/2022/01/14/%E5%8A%9B%E6%89%A3No.373%20%E6%9F%A5%E6%89%BE%E6%9C%80%E5%B0%8F%E7%9A%84K%E5%AF%B9%E6%95%B0%E5%AD%97%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>给定两个以升序排列的整数数组 nums1 和 nums2 , 以及一个整数 k 。</p>
+<p>定义一对值 (u,v)，其中第一个元素来自 nums1，第二个元素来自 nums2 。</p>
+<p>请找到和最小的 k 个数对 (u1,v1),  (u2,v2)  …  (uk,vk) 。</p>
+<a id="more"></a>
+
+<p><strong>思路</strong></p>
+<p>遍历nums1和nums2，使用优先队列存储两者元素组成的数组t{nums1[i] + nums2[j], nums1[i], nums2[j]}，当队列大小小于k时，不断将t加入到队列中，若大于等于k，则比较队首的两元素和与此时要加入的两元素和大小，若小，则由于nums1和nums2都为升序数组，之后组成的数对一定都大于本数对，也就大于队首，因此退出循环，输出结果。若大于，则将队首弹出，将本数对入队。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">kSmallestPairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;,less&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&gt; q;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> n = nums1.<span class="built_in">size</span>(), m = nums2.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">bool</span> f = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">min</span>(n, k); i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="built_in">min</span>(m, k); j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> n1 = nums1[i], n2 = nums2[j];</span><br><span class="line">                <span class="keyword">if</span>(q.<span class="built_in">size</span>() &lt; k)&#123;</span><br><span class="line">                    q.push(&#123;n1 + n2, n1, n2&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(q.top()[<span class="number">0</span>] &gt; n1 + n2)&#123;</span><br><span class="line">                        q.pop();</span><br><span class="line">                        q.push(&#123;n1 + n2, n1, n2&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span>&#123;</span><br><span class="line">                        f = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(f) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            res.push_back(&#123;q.top()[<span class="number">1</span>], q.top()[<span class="number">2</span>]&#125;);</span><br><span class="line">            q.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(res.<span class="built_in">begin</span>(), res.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>

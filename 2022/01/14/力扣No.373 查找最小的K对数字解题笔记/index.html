@@ -22,27 +22,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="这几天在修改vue-admin-template的项目时出现了一个问题">
+  <meta name="description" content="题目 给定两个以升序排列的整数数组 nums1 和 nums2 , 以及一个整数 k 。 定义一对值 (u,v)，其中第一个元素来自 nums1，第二个元素来自 nums2 。 请找到和最小的 k 个数对 (u1,v1),  (u2,v2)  …  (uk,vk) 。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue中无法读取静态文件的解决方法">
-<meta property="og:url" content="http://yoursite.com/2021/11/26/Vue%E4%B8%AD%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:title" content="力扣No.373 查找最小的K对数字解题笔记">
+<meta property="og:url" content="http://yoursite.com/2022/01/14/%E5%8A%9B%E6%89%A3No.373%20%E6%9F%A5%E6%89%BE%E6%9C%80%E5%B0%8F%E7%9A%84K%E5%AF%B9%E6%95%B0%E5%AD%97%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Akazure的冰室">
-<meta property="og:description" content="这几天在修改vue-admin-template的项目时出现了一个问题">
+<meta property="og:description" content="题目 给定两个以升序排列的整数数组 nums1 和 nums2 , 以及一个整数 k 。 定义一对值 (u,v)，其中第一个元素来自 nums1，第二个元素来自 nums2 。 请找到和最小的 k 个数对 (u1,v1),  (u2,v2)  …  (uk,vk) 。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2021/11/26/Vue%E4%B8%AD%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/2.png">
-<meta property="og:image" content="http://yoursite.com/2021/11/26/Vue%E4%B8%AD%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/1.png">
-<meta property="og:image" content="http://yoursite.com/2021/11/26/Vue%E4%B8%AD%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/3.png">
-<meta property="og:image" content="http://yoursite.com/2021/11/26/Vue%E4%B8%AD%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/4.png">
-<meta property="og:image" content="http://yoursite.com/2021/11/26/Vue%E4%B8%AD%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/5.png">
-<meta property="article:published_time" content="2021-11-26T05:31:46.000Z">
-<meta property="article:modified_time" content="2021-11-26T05:50:25.016Z">
+<meta property="article:published_time" content="2022-01-13T17:25:18.000Z">
+<meta property="article:modified_time" content="2022-01-13T17:30:22.819Z">
 <meta property="article:author" content="Akazure">
-<meta property="article:tag" content="javaScript">
-<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2021/11/26/Vue%E4%B8%AD%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/2.png">
 
-<link rel="canonical" href="http://yoursite.com/2021/11/26/Vue%E4%B8%AD%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+<link rel="canonical" href="http://yoursite.com/2022/01/14/%E5%8A%9B%E6%89%A3No.373%20%E6%9F%A5%E6%89%BE%E6%9C%80%E5%B0%8F%E7%9A%84K%E5%AF%B9%E6%95%B0%E5%AD%97%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -55,7 +48,7 @@
   };
 </script>
 
-  <title>Vue中无法读取静态文件的解决方法 | Akazure的冰室</title>
+  <title>力扣No.373 查找最小的K对数字解题笔记 | Akazure的冰室</title>
   
 
 
@@ -209,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/26/Vue%E4%B8%AD%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/14/%E5%8A%9B%E6%89%A3No.373%20%E6%9F%A5%E6%89%BE%E6%9C%80%E5%B0%8F%E7%9A%84K%E5%AF%B9%E6%95%B0%E5%AD%97%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/usr1.png">
@@ -222,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Vue中无法读取静态文件的解决方法
+          力扣No.373 查找最小的K对数字解题笔记
         </h1>
 
         <div class="post-meta">
@@ -233,7 +226,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-11-26 13:31:46 / 修改时间：13:50:25" itemprop="dateCreated datePublished" datetime="2021-11-26T13:31:46+08:00">2021-11-26</time>
+              <time title="创建时间：2022-01-14 01:25:18 / 修改时间：01:30:22" itemprop="dateCreated datePublished" datetime="2022-01-14T01:25:18+08:00">2022-01-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,6 +235,14 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
                 </span>
             </span>
 
@@ -256,18 +257,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这几天在修改vue-admin-template的项目时出现了一个问题</p>
+        <p><strong>题目</strong></p>
+<p>给定两个以升序排列的整数数组 nums1 和 nums2 , 以及一个整数 k 。</p>
+<p>定义一对值 (u,v)，其中第一个元素来自 nums1，第二个元素来自 nums2 。</p>
+<p>请找到和最小的 k 个数对 (u1,v1),  (u2,v2)  …  (uk,vk) 。</p>
 <a id="more"></a>
 
-<p><img src="2.png" alt="2"></p>
-<p>我用相对路径引入了一张图片，但是在运行时无法显示，且浏览器控制台中无报错，查看浏览器中的网络窗口</p>
-<p><img src="1.png" alt="1"></p>
-<p>可以看到，浏览器确实读到了我在代码中设置的路径，但是就是无法显示这张图片，原因是因为VUE会动态加载js文件，js文件会被加载到内存中，若直接输入文件的地址，会导致无法访问该文件，也就无法显示该图片，如果我们查看其他文件的地址</p>
-<p><img src="3.png" alt="3"></p>
-<p>可以看到，其地址确实是在内存中的，因此，此时需要使用<strong>require()</strong>函数，将代码修改为如下</p>
-<p><img src="4.png" alt="4"></p>
-<p>刷新页面，可以看到图片已正常显示</p>
-<p><img src="5.png" alt="5"></p>
+<p><strong>思路</strong></p>
+<p>遍历nums1和nums2，使用优先队列存储两者元素组成的数组t{nums1[i] + nums2[j], nums1[i], nums2[j]}，当队列大小小于k时，不断将t加入到队列中，若大于等于k，则比较队首的两元素和与此时要加入的两元素和大小，若小，则由于nums1和nums2都为升序数组，之后组成的数对一定都大于本数对，也就大于队首，因此退出循环，输出结果。若大于，则将队首弹出，将本数对入队。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">kSmallestPairs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        priority_queue&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;,less&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&gt; q;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> n = nums1.<span class="built_in">size</span>(), m = nums2.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">bool</span> f = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">min</span>(n, k); i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="built_in">min</span>(m, k); j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> n1 = nums1[i], n2 = nums2[j];</span><br><span class="line">                <span class="keyword">if</span>(q.<span class="built_in">size</span>() &lt; k)&#123;</span><br><span class="line">                    q.push(&#123;n1 + n2, n1, n2&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(q.top()[<span class="number">0</span>] &gt; n1 + n2)&#123;</span><br><span class="line">                        q.pop();</span><br><span class="line">                        q.push(&#123;n1 + n2, n1, n2&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span>&#123;</span><br><span class="line">                        f = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(f) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            res.push_back(&#123;q.top()[<span class="number">1</span>], q.top()[<span class="number">2</span>]&#125;);</span><br><span class="line">            q.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(res.<span class="built_in">begin</span>(), res.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -277,8 +277,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
-              <a href="/tags/Vue/" rel="tag"># Vue</a>
+              <a href="/tags/C/" rel="tag"># C++</a>
           </div>
 
         
@@ -287,13 +286,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/09/16/%E5%9F%BA%E4%BA%8EYoloV5%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84AimLab%E8%87%AA%E5%8A%A8%E7%9E%84%E5%87%86/" rel="prev" title="基于YoloV5实现AimLab GridShoot自动瞄准">
-      <i class="fa fa-chevron-left"></i> 基于YoloV5实现AimLab GridShoot自动瞄准
+    <a href="/2022/01/13/%E5%8A%9B%E6%89%A3No.747%20%E8%87%B3%E5%B0%91%E6%98%AF%E5%85%B6%E4%BB%96%E6%95%B0%E5%AD%97%E4%B8%A4%E5%80%8D%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="prev" title="力扣No.747 至少是其他数字两倍的最大数解题笔记">
+      <i class="fa fa-chevron-left"></i> 力扣No.747 至少是其他数字两倍的最大数解题笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/12/05/cocos%20creator%E4%B8%AD%E7%A2%B0%E6%92%9E%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E6%B2%A1%E5%8F%8D%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="next" title="cocos creator中碰撞回调函数没反应的解决方法">
-      cocos creator中碰撞回调函数没反应的解决方法 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
