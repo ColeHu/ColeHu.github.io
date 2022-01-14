@@ -22,21 +22,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="– A. Wizard of Orz 贪心题，对于一组panel，要使其组成的数字最大，则要尽量使高位数字大，故只有首位数字为9时才可以取得最大值。而要使首位数字为9，就要使第n个panel在第10-n秒时暂停，此时得到的数为 9 8 7 … (10 - n) … 7 8 9，以10-n为中心向两侧递增，因为要使高位数尽量大，故只有当第8秒时暂停第二个panel才可得最大结果。">
+  <meta name="description" content="题目 Hercy 想要为购买第一辆车存钱。他 每天 都往力扣银行里存钱。 最开始，他在周一的时候存入 1 块钱。从周二到周日，他每天都比前一天多存入 1 块钱。在接下来每一个周一，他都会比 前一个周一 多存入 1 块钱。 给你 n ，请你返回在第 n 天结束的时候他在力扣银行总共存了多少块钱。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CodeForce695(Div.2)解题笔记">
-<meta property="og:url" content="http://yoursite.com/2021/01/10/CodeForce695(Div.2)%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="力扣No.1716 计算力扣银行的钱解题笔记">
+<meta property="og:url" content="http://yoursite.com/2022/01/15/%E5%8A%9B%E6%89%A3No.1716%20%E8%AE%A1%E7%AE%97%E5%8A%9B%E6%89%A3%E9%93%B6%E8%A1%8C%E7%9A%84%E9%92%B1%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Akazure的冰室">
-<meta property="og:description" content="– A. Wizard of Orz 贪心题，对于一组panel，要使其组成的数字最大，则要尽量使高位数字大，故只有首位数字为9时才可以取得最大值。而要使首位数字为9，就要使第n个panel在第10-n秒时暂停，此时得到的数为 9 8 7 … (10 - n) … 7 8 9，以10-n为中心向两侧递增，因为要使高位数尽量大，故只有当第8秒时暂停第二个panel才可得最大结果。">
+<meta property="og:description" content="题目 Hercy 想要为购买第一辆车存钱。他 每天 都往力扣银行里存钱。 最开始，他在周一的时候存入 1 块钱。从周二到周日，他每天都比前一天多存入 1 块钱。在接下来每一个周一，他都会比 前一个周一 多存入 1 块钱。 给你 n ，请你返回在第 n 天结束的时候他在力扣银行总共存了多少块钱。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-09T16:19:12.000Z">
-<meta property="article:modified_time" content="2021-01-09T16:48:00.497Z">
+<meta property="article:published_time" content="2022-01-14T16:44:36.000Z">
+<meta property="article:modified_time" content="2022-01-14T17:08:30.286Z">
 <meta property="article:author" content="Akazure">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="CF">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2021/01/10/CodeForce695(Div.2)%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://yoursite.com/2022/01/15/%E5%8A%9B%E6%89%A3No.1716%20%E8%AE%A1%E7%AE%97%E5%8A%9B%E6%89%A3%E9%93%B6%E8%A1%8C%E7%9A%84%E9%92%B1%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>CodeForce695(Div.2)解题笔记 | Akazure的冰室</title>
+  <title>力扣No.1716 计算力扣银行的钱解题笔记 | Akazure的冰室</title>
   
 
 
@@ -203,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/10/CodeForce695(Div.2)%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/15/%E5%8A%9B%E6%89%A3No.1716%20%E8%AE%A1%E7%AE%97%E5%8A%9B%E6%89%A3%E9%93%B6%E8%A1%8C%E7%9A%84%E9%92%B1%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/usr1.png">
@@ -216,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CodeForce695(Div.2)解题笔记
+          力扣No.1716 计算力扣银行的钱解题笔记
         </h1>
 
         <div class="post-meta">
@@ -227,7 +226,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-10 00:19:12 / 修改时间：00:48:00" itemprop="dateCreated datePublished" datetime="2021-01-10T00:19:12+08:00">2021-01-10</time>
+              <time title="创建时间：2022-01-15 00:44:36 / 修改时间：01:08:30" itemprop="dateCreated datePublished" datetime="2022-01-15T00:44:36+08:00">2022-01-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,7 +234,15 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
                 </span>
             </span>
 
@@ -250,16 +257,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>–</p>
-<p><strong>A. Wizard of Orz</strong></p>
-<p>贪心题，对于一组panel，要使其组成的数字最大，则要尽量使高位数字大，故只有首位数字为9时才可以取得最大值。而要使首位数字为9，就要使第n个panel在第10-n秒时暂停，此时得到的数为</p>
-<p>9 8 7 … (10 - n) … 7 8 9，以10-n为中心向两侧递增，因为要使高位数尽量大，故只有当第8秒时暂停第二个panel才可得最大结果。</p>
-<hr>
+        <p><strong>题目</strong></p>
+<p>Hercy 想要为购买第一辆车存钱。他 每天 都往力扣银行里存钱。</p>
+<p>最开始，他在周一的时候存入 1 块钱。从周二到周日，他每天都比前一天多存入 1 块钱。在接下来每一个周一，他都会比 前一个周一 多存入 1 块钱。</p>
+<p>给你 n ，请你返回在第 n 天结束的时候他在力扣银行总共存了多少块钱。</p>
 <a id="more"></a>
 
-<p><strong>B. Hills And Valleys</strong></p>
-<hr>
-<p><del>CDE都不会</del></p>
+<p><strong>思路</strong></p>
+<p>第一个完整的周可以存28块，并且接下来每一个完整的周所攒的钱都会比前一周多7块，因此可以用等差数列的思路，先算出完整的周所攒下来的钱，再分别计算剩下来天数所攒的钱，最后输出两者之和。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">totalMoney</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> week = n / <span class="number">7</span>;</span><br><span class="line">        <span class="keyword">int</span> resWeek = n % <span class="number">7</span>;</span><br><span class="line">        <span class="keyword">int</span> res = ((<span class="number">28</span> + <span class="number">28</span> + <span class="number">7</span> * (week - <span class="number">1</span>)) * week) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= resWeek; i++)&#123;</span><br><span class="line">            res += i + week;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -270,7 +278,6 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/C/" rel="tag"># C++</a>
-              <a href="/tags/CF/" rel="tag"># CF</a>
           </div>
 
         
@@ -279,13 +286,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/20/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%A8%A1%E6%9D%BF/" rel="prev" title="归并排序模板">
-      <i class="fa fa-chevron-left"></i> 归并排序模板
+    <a href="/2022/01/14/%E5%8A%9B%E6%89%A3No.373%20%E6%9F%A5%E6%89%BE%E6%9C%80%E5%B0%8F%E7%9A%84K%E5%AF%B9%E6%95%B0%E5%AD%97%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="prev" title="力扣No.373 查找最小的K对数字解题笔记">
+      <i class="fa fa-chevron-left"></i> 力扣No.373 查找最小的K对数字解题笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/04/02/%E5%8A%9B%E6%89%A3No.5%EF%BC%88%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2%EF%BC%89%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="next" title="力扣No.5（最长回文子串）解题笔记">
-      力扣No.5（最长回文子串）解题笔记 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     

@@ -1959,4 +1959,28 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.1716 计算力扣银行的钱解题笔记</title>
+    <url>/2022/01/15/%E5%8A%9B%E6%89%A3No.1716%20%E8%AE%A1%E7%AE%97%E5%8A%9B%E6%89%A3%E9%93%B6%E8%A1%8C%E7%9A%84%E9%92%B1%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>Hercy 想要为购买第一辆车存钱。他 每天 都往力扣银行里存钱。</p>
+<p>最开始，他在周一的时候存入 1 块钱。从周二到周日，他每天都比前一天多存入 1 块钱。在接下来每一个周一，他都会比 前一个周一 多存入 1 块钱。</p>
+<p>给你 n ，请你返回在第 n 天结束的时候他在力扣银行总共存了多少块钱。</p>
+<a id="more"></a>
+
+<p><strong>思路</strong></p>
+<p>第一个完整的周可以存28块，并且接下来每一个完整的周所攒的钱都会比前一周多7块，因此可以用等差数列的思路，先算出完整的周所攒下来的钱，再分别计算剩下来天数所攒的钱，最后输出两者之和。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">totalMoney</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> week = n / <span class="number">7</span>;</span><br><span class="line">        <span class="keyword">int</span> resWeek = n % <span class="number">7</span>;</span><br><span class="line">        <span class="keyword">int</span> res = ((<span class="number">28</span> + <span class="number">28</span> + <span class="number">7</span> * (week - <span class="number">1</span>)) * week) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= resWeek; i++)&#123;</span><br><span class="line">            res += i + week;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
