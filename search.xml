@@ -1983,4 +1983,29 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.382 链表中随机节点解题笔记</title>
+    <url>/2022/01/16/%E5%8A%9B%E6%89%A3No.382%20%E9%93%BE%E8%A1%A8%E4%B8%AD%E9%9A%8F%E6%9C%BA%E8%8A%82%E7%82%B9%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>给你一个单链表，随机选择链表的一个节点，并返回相应的节点值。每个节点 被选中的概率一样 。</p>
+<p>实现 Solution 类：</p>
+<p>Solution(ListNode head) 使用整数数组初始化对象。<br>int getRandom() 从链表中随机选择一个节点并返回该节点的值。链表中所有节点被选中的概率相等。</p>
+<a id="more"></a>
+
+<p><strong>思路</strong></p>
+<p>可以将题目看作在未知数量的数据中随机取k个数，因此可以考虑<strong>水池蓄水法</strong>的思路，即：</p>
+<p>在n个数中，遇到第i个数，以1/i的概率保留它</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ListNode* head;</span><br><span class="line">    Solution(ListNode* head) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;head = head;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getRandom</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">1</span>, ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> n = head; n; n = n-&gt;next)&#123;</span><br><span class="line">            <span class="keyword">if</span>(rand() % count == <span class="number">0</span>)&#123;</span><br><span class="line">                ans = n-&gt;val;</span><br><span class="line">            &#125;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
