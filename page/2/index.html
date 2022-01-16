@@ -198,6 +198,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/07/%E5%8A%9B%E6%89%A3No.1614%20%E6%8B%AC%E5%8F%B7%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B5%8C%E5%A5%97%E6%B7%B1%E5%BA%A6%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/usr1.png">
+      <meta itemprop="name" content="Akazure">
+      <meta itemprop="description" content="啥都想学，啥都不会">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Akazure的冰室">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/07/%E5%8A%9B%E6%89%A3No.1614%20%E6%8B%AC%E5%8F%B7%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B5%8C%E5%A5%97%E6%B7%B1%E5%BA%A6%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">力扣No.1614 括号的最大嵌套深度解题笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-07 11:12:37 / 修改时间：11:20:13" itemprop="dateCreated datePublished" datetime="2022-01-07T11:12:37+08:00">2022-01-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>题目</strong></p>
+<p>如果字符串满足以下条件之一，则可以称之为 有效括号字符串（valid parentheses string，可以简写为 VPS）：</p>
+<p>字符串是一个空字符串 “”，或者是一个不为 “(“ 或 “)” 的单字符。<br>字符串可以写为 AB（A 与 B 字符串连接），其中 A 和 B 都是 有效括号字符串 。<br>字符串可以写为 (A)，其中 A 是一个 有效括号字符串 。<br>类似地，可以定义任何有效括号字符串 S 的 嵌套深度 depth(S)：</p>
+<p>depth(“”) = 0<br>depth(C) = 0，其中 C 是单个字符的字符串，且该字符不是 “(“ 或者 “)”<br>depth(A + B) = max(depth(A), depth(B))，其中 A 和 B 都是 有效括号字符串<br>depth(“(“ + A + “)”) = 1 + depth(A)，其中 A 是一个 有效括号字符串<br>例如：””、”()()”、”()(()())” 都是 有效括号字符串（嵌套深度分别为 0、1、2），而 “)(“ 、”(()” 都不是 有效括号字符串 。</p>
+<p>给你一个 有效括号字符串 s，返回该字符串的 s 嵌套深度 。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/07/%E5%8A%9B%E6%89%A3No.1614%20%E6%8B%AC%E5%8F%B7%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B5%8C%E5%A5%97%E6%B7%B1%E5%BA%A6%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/06/%E5%8A%9B%E6%89%A3No.71%E7%AE%80%E5%8C%96%E8%B7%AF%E5%BE%84%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -970,92 +1057,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/12/28/%E5%8A%9B%E6%89%A3No.66%20%E5%8A%A0%E4%B8%80%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/usr1.png">
-      <meta itemprop="name" content="Akazure">
-      <meta itemprop="description" content="啥都想学，啥都不会">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Akazure的冰室">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/12/28/%E5%8A%9B%E6%89%A3No.66%20%E5%8A%A0%E4%B8%80%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">力扣No.66 加一解题笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-12-28 10:25:32 / 修改时间：10:28:28" itemprop="dateCreated datePublished" datetime="2021-12-28T10:25:32+08:00">2021-12-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/%E7%AC%94%E8%AE%B0/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>题目</strong></p>
-<p>给定一个由 整数 组成的 非空 数组所表示的非负整数，在该数的基础上加一。</p>
-<p>最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。</p>
-<p>你可以假设除了整数 0 之外，这个整数不会以零开头。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/28/%E5%8A%9B%E6%89%A3No.66%20%E5%8A%A0%E4%B8%80%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1127,7 +1128,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
