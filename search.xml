@@ -2059,4 +2059,26 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No,219 存在重复的元素解题笔记</title>
+    <url>/2022/01/19/%E5%8A%9B%E6%89%A3No,219%20%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E7%9A%84%E5%85%83%E7%B4%A0%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>给你一个整数数组 nums 和一个整数 k ，判断数组中是否存在两个 不同的索引 i 和 j ，满足 nums[i] == nums[j] 且 abs(i - j) &lt;= k 。如果存在，返回 true ；否则，返回 false 。</p>
+<a id="more"></a>
+
+<p><strong>思路</strong></p>
+<p>遍历数组，用哈希表记录每个元素位置，并在遍历时判断哈希表中是否已经存在该元素，若是则判断是否满足abs(i - j) &lt;= k，是则返回true，否则更新表中该元素位置为当前所处位置。</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">containsNearbyDuplicate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; hash;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(hash.count(nums[i]))&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">abs</span>(hash[nums[i]] - i) &lt;= k) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            hash[nums[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
