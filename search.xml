@@ -2159,4 +2159,35 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.2034股票浮动价格解题笔记</title>
+    <url>/2022/01/23/%E5%8A%9B%E6%89%A3No.2034%E8%82%A1%E7%A5%A8%E6%B5%AE%E5%8A%A8%E4%BB%B7%E6%A0%BC%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>给你一支股票价格的数据流。数据流中每一条记录包含一个 时间戳 和该时间点股票对应的 价格 。</p>
+<p>不巧的是，由于股票市场内在的波动性，股票价格记录可能不是按时间顺序到来的。某些情况下，有的记录可能是错的。如果两个有相同时间戳的记录出现在数据流中，前一条记录视为错误记录，后出现的记录 更正 前一条错误的记录。</p>
+<p>请你设计一个算法，实现：</p>
+<p>更新 股票在某一时间戳的股票价格，如果有之前同一时间戳的价格，这一操作将 更正 之前的错误价格。<br>找到当前记录里 最新股票价格 。最新股票价格 定义为时间戳最晚的股票价格。<br>找到当前记录里股票的 最高价格 。<br>找到当前记录里股票的 最低价格 。<br>请你实现 StockPrice 类：</p>
+<p>StockPrice() 初始化对象，当前无股票价格记录。<br>void update(int timestamp, int price) 在时间点 timestamp 更新股票价格为 price 。<br>int current() 返回股票 最新价格 。<br>int maximum() 返回股票 最高价格 。<br>int minimum() 返回股票 最低价格 。</p>
+<a id="more"></a>
+
+<p><strong>思路</strong></p>
+<p>设置一个maxTimestamp用于记录最新的时间戳，一个哈希表timestampMap记录每一个时间戳的股票价格，一个多重集合用于按升序记录每一个时间戳的股票价格。</p>
+<p><strong>StockPrice</strong>：初始化，将maxTimestamp设置为0</p>
+<p><strong>update</strong>：若输入的时间戳timestamp大于当前最新时间戳，则将最新时间戳设置为输入时间戳。再在记录每一个时间戳的股票价格的哈希表寻找当前时间戳是否存在记录，若是，则在记录价格的多重集合中将该时间戳的价格删除。最后再将哈希表中输入时间戳的股票价格设置为输入价格，并将输入价格插入到记录股票价格的多重集合中</p>
+<p><strong>current</strong>：返回哈希表中的最新时间戳的值</p>
+<p><strong>maximum</strong>：返回价格集合倒数第一个元素</p>
+<p><strong>minimum</strong>：返回价格集合的第一个元素</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StockPrice</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    StockPrice() &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;maxTimestamp = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> timestamp, <span class="keyword">int</span> price)</span> </span>&#123;</span><br><span class="line">        maxTimestamp = <span class="built_in">max</span>(timestamp, maxTimestamp);</span><br><span class="line">        <span class="keyword">if</span>(timePriceMap.count(timestamp) != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> t = timePriceMap[timestamp];</span><br><span class="line">            <span class="keyword">auto</span> it = prices.<span class="built_in">find</span>(t);</span><br><span class="line">            <span class="keyword">if</span>(it != prices.<span class="built_in">end</span>()) prices.erase(it);</span><br><span class="line">        &#125;</span><br><span class="line">        timePriceMap[timestamp] = price;</span><br><span class="line">        prices.emplace(price);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">current</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> timePriceMap[maxTimestamp];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> *prices.rbegin();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minimum</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> *prices.<span class="built_in">begin</span>();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> maxTimestamp;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; timePriceMap;</span><br><span class="line">    <span class="built_in">multiset</span>&lt;<span class="keyword">int</span>&gt; prices;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
