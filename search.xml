@@ -2214,4 +2214,27 @@
         <tag>C++</tag>
       </tags>
   </entry>
+  <entry>
+    <title>力扣No.1688 比赛中的配对次数解题笔记</title>
+    <url>/2022/01/25/%E5%8A%9B%E6%89%A3No.1688%20%E6%AF%94%E8%B5%9B%E4%B8%AD%E7%9A%84%E9%85%8D%E5%AF%B9%E6%AC%A1%E6%95%B0%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>题目</strong></p>
+<p>给你一个整数 n ，表示比赛中的队伍数。比赛遵循一种独特的赛制：</p>
+<p>如果当前队伍数是 偶数 ，那么每支队伍都会与另一支队伍配对。总共进行 n / 2 场比赛，且产生 n / 2 支队伍进入下一轮。<br>如果当前队伍数为 奇数 ，那么将会随机轮空并晋级一支队伍，其余的队伍配对。总共进行 (n - 1) / 2 场比赛，且产生 (n - 1) / 2 + 1 支队伍进入下一轮。<br>返回在比赛中进行的配对次数，直到决出获胜队伍为止。</p>
+<a id="more"></a>
+
+<p><strong>思路</strong></p>
+<p>简单的模拟，当队伍数n大于1时且为偶数时，配对次数加上n/2，队伍数n/2；当队伍数为奇数时，配对次数加上（n-1）/ 2，队伍数变为（n-1）/ 2 + 1，最后输出配对次数即可</p>
+<p><strong>代码</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numberOfMatches</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n &gt; <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(n % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                res += n / <span class="number">2</span>;</span><br><span class="line">                n /= <span class="number">2</span>;</span><br><span class="line">            &#125; </span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                res += (n - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">                n = (n - <span class="number">1</span>) / <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>笔记</category>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
 </search>
