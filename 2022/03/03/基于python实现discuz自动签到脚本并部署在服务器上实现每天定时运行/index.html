@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-material.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="由于每天没时间懒得去tsdm签到，所以写了个python脚本实现签到，再部署到服务器上每天定时运行，即可实现自动签到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于python实现discuz签到脚本并部署在服务器上实现每天自动签到">
+<meta property="og:url" content="http://yoursite.com/2022/03/03/%E5%9F%BA%E4%BA%8Epython%E5%AE%9E%E7%8E%B0discuz%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0%E8%84%9A%E6%9C%AC%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%AE%9E%E7%8E%B0%E6%AF%8F%E5%A4%A9%E5%AE%9A%E6%97%B6%E8%BF%90%E8%A1%8C/index.html">
+<meta property="og:site_name" content="Akazure的冰室">
+<meta property="og:description" content="由于每天没时间懒得去tsdm签到，所以写了个python脚本实现签到，再部署到服务器上每天定时运行，即可实现自动签到">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-03T03:31:16.000Z">
+<meta property="article:modified_time" content="2022-03-03T05:00:09.339Z">
+<meta property="article:author" content="Akazure">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="脚本">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2022/03/03/%E5%9F%BA%E4%BA%8Epython%E5%AE%9E%E7%8E%B0discuz%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0%E8%84%9A%E6%9C%AC%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%AE%9E%E7%8E%B0%E6%AF%8F%E5%A4%A9%E5%AE%9A%E6%97%B6%E8%BF%90%E8%A1%8C/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>基于python实现discuz签到脚本并部署在服务器上实现每天自动签到 | Akazure的冰室</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Akazure的冰室</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Life is too short for malloc!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-笔记">
+
+    <a href="/categories/%E7%AC%94%E8%AE%B0" rel="section"><i class="fa fa-pen-square fa-fw"></i>笔记</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-todolist">
+
+    <a href="/ToDoList/" rel="section"><i class="fa fa-calendar-alt fa-fw"></i>ToDoList</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/03/%E5%9F%BA%E4%BA%8Epython%E5%AE%9E%E7%8E%B0discuz%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0%E8%84%9A%E6%9C%AC%E5%B9%B6%E9%83%A8%E7%BD%B2%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%AE%9E%E7%8E%B0%E6%AF%8F%E5%A4%A9%E5%AE%9A%E6%97%B6%E8%BF%90%E8%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/usr1.png">
+      <meta itemprop="name" content="Akazure">
+      <meta itemprop="description" content="啥都想学，啥都不会">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Akazure的冰室">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基于python实现discuz签到脚本并部署在服务器上实现每天自动签到
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-03 11:31:16 / 修改时间：13:00:09" itemprop="dateCreated datePublished" datetime="2022-03-03T11:31:16+08:00">2022-03-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>由于每天没时间<del>懒得</del>去tsdm签到，所以写了个python脚本实现签到，再部署到服务器上每天定时运行，即可实现自动签到</p>
+<a id="more"></a>
+
+<p><strong>代码</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> ddddocr</span><br><span class="line"></span><br><span class="line">warnings.filterwarnings(<span class="string">'ignore'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">discuzLogin</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#代理</span></span><br><span class="line">    proxies = &#123;</span><br><span class="line">        <span class="string">'http'</span>: <span class="string">'http://127.0.0.1:1080'</span>,</span><br><span class="line">        <span class="string">'https'</span>: <span class="string">'https://127.0.0.1:1080'</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#请求头</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36"</span>,</span><br><span class="line">        <span class="string">"X-Requested-With"</span>: <span class="string">"XMLHttpRequest"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#初始化对象</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, hostname, username, password, questionId=<span class="string">'0'</span>, answer=None, poxies=None)</span>:</span></span><br><span class="line">        <span class="comment"># 创建session</span></span><br><span class="line">        self.session = requests.session()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 传登录参数</span></span><br><span class="line">        self.hostname = hostname    <span class="comment">#登录网址</span></span><br><span class="line">        self.username = username    <span class="comment">#用户名</span></span><br><span class="line">        self.password = password    <span class="comment">#密码</span></span><br><span class="line">        self.questionId = questionId    <span class="comment">#登录问题</span></span><br><span class="line">        self.answer = answer    <span class="comment">#登录问题答案</span></span><br><span class="line">        self.proxies = poxies   <span class="comment">#代理</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="comment">#登录方法入口</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">userLogin</span><span class="params">(cls, hostname, username, password, questionId=<span class="string">'0'</span>, answer=None, proxies=None)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#创建登录对象并传入登录参数</span></span><br><span class="line">        user = discuzLogin(hostname, username, password, questionId, answer, proxies)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#登录</span></span><br><span class="line">        t = user.login(hostname)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#若登录失败则重新尝试登录</span></span><br><span class="line">        <span class="comment">#由于ddddOCR识别验证码正确率较低，故需要重复模拟登录直到登录成功</span></span><br><span class="line">        <span class="keyword">while</span> t == <span class="literal">False</span>:</span><br><span class="line">            t = user.login(hostname)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#获取loginhash和formhash</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">formHash</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#获取登录页面html文本</span></span><br><span class="line">        rst = self.session.get(<span class="string">f'https://<span class="subst">&#123;self.hostname&#125;</span>/member.php?mod=logging&amp;action=login'</span>, verify=<span class="literal">False</span>,</span><br><span class="line">                               headers=self.headers).text</span><br><span class="line"></span><br><span class="line">        <span class="comment">#使用正则匹配获取loginhash和formhash</span></span><br><span class="line">        loginhash = re.search(<span class="string">r'&lt;div id="main_messaqge_(.+?)"&gt;'</span>, rst).group(<span class="number">1</span>)</span><br><span class="line">        formhash = re.search(<span class="string">r'&lt;input type="hidden" name="formhash" value="(.+?)" /&gt;'</span>, rst).group(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> loginhash, formhash</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(self, hostname)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#获取loginhash和formhash</span></span><br><span class="line">        loginhash, formhash = self.formHash()</span><br><span class="line"></span><br><span class="line">        <span class="comment">#获取验证码图片</span></span><br><span class="line">        verify = self.getCodePng(self.hostname)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#登录url</span></span><br><span class="line">        login_url = <span class="string">f'https://<span class="subst">&#123;hostname&#125;</span>/member.php?mod=logging&amp;action=login&amp;loginsubmit=yes&amp;handlekey=ls&amp;loginhash=<span class="subst">&#123;loginhash&#125;</span>'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#登录参数</span></span><br><span class="line">        formData = &#123;</span><br><span class="line">            <span class="string">'formhash'</span>: formhash,</span><br><span class="line">            <span class="string">'referer'</span>: <span class="string">f'https://<span class="subst">&#123;hostname&#125;</span>/forum.php'</span>,</span><br><span class="line">            <span class="string">'loginfield'</span>: <span class="string">'username'</span>,</span><br><span class="line">            <span class="string">'username'</span>: self.username,</span><br><span class="line">            <span class="string">'password'</span>: self.password,</span><br><span class="line">            <span class="string">'questionid'</span>: <span class="string">'0'</span>,</span><br><span class="line">            <span class="string">'answer'</span>: <span class="literal">None</span>,</span><br><span class="line">            <span class="string">'loginsubmit'</span>: <span class="literal">True</span>,</span><br><span class="line">            <span class="string">'tsdm_verify'</span>: verify</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#模拟登录</span></span><br><span class="line">        login_rst = self.session.post(login_url, proxies=self.proxies, data=formData, verify=<span class="literal">False</span>, headers=self.headers)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#若在模拟登陆的响应中的html文本匹配到“回来”，则说明登录成功</span></span><br><span class="line">        <span class="keyword">if</span> (re.search(<span class="string">u'回来'</span>, login_rst.text)):</span><br><span class="line">            print(<span class="string">"登陆成功"</span>)</span><br><span class="line">            self.sign()</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"登录失败，请检查账号和密码"</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getCodePng</span><span class="params">(self, hostname)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#获取验证码图片</span></span><br><span class="line">        codePic = self.session.get(</span><br><span class="line">            <span class="string">f'https://<span class="subst">&#123;hostname&#125;</span>/plugin.php?id=oracle:verify&amp;time=_<span class="subst">&#123;int(round(time.time() * <span class="number">1000</span>))&#125;</span>'</span>, verify=<span class="literal">False</span>,</span><br><span class="line">            headers=self.headers).content</span><br><span class="line"></span><br><span class="line">        <span class="comment">#使用ddddOCR识别验证码</span></span><br><span class="line">        ocr = ddddocr.DdddOcr(old=<span class="literal">True</span>)</span><br><span class="line">        res = ocr.classification(codePic)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sign</span><span class="params">(self, hostname)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#获取界面url</span></span><br><span class="line">        url = <span class="string">f'https://<span class="subst">&#123;hostname&#125;</span>/plugin.php?id=dsu_paulsign:sign'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#上传签到参数url</span></span><br><span class="line">        url1 = <span class="string">f'https://<span class="subst">&#123;hostname&#125;</span>/plugin.php?id=dsu_paulsign:sign&amp;operation=qiandao&amp;infloat=1&amp;inajax=1'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#获取签到页html文本</span></span><br><span class="line">        signFormText = self.session.get(url, verify=<span class="literal">False</span>, headers=self.headers).text</span><br><span class="line"></span><br><span class="line">        <span class="comment">#获取签到页面formhash</span></span><br><span class="line">        formhash = re.search(<span class="string">r'&lt;input type="hidden" name="formhash" value="(.+?)" class="scbar_hidden"/&gt;'</span>, signFormText).group(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#签到参数</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">'formhash'</span>: formhash,</span><br><span class="line">            <span class="string">'qdxq'</span>: <span class="string">'kx'</span>,</span><br><span class="line">            <span class="string">'qdmode'</span>: <span class="number">3</span>,</span><br><span class="line">            <span class="string">'todaysay'</span>: <span class="string">""</span>,</span><br><span class="line">            <span class="string">'fastreply'</span>: <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#模拟签到</span></span><br><span class="line">        res = self.session.post(url1, data=data, verify=<span class="literal">False</span>, headers=self.headers).text</span><br><span class="line"></span><br><span class="line">        <span class="comment">#输出结果</span></span><br><span class="line">        <span class="keyword">if</span> (re.search(<span class="string">u'成功'</span>, res)):</span><br><span class="line">            print(<span class="string">"签到成功!"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"签到失败"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建自动签到对象实例</span></span><br><span class="line">    instance = discuzLogin(<span class="string">'www.tsdm39.net'</span>, <span class="string">'账号'</span>, <span class="string">'密码'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#开始登录</span></span><br><span class="line">    instance.userLogin(<span class="string">'www.tsdm39.net'</span>, <span class="string">'账号'</span>, <span class="string">'密码'</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>上传到服务器并定时运行</strong></p>
+<p>由于我的vps运行的是debian系统自带python3.9运行环境，因此只需直接安装运行依赖库即可</p>
+<p><strong>requirements</strong></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ddddocr==<span class="number">1.4</span><span class="number">.3</span></span><br><span class="line">requests==<span class="number">2.25</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
+
+<p>将文件上传至服务器后输入<strong>crontab -e</strong>编辑**crontab文件，加入依据cron表达式设置时间定时执行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 index.py</span><br></pre></td></tr></table></figure>
+
+<p>即可</p>
+<p><strong>测试结果</strong></p>
+<p><a href="1.png">1</a></p>
+<p><strong>成功！</strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%E8%84%9A%E6%9C%AC/" rel="tag"># 脚本</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/25/%E5%8A%9B%E6%89%A3No.1688%20%E6%AF%94%E8%B5%9B%E4%B8%AD%E7%9A%84%E9%85%8D%E5%AF%B9%E6%AC%A1%E6%95%B0%E8%A7%A3%E9%A2%98%E7%AC%94%E8%AE%B0/" rel="prev" title="力扣No.1688 比赛中的配对次数解题笔记">
+      <i class="fa fa-chevron-left"></i> 力扣No.1688 比赛中的配对次数解题笔记
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Akazure"
+      src="/images/usr1.png">
+  <p class="site-author-name" itemprop="name">Akazure</p>
+  <div class="site-description" itemprop="description">啥都想学，啥都不会</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ColeHu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ColeHu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fas fa-sun"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Akazure</span>
+</div>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='29,29,29' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/aoba.model.json"},"display":{"position":"left","width":250,"height":450},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
